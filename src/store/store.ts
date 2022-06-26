@@ -9,6 +9,11 @@ import authSlice from './auth/authSlice';
 
 const makeStore = () =>
   configureStore({
+    middleware(getDefaultMiddleware) {
+      return getDefaultMiddleware({
+        serializableCheck: false,
+      });
+    },
     reducer: {
       Auth: authSlice.reducer,
       App: appSlice.reducer,

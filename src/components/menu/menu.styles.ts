@@ -29,6 +29,6 @@ export const MenuItemIcone = styled.div`
 `;
 
 export const MenuItemTitulo = styled.p`
-  fontweight: 300;
+  font-weight: 300;
   color: ${({ theme }) => theme.cores.secundaria};
 `;
