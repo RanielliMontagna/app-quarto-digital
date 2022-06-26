@@ -5,39 +5,21 @@ import '@szhsin/react-menu/dist/transitions/slide.css';
 import { Menu, MenuItemConteudo, DrawerMobile, Typography } from 'components';
 import { FiMoon, FiSun } from 'react-icons/fi';
 import { IoChevronDownOutline, IoExitOutline } from 'react-icons/io5';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { AppActions, useApp } from 'store';
+import { useApp } from 'store';
 import * as styled from './appBar.styles';
 import { Tooltip } from '@mui/material';
 import { ItemsMenu } from './appBar.static';
 import crypto from 'crypto';
-import { AuthActions, useAuth } from 'store/auth';
+import { useAuth } from 'store/auth';
+import { useAppBar } from './useAppBar';
 
 const AppBar = () => {
   const navigate = useNavigate();
-  const _dispatch = useDispatch();
   const { tema } = useApp();
   const { profile } = useAuth();
 
-  const _handleMudarTema = () => {
-    if (tema === 'escuro') {
-      _dispatch(AppActions.storeTema('claro'));
-    } else {
-      _dispatch(AppActions.storeTema('escuro'));
-    }
-  };
-
-  const _handleSair = () => {
-    navigate('/login');
-    _dispatch(AuthActions.storeToken(''));
-    _dispatch(AuthActions.storeIsAuthenticated(false));
-    _dispatch(
-      AppActions.toggleNotificacao({
-        mensagem: 'Deslogado com sucesso!',
-      })
-    );
-  };
+  const { handleMudarTema, handleSair } = useAppBar();
 
   return (
     <styled.DivAppBar tema={tema}>
@@ -46,7 +28,7 @@ const AppBar = () => {
           <DrawerMobile />
         </styled.DivDrawer>
         <Tooltip title={<Typography>Trocar tema</Typography>} placement="bottom" arrow>
-          <styled.DivTema onClick={_handleMudarTema}>
+          <styled.DivTema onClick={handleMudarTema}>
             {tema === 'escuro' ? <FiSun size={24} /> : <FiMoon size={24} />}
           </styled.DivTema>
         </Tooltip>
@@ -77,7 +59,7 @@ const AppBar = () => {
               );
             })}
             <MenuDivider />
-            <MenuItem onClick={_handleSair}>{MenuItemConteudo('Sair', <IoExitOutline size={16} />)}</MenuItem>
+            <MenuItem onClick={handleSair}>{MenuItemConteudo('Sair', <IoExitOutline size={16} />)}</MenuItem>
           </>
         </Menu>
       </styled.DivPerfil>

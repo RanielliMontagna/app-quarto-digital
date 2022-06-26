@@ -13,7 +13,10 @@ const clientesSlice = createSlice({
   initialState,
   reducers: {
     clearAuth: (state) => {
-      state = initialState;
+      localStorage.removeItem('token');
+      state.isAuthenticated = false;
+      state.token = null;
+      state.profile = null;
     },
     storeToken: (state, { payload }: PayloadAction<Token>) => {
       localStorage.setItem('token', payload ?? '');

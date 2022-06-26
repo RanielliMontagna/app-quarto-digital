@@ -5,6 +5,7 @@ import { useSnackbar, VariantType } from 'notistack';
 
 import { useDispatch, useSelector } from 'store/hooks';
 import { AppActions } from 'store';
+import { AuthActions } from 'store/auth';
 
 const useHandleError = () => {
   const app = useSelector(({ App }) => App);
@@ -30,15 +31,20 @@ const useHandleError = () => {
     if (error) {
       if ('name' in error && error.name === 'AxiosError') {
         const errorAxios = error as AxiosError;
+        const mensagem = (errorAxios.response?.data as any)?.erro;
 
         setTimeout(() => {
-          if (errorAxios.code === 'ERR_NETWORK') {
+          if (errorAxios.response?.statusText === 'Unauthorized') {
+            _dispararNotificacao('Sua sessão expirou, faça login novamente.', 'warning');
+            _dispatch(AuthActions.clearAuth());
+          } else if (errorAxios.code === 'ERR_NETWORK') {
             _dispararNotificacao('Ocorreu um erro ao conectar, verifique sua conexão!', 'warning');
-          } else {
-            const mensagem = (errorAxios.response?.data as any)?.erro;
+          } else if (mensagem) {
             if (mensagem) {
               _dispararNotificacao(mensagem, 'error');
             }
+          } else {
+            _dispararNotificacao('Ocorreu um erro inesperado, tente novamente!', 'error');
           }
 
           _dispatch(AppActions.handleErrors(null));
