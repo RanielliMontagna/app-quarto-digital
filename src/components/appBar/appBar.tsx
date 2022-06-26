@@ -29,7 +29,7 @@ const AppBar = () => {
   };
 
   const _handleSair = () => {
-    navigate('/');
+    navigate('/login');
     _dispatch(AuthActions.storeToken(''));
     _dispatch(AuthActions.storeIsAuthenticated(false));
     _dispatch(

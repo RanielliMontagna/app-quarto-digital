@@ -4,10 +4,21 @@ import Configuracoes from 'pages/Configuracoes/Configuracoes';
 import { useAuth } from 'store/auth';
 
 // Rotas Privadas
-import { Clientes, Dashboard, Indicadores, MinhaConta, Produtos, Quartos, Servicos, Erro } from 'pages';
+import {
+  Clientes,
+  Dashboard,
+  Indicadores,
+  Login,
+  MinhaConta,
+  Produtos,
+  Quartos,
+  Servicos,
+  LandingPage,
+  Erro,
+} from 'pages';
 
 //Rotas Publicas
-import { Login } from 'pages';
+import { Contato } from 'pages';
 
 // Componente renderizado ao redor de todas as rotas
 import { Public, Private } from 'components';
@@ -20,7 +31,9 @@ export const Router = () => {
       <Routes>
         {!isAuthenticated ? (
           <Route path="/" element={<Public />}>
-            <Route path="/" element={<Login />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/contato" element={<Contato />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/erro" element={<Erro />} />
             <Route path="*" element={<Navigate to="/erro" />} />
           </Route>

@@ -3,22 +3,22 @@
   "name": "Quarto Digital",
   "icons": [
     {
-      "src": "static/logo/logoSimplificado",
+      "src": "assets/logo/logoSimplificado",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "static/logo/logoSimplificado_192.png",
+      "src": "assets/logo/logoSimplificado_192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "static/logo/logoSimplificado_512.png",
+      "src": "assets/logo/logoSimplificado_512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": "https://www.quarto.digital/",
+  "start_url": "https://app.quarto.digital/",
   "orientation": "portrait",
   "lang": "pt-BR",
   "display": "standalone",

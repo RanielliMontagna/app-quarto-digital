@@ -9,7 +9,7 @@ import { LoginFormValues } from './Login.types';
 
 const Login = () => {
   const navigate = useNavigate();
-  const logo = '/static/logo/quartoDigitalPrimaria.svg';
+  const logo = '/assets/logo/quartoDigitalPrimaria.svg';
 
   const {
     register,
@@ -68,7 +68,7 @@ const Login = () => {
         <styled.DivLayout>
           <styled.DivIlustracao>
             {/* Logo */}
-            <img src="./static/svgs/loginIllustration.svg" alt="loginIllustration"></img>
+            <img src="./assets/svgs/login/ilustracao.svg" alt="loginIllustration"></img>
           </styled.DivIlustracao>
           <h1>Seja bem vindo!</h1>
           <Divider styles={{ width: '100px', margin: '0px 0px 16px 0px' }}></Divider>
