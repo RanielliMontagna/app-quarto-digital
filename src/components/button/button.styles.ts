@@ -13,6 +13,7 @@ export const Button = styled.button<{ size: Size; fullWidth: boolean; color?: Co
   font-size: ${(props) => props.theme.tamanhoFonte.md ?? undefined};
   width: ${(props) => props.fullWidth && '100%'};
   height: ${(props) => (props.size === 'sm' ? '24px' : props.size === 'md' ? '36px' : '44px')};
+  transition: 0.2s ease-in-out;
 
   &.normal {
     background-color: ${({ color }) => getColor({ color })};

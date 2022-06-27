@@ -4,6 +4,7 @@ import { AuthActions } from 'store/auth';
 export const apiUrls = {
   login: '/login',
   logout: '/logout',
+  produtos: '/produtos',
 };
 
 export const makeHeaders = () => {

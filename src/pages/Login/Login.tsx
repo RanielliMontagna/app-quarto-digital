@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import * as styled from './Login.styles';
@@ -8,7 +7,6 @@ import useLogin from './useLogin';
 import { LoginFormValues } from './Login.types';
 
 const Login = () => {
-  const navigate = useNavigate();
   const logo = '/assets/logo/quartoDigitalPrimaria.svg';
 
   const {
@@ -60,9 +58,6 @@ const Login = () => {
 
           {/* Botao Login */}
           <styled.ButtonEnter type="submit">Entrar</styled.ButtonEnter>
-
-          {/* Botao voltar home */}
-          <styled.VoltarHome onClick={() => navigate('/')}>Voltar para home</styled.VoltarHome>
         </styled.DivLogin>
 
         <styled.DivLayout>

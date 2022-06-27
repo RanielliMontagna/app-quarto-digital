@@ -3,6 +3,7 @@ import { PaginaBase } from 'components';
 import { IoAdd } from 'react-icons/io5';
 import NovoProduto from './novoProduto/novoProduto';
 import { ProdutosProvider, useProdutos } from 'store/produtos';
+import ListagemProdutos from './listagemProdutos/listagemProdutos';
 
 const Produtos = () => {
   const { setNovoProduto } = useProdutos();
@@ -17,7 +18,10 @@ const Produtos = () => {
         onClick: () => setNovoProduto(true),
       }}
     >
-      <NovoProduto />
+      <>
+        <ListagemProdutos />
+        <NovoProduto />
+      </>
     </PaginaBase>
   );
 };

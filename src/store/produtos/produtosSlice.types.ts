@@ -1,7 +1,11 @@
-export type Produto = {};
+export interface IProduto {
+  id: number;
+  nome: string;
+  preco: number;
+}
 
 export interface ProdutosSlice {
-  produtos: Produto[];
+  produtos: IProduto[];
 }
 
 export interface ProdutosSliceWithCallbacks extends ProdutosSlice {

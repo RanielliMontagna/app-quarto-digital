@@ -29,9 +29,9 @@ const useHandleError = () => {
     const error = app.error as any;
 
     if (error) {
-      if ('name' in error && error.name === 'AxiosError') {
+      if (error?.name === 'AxiosError') {
         const errorAxios = error as AxiosError;
-        const mensagem = (errorAxios.response?.data as any)?.erro;
+        const mensagem = (errorAxios?.response?.data as any)?.erro;
 
         setTimeout(() => {
           if (errorAxios.response?.statusText === 'Unauthorized') {

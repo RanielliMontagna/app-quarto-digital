@@ -20,11 +20,9 @@ export const Router = () => {
       <Routes>
         {!isAuthenticated ? (
           <Route path="/" element={<Public />}>
-            <Route path="/" element={<Navigate to="/login" />} />
-            <Route path="/dashboard" element={<Navigate to="/login" />} />
+            <Route path="/" element={<Login />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/erro" element={<Erro />} />
-            <Route path="*" element={<Navigate to="/erro" />} />
+            <Route path="*" element={<Navigate to="/login" />} />
           </Route>
         ) : (
           <Route path="/" element={<Private />}>

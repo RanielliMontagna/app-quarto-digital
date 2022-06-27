@@ -21,9 +21,11 @@ export const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
 
   &::-webkit-scrollbar {
     width: 10px;
+    height: 10px;
 
     @media (max-width: 576px) {
       width: 5px;
+      height: 5px;
     }
   }
   ::-webkit-scrollbar-track {
