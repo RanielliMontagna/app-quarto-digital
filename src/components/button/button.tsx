@@ -3,7 +3,7 @@ import { FC, memo } from 'react';
 import * as styled from './button.styles';
 import { ButtonProps } from './button.types';
 
-const Button: FC<ButtonProps> = ({ children, color, size, fullWidth, variant, startIcon, onClick }) => {
+const Button: FC<ButtonProps> = ({ children, color, size, fullWidth, variant, startIcon, onClick, type }) => {
   return (
     <styled.Button
       color={color ?? 'secondary'}
@@ -11,6 +11,7 @@ const Button: FC<ButtonProps> = ({ children, color, size, fullWidth, variant, st
       size={size ?? 'md'}
       className={variant ?? 'normal'}
       onClick={onClick}
+      type={type ?? 'button'}
     >
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'start', marginRight: '6px' }}>
         {startIcon}

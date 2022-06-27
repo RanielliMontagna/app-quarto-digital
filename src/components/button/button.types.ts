@@ -8,4 +8,5 @@ export interface ButtonProps {
   startIcon?: JSX.Element;
   onClick?: () => void;
   children: React.ReactNode;
+  type?: 'button' | 'submit' | 'reset';
 }

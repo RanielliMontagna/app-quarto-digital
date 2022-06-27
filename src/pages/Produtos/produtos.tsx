@@ -1,12 +1,15 @@
 import React from 'react';
-import { PaginaBase } from 'components';
 import { IoAdd } from 'react-icons/io5';
-import NovoProduto from './novoProduto/novoProduto';
+
+import { PaginaBase } from 'components';
 import { ProdutosProvider, useProdutos } from 'store/produtos';
 import ListagemProdutos from './listagemProdutos/listagemProdutos';
 
+import ExcluirProduto from './dialogs/excluirProduto/excluirProduto';
+import AdicionarEditarProduto from './dialogs/adicionarEditarProduto/adicionarEditarProduto';
+
 const Produtos = () => {
-  const { setNovoProduto } = useProdutos();
+  const { setAdicionarEditarProduto, adicionarEditarProduto, excluirProduto } = useProdutos();
 
   return (
     <PaginaBase
@@ -15,12 +18,13 @@ const Produtos = () => {
         children: 'Novo produto',
         variant: 'outlined',
         startIcon: <IoAdd />,
-        onClick: () => setNovoProduto(true),
+        onClick: () => setAdicionarEditarProduto({ open: true }),
       }}
     >
       <>
         <ListagemProdutos />
-        <NovoProduto />
+        {adicionarEditarProduto.open && <AdicionarEditarProduto />}
+        {excluirProduto.open && <ExcluirProduto />}
       </>
     </PaginaBase>
   );

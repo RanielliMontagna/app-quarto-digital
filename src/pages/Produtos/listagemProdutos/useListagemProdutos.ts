@@ -5,7 +5,7 @@ import { ProdutosActions, useProdutos } from 'store/produtos';
 
 export const useListagemProdutos = () => {
   const _dispatch = useDispatch();
-  const { produtos } = useProdutos();
+  const { produtos, setAdicionarEditarProduto, setExcluirProduto } = useProdutos();
 
   useEffect(() => {
     if (!produtos.length) {
@@ -22,19 +22,19 @@ export const useListagemProdutos = () => {
           id: 'editar',
           label: 'Editar',
           onClick: () => {
-            console.log('Editar');
+            setAdicionarEditarProduto({ open: true, produto });
           },
         },
         {
           id: 'excluir',
           label: 'Excluir',
           onClick: () => {
-            console.log('Excluir');
+            setExcluirProduto({ open: true, produto });
           },
         },
       ],
     }));
-  }, [produtos]);
+  }, [produtos, setAdicionarEditarProduto, setExcluirProduto]);
 
   return {
     dataProdutos,

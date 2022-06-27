@@ -32,7 +32,7 @@ const Modal: FC<ModalProps> = ({ titulo, size, onClose, children, open, footer }
                     )}
                     {footer.botaoPrimario && (
                       <div style={{ marginLeft: '16px' }}>
-                        <Button {...footer.botaoPrimario} />
+                        <Button type="submit" {...footer.botaoPrimario} />
                       </div>
                     )}
                   </styled.BotoesPrincipais>

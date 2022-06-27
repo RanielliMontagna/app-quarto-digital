@@ -64,7 +64,7 @@ export const DivBotaoFechar = styled.div`
 // Conteudo
 
 export const Conteudo = styled.div`
-  padding: 16px 20px;
+  padding: 24px 20px 16px 20px;
 `;
 
 // Footer
