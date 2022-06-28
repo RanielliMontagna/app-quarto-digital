@@ -17,7 +17,7 @@ const DataTable = ({ colunas, data }: IDataTable) => {
                 align={colunas.align}
                 style={{ width: colunas.id === 'acoes' ? '40px' : undefined }}
               >
-                {colunas.label}
+                <b>{colunas.label}</b>
               </TableCell>
             ))}
           </TableRow>

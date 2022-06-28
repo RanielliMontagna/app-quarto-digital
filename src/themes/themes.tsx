@@ -1,7 +1,9 @@
+import { ThemeProvider } from '@mui/material';
 import { useApp } from 'store';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider as ThemeProviderSC } from 'styled-components';
 import { azulQD, brancoQD, cinzaClaro, cinzaEscuro, danger, pretoAzulado, pretoQD, success, warning } from './cores';
 import { tamanhoFonte } from './fontes';
+import { darkTheme, lightTheme } from './mui';
 
 const _coresExtras = {
   cinzaClaro: cinzaClaro,
@@ -44,5 +46,10 @@ export type ThemeType = typeof _temaClaro;
 
 export const Theme: React.FC = ({ children }) => {
   const { tema } = useApp();
-  return <ThemeProvider theme={tema === 'escuro' ? _temaEscuro : _temaClaro}>{children}</ThemeProvider>;
+
+  return (
+    <ThemeProvider theme={tema === 'escuro' ? darkTheme : lightTheme}>
+      <ThemeProviderSC theme={tema === 'escuro' ? _temaEscuro : _temaClaro}>{children}</ThemeProviderSC>{' '}
+    </ThemeProvider>
+  );
 };

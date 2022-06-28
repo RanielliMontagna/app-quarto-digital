@@ -27,10 +27,10 @@ export const DivPageHeader = styled.div`
     .botaoMobile {
       display: block;
       position: absolute;
-      right: 24px;
-      bottom: 24px;
-      width: 60px;
-      height: 60px;
+      right: 12px;
+      bottom: 12px;
+      width: 40px;
+      height: 40px;
     }
 
     .botaoMobile button {

@@ -24,7 +24,7 @@ const PageHeader: FC<PageHeaderProps> = ({ titulo, button }) => {
           </div>
           <div className="botaoMobile">
             <button onClick={button.onClick}>
-              <MdAdd size={40} />
+              <MdAdd size={32} />
             </button>
           </div>
         </>
