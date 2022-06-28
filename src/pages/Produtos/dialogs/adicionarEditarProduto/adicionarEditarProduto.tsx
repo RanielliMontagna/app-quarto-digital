@@ -10,6 +10,7 @@ const AdicionarEditarProduto = () => {
   const {
     handleSubmit,
     register,
+    control,
     formState: { errors },
   } = useForm({
     defaultValues: initialValues,
@@ -32,7 +33,7 @@ const AdicionarEditarProduto = () => {
           },
         }}
       >
-        <Fields register={register} errors={errors} />
+        <Fields register={register} errors={errors} control={control} />
       </Modal>
     </form>
   );

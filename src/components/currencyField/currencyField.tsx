@@ -19,6 +19,7 @@ const CurrencyField = ({ textFieldProps, ...rest }: ICurrencyField) => {
           prefix={'R$ '}
           inputProps={{
             maxLength: 12,
+            onFocus: (e: React.FocusEvent<HTMLInputElement>) => e.target.select(),
           }}
           {...textFieldProps}
         />

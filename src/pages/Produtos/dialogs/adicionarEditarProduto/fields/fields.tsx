@@ -1,8 +1,9 @@
 import { TextField } from '@mui/material';
+import { CurrencyField } from 'components';
 
 import { IFields } from '../adicionarEditarProduto.types';
 
-const Fields = ({ register, errors }: IFields) => {
+const Fields = ({ register, errors, control }: IFields) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <div>
@@ -22,19 +23,22 @@ const Fields = ({ register, errors }: IFields) => {
         />
       </div>
       <div>
-        <TextField
-          label="Preço *"
-          error={Boolean(errors?.preco)}
-          helperText={errors?.preco?.message}
-          size="small"
-          variant="outlined"
-          fullWidth
-          {...register('preco', {
+        <CurrencyField
+          name="preco"
+          control={control}
+          rules={{
             required: {
               value: true,
               message: 'O preço é obrigatório',
             },
-          })}
+          }}
+          textFieldProps={{
+            label: 'Preço *',
+            error: Boolean(errors?.preco),
+            helperText: errors?.preco?.message,
+            size: 'small',
+            fullWidth: true,
+          }}
         />
       </div>
     </div>

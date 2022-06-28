@@ -1,7 +1,9 @@
 import { useMemo } from 'react';
+import { adicionarProduto, editarProduto } from 'service';
 import { AppActions } from 'store';
 import { useDispatch } from 'store/hooks';
-import { useProdutos } from 'store/produtos';
+import { ProdutosActions, useProdutos } from 'store/produtos';
+import { AdicionarEditarProdutoFormValues, AdicionarProduto, EditarProduto } from './adicionarEditarProduto.types';
 
 const useAdicionarEditarProduto = () => {
   const _dispatch = useDispatch();
@@ -11,11 +13,40 @@ const useAdicionarEditarProduto = () => {
     setAdicionarEditarProduto({ open: false });
   };
 
-  const onSubmit = (values: any) => {
+  const _adicionarProduto = async (values: AdicionarProduto) => {
     try {
-      console.log('entrou', values);
-      // _dispatch(AppActions.toggleNotificacao({ mensagem: 'Novo produto adicionado com sucesso!' }));
-      // handleClose();
+      const { data } = await adicionarProduto(values);
+      if (data) {
+        _dispatch(AppActions.toggleNotificacao({ mensagem: 'Novo produto adicionado com sucesso!' }));
+        _dispatch(ProdutosActions.buscarProdutos());
+        handleClose();
+      }
+    } catch (err) {
+      _dispatch(AppActions.handleErrors(err));
+    }
+  };
+
+  const _editarProduto = async (values: EditarProduto) => {
+    try {
+      const { status } = await editarProduto(values);
+      if (status === 200) {
+        _dispatch(AppActions.toggleNotificacao({ mensagem: 'Produto editado com sucesso!' }));
+        _dispatch(ProdutosActions.buscarProdutos());
+        handleClose();
+      }
+    } catch (err) {
+      _dispatch(AppActions.handleErrors(err));
+    }
+  };
+
+  const onSubmit = (values: AdicionarEditarProdutoFormValues) => {
+    _dispatch(AppActions.toggleLoading(true));
+    try {
+      if (adicionarEditarProduto.produto) {
+        _editarProduto({ ...values, id: adicionarEditarProduto.produto.id });
+      } else {
+        _adicionarProduto(values);
+      }
     } catch (err) {
       _dispatch(AppActions.handleErrors(err));
     }
