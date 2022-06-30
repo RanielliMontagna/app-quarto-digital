@@ -18,7 +18,12 @@ const useExcluirProduto = () => {
         const { status } = await excluirProdutoApi(excluirProduto.produto?.id);
         if (status === 200) {
           setExcluirProduto({ open: false });
-          _dispatch(ProdutosActions.buscarProdutos());
+          const search = document.getElementById('search') as HTMLInputElement;
+          _dispatch(
+            ProdutosActions.buscarProdutos({
+              search: search.value ?? undefined,
+            })
+          );
           _dispatch(AppActions.toggleLoading(false));
           _dispatch(AppActions.toggleNotificacao({ mensagem: 'Produto excluído com sucesso!' }));
         }

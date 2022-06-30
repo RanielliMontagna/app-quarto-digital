@@ -9,14 +9,14 @@ export const useListagemProdutos = () => {
   const { produtos, setAdicionarEditarProduto, setExcluirProduto } = useProdutos();
 
   useEffect(() => {
-    if (!produtos.length) {
-      _dispatch(ProdutosActions.buscarProdutos());
+    if (!produtos?.length) {
+      _dispatch(ProdutosActions.buscarProdutos({}));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const dataProdutos = useMemo(() => {
-    return produtos.map((produto) => ({
+    return produtos?.map((produto) => ({
       ...produto,
       preco: valor(produto.preco),
       acoes: [

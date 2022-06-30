@@ -2,11 +2,17 @@ import api from 'service/api';
 import { apiUrls, makeHeaders } from 'service/config';
 
 import type { IProduto, NovoProdutoType } from 'store/produtos';
+import type { BuscarProdutosOptions } from './produtos.types';
 
 // Buscar todos os produtos
-export const buscarProdutos = async () => {
+export const buscarProdutos = async ({ search }: BuscarProdutosOptions) => {
   const headers = makeHeaders();
-  const response = await api.get(apiUrls.produtos, { headers });
+  const response = await api.get(apiUrls.produtos, {
+    headers,
+    params: {
+      search,
+    },
+  });
 
   return response;
 };

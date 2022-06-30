@@ -9,7 +9,7 @@ export interface IProduto {
 export type NovoProdutoType = Omit<IProduto, 'id'>;
 
 export interface ProdutosSlice {
-  produtos: IProduto[];
+  produtos: IProduto[] | null;
 }
 
 export interface AdicionarEditarProdutoDialog {

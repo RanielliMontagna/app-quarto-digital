@@ -18,7 +18,12 @@ const useAdicionarEditarProduto = () => {
       const { data } = await adicionarProduto(values);
       if (data) {
         _dispatch(AppActions.toggleNotificacao({ mensagem: 'Novo produto adicionado com sucesso!' }));
-        _dispatch(ProdutosActions.buscarProdutos());
+        const search = document.getElementById('search') as HTMLInputElement;
+        _dispatch(
+          ProdutosActions.buscarProdutos({
+            search: search.value ?? undefined,
+          })
+        );
         handleClose();
       }
     } catch (err) {
@@ -31,7 +36,12 @@ const useAdicionarEditarProduto = () => {
       const { status } = await editarProduto(values);
       if (status === 200) {
         _dispatch(AppActions.toggleNotificacao({ mensagem: 'Produto editado com sucesso!' }));
-        _dispatch(ProdutosActions.buscarProdutos());
+        const search = document.getElementById('search') as HTMLInputElement;
+        _dispatch(
+          ProdutosActions.buscarProdutos({
+            search: search.value ?? undefined,
+          })
+        );
         handleClose();
       }
     } catch (err) {

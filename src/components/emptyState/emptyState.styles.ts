@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+//TODO: responsivar o tamanho do emptyState em telas menores
+
 export const DivEmptyState = styled.div`
   display: flex;
   flex-direction: column;

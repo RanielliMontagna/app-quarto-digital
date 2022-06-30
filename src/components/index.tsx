@@ -12,8 +12,10 @@ export { default as Divider } from './divider/divider';
 export { default as Typography } from './typography/typography';
 export { default as DataTable } from './dataTable/dataTable';
 export { default as Loading } from './loading/loading';
-export { default as CurrencyField } from './currencyField/currencyField';
 export { default as EmptyState } from './emptyState/emptyState';
+
+export { default as CurrencyField } from './currencyField/currencyField';
+export { default as SearchField } from './searchField/searchField';
 
 export { default as Private } from './layout/private/private';
 export { default as Public } from './layout/public/public';

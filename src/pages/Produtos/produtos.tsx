@@ -1,16 +1,29 @@
-import React from 'react';
 import { IoAdd } from 'react-icons/io5';
+import throttle from 'lodash.throttle';
 
-import { EmptyState, PaginaBase } from 'components';
-import { ProdutosProvider, useProdutos } from 'store/produtos';
+import { PaginaBase, SearchField } from 'components';
+import { useDispatch } from 'store/hooks';
+import { ProdutosActions, ProdutosProvider, useProdutos } from 'store/produtos';
+
 import ListagemProdutos from './listagemProdutos/listagemProdutos';
-
 import ExcluirProduto from './dialogs/excluirProduto/excluirProduto';
 import AdicionarEditarProduto from './dialogs/adicionarEditarProduto/adicionarEditarProduto';
 
 const Produtos = () => {
-  const emptyState = './assets/svgs/produtos/emptyState.svg';
   const { setAdicionarEditarProduto, adicionarEditarProduto, excluirProduto, produtos } = useProdutos();
+  const _dispatch = useDispatch();
+
+  const handleSearch = throttle(
+    async (term: string) => {
+      await _dispatch(
+        ProdutosActions.buscarProdutos({
+          search: term,
+        })
+      );
+    },
+    500,
+    { leading: false }
+  );
 
   return (
     <PaginaBase
@@ -20,30 +33,12 @@ const Produtos = () => {
         variant: 'outlined',
         startIcon: <IoAdd />,
         onClick: () => setAdicionarEditarProduto({ open: true }),
-        hide: produtos.length === 0,
+        hide: produtos?.length === 0,
       }}
+      right={<SearchField placeholder="Buscar produtos" handleSearch={handleSearch} />}
     >
       <div style={{ display: 'flex', height: '100%' }}>
-        {produtos.length > 0 ? (
-          <ListagemProdutos />
-        ) : (
-          <EmptyState
-            imagem={emptyState}
-            titulo="Nenhum produto cadastrado"
-            descricao={
-              <>
-                Adicione produtos para fazer o controle <br />
-                dos seus gastos e acompanhar suas despesas.
-              </>
-            }
-            botao={{
-              children: 'Novo produto',
-              variant: 'outlined',
-              startIcon: <IoAdd />,
-              onClick: () => setAdicionarEditarProduto({ open: true }),
-            }}
-          />
-        )}
+        <ListagemProdutos />
         {adicionarEditarProduto.open && <AdicionarEditarProduto />}
         {excluirProduto.open && <ExcluirProduto />}
       </div>
@@ -51,7 +46,7 @@ const Produtos = () => {
   );
 };
 
-const ProdutosWrapper: React.FC = () => {
+const ProdutosWrapper = () => {
   return (
     <ProdutosProvider>
       <Produtos />

@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { IProduto, ProdutosSlice } from './produtosSlice.types';
 
 export const initialState: ProdutosSlice = {
-  produtos: [],
+  produtos: null,
 };
 
 const produtosSlice = createSlice({
@@ -13,7 +13,7 @@ const produtosSlice = createSlice({
     clearProdutos: (state) => {
       state = initialState;
     },
-    storeProdutos: (state, { payload }: PayloadAction<IProduto[]>) => {
+    storeProdutos: (state, { payload }: PayloadAction<IProduto[] | null>) => {
       state.produtos = payload;
     },
   },
