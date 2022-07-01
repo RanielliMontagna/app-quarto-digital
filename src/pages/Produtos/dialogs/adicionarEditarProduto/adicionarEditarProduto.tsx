@@ -4,6 +4,7 @@ import { Modal } from 'components';
 
 import useAdicionarEditarProduto from './useAdicionarEditarProduto';
 import Fields from './fields/fields';
+import { useEffect } from 'react';
 
 const AdicionarEditarProduto = () => {
   const { open, titulo, labelBotao, initialValues, onSubmit, handleClose } = useAdicionarEditarProduto();
@@ -11,10 +12,15 @@ const AdicionarEditarProduto = () => {
     handleSubmit,
     register,
     control,
+    reset,
     formState: { errors },
   } = useForm({
     defaultValues: initialValues,
   });
+
+  useEffect(() => {
+    reset(initialValues);
+  }, [initialValues, reset]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

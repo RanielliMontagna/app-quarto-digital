@@ -1,13 +1,14 @@
-import { useMemo } from 'react';
-import { adicionarProduto, editarProduto } from 'service';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { adicionarProduto, buscarProduto, editarProduto } from 'service';
 import { AppActions } from 'store';
 import { useDispatch } from 'store/hooks';
-import { ProdutosActions, useProdutos } from 'store/produtos';
+import { IProduto, ProdutosActions, useProdutos } from 'store/produtos';
 import { AdicionarEditarProdutoFormValues, AdicionarProduto, EditarProduto } from './adicionarEditarProduto.types';
 
 const useAdicionarEditarProduto = () => {
   const _dispatch = useDispatch();
   const { adicionarEditarProduto, setAdicionarEditarProduto } = useProdutos();
+  const [produto, setProduto] = useState<IProduto>();
 
   const handleClose = () => {
     setAdicionarEditarProduto({ open: false });
@@ -62,10 +63,24 @@ const useAdicionarEditarProduto = () => {
     }
   };
 
-  const initialValues = useMemo(() => {
-    const produto = adicionarEditarProduto?.produto;
+  const _buscarProduto = useCallback(
+    async (id: number) => {
+      _dispatch(AppActions.toggleLoading(true));
+      try {
+        const { data } = await buscarProduto(id);
+        if (data) {
+          _dispatch(AppActions.toggleLoading(false));
+          setProduto(data);
+        }
+      } catch (err) {
+        _dispatch(AppActions.handleErrors(err));
+      }
+    },
+    [_dispatch]
+  );
 
-    if (produto) {
+  const initialValues = useMemo(() => {
+    if (produto?.id) {
       return {
         nome: produto.nome,
         preco: produto.preco,
@@ -73,7 +88,13 @@ const useAdicionarEditarProduto = () => {
     }
 
     return {};
-  }, [adicionarEditarProduto.produto]);
+  }, [produto]);
+
+  useEffect(() => {
+    if (adicionarEditarProduto.produto) {
+      _buscarProduto(adicionarEditarProduto.produto.id);
+    }
+  }, [_buscarProduto, adicionarEditarProduto.produto]);
 
   return {
     open: adicionarEditarProduto.open,
