@@ -14,6 +14,7 @@ export { default as DataTable } from './dataTable/dataTable';
 export { default as Loading } from './loading/loading';
 export { default as EmptyState } from './emptyState/emptyState';
 
+export { default as TextField } from './textField/textField';
 export { default as CurrencyField } from './currencyField/currencyField';
 export { default as SearchField } from './searchField/searchField';
 
