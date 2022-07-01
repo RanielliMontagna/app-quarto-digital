@@ -10,9 +10,6 @@ const produtosSlice = createSlice({
   name: 'produtos',
   initialState,
   reducers: {
-    clearProdutos: (state) => {
-      state = initialState;
-    },
     storeProdutos: (state, { payload }: PayloadAction<IProduto[] | null>) => {
       state.produtos = payload;
     },

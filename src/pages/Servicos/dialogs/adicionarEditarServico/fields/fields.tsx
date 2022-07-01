@@ -1,6 +1,6 @@
 import { CurrencyField, TextField } from 'components';
 
-import { IFields } from '../adicionarEditarProduto.types';
+import { IFields } from '../adicionarEditarServico.types';
 
 const Fields = ({ register, errors, control }: IFields) => {
   return (

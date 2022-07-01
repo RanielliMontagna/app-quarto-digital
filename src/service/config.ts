@@ -5,6 +5,7 @@ export const apiUrls = {
   login: '/login',
   logout: '/logout',
   produtos: '/produtos',
+  servicos: '/servicos',
 };
 
 export const makeHeaders = () => {

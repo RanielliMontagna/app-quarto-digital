@@ -1,10 +1,31 @@
-export type Servico = {};
+import React from 'react';
+
+export interface IServico {
+  id: number;
+  nome: string;
+  preco: number;
+}
+
+export type NovoServicoType = Omit<IServico, 'id'>;
 
 export interface ServicosSlice {
-  servicos: Servico[];
+  servicos: IServico[] | null;
+}
+
+export interface AdicionarEditarServicoDialog {
+  open: boolean;
+  servico?: IServico;
+}
+
+export interface ExcluirServicoDialog {
+  open: boolean;
+  servico?: IServico;
 }
 
 export interface ServicosSliceWithCallbacks extends ServicosSlice {
-  novoServico: boolean;
-  setNovoServico: React.Dispatch<React.SetStateAction<boolean>>;
+  adicionarEditarServico: AdicionarEditarServicoDialog;
+  excluirServico: ExcluirServicoDialog;
+
+  setAdicionarEditarServico: React.Dispatch<React.SetStateAction<AdicionarEditarServicoDialog>>;
+  setExcluirServico: React.Dispatch<React.SetStateAction<ExcluirServicoDialog>>;
 }

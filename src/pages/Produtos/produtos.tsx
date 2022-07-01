@@ -33,7 +33,7 @@ const Produtos = () => {
         variant: 'outlined',
         startIcon: <IoAdd />,
         onClick: () => setAdicionarEditarProduto({ open: true }),
-        hide: produtos?.length === 0,
+        hide: produtos === null,
       }}
       right={<SearchField placeholder="Buscar produtos" handleSearch={handleSearch} />}
     >
