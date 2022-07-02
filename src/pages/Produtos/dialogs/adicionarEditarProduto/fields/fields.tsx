@@ -2,7 +2,7 @@ import { CurrencyField, TextField } from 'components';
 
 import { IFields } from '../adicionarEditarProduto.types';
 
-const Fields = ({ register, errors, control }: IFields) => {
+const Fields = ({ errors, control }: IFields) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <div>

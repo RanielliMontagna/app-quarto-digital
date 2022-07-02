@@ -10,7 +10,6 @@ const AdicionarEditarProduto = () => {
   const { open, titulo, labelBotao, initialValues, onSubmit, handleClose } = useAdicionarEditarProduto();
   const {
     handleSubmit,
-    register,
     control,
     reset,
     formState: { errors },
@@ -39,7 +38,7 @@ const AdicionarEditarProduto = () => {
           },
         }}
       >
-        <Fields register={register} errors={errors} control={control} />
+        <Fields errors={errors} control={control} />
       </Modal>
     </form>
   );

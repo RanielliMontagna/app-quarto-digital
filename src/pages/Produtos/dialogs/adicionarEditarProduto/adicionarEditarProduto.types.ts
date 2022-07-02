@@ -11,7 +11,6 @@ export interface EditarProduto extends AdicionarEditarProdutoFormValues {
 }
 
 export interface IFields {
-  register: UseFormRegister<AdicionarEditarProdutoFormValues>;
   errors: FieldErrors<AdicionarEditarProdutoFormValues>;
   control: Control<AdicionarEditarProdutoFormValues>;
 }

@@ -40,9 +40,7 @@ export const getColor = ({ color }: { color?: Colors }) => {
         ${({ theme }) => theme.coresExtras.pretoAppBar};
       `;
     default:
-      return css`
-        color;
-      `;
+      return css``;
   }
 };
 

@@ -5,6 +5,7 @@ import { Divider } from 'components';
 
 import useLogin from './useLogin';
 import { LoginFormValues } from './Login.types';
+import Fields from './fields/fields';
 
 const Login = () => {
   const logo = '/assets/logo/quartoDigitalPrimaria.svg';
@@ -23,32 +24,7 @@ const Login = () => {
           {/* Logo */}
           <img src={logo} alt={logo} style={{ width: '250px' }} />
 
-          <styled.Field
-            label="Email *"
-            error={Boolean(errors?.email)}
-            helperText={errors?.email?.message}
-            variant="outlined"
-            {...register('email', {
-              required: {
-                value: true,
-                message: 'O email é obrigatório',
-              },
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: 'O email é inválido',
-              },
-            })}
-          />
-          <styled.Field
-            label="Senha *"
-            error={Boolean(errors?.password)}
-            type="password"
-            helperText={errors?.password?.message}
-            variant="outlined"
-            {...register('password', {
-              required: { value: true, message: 'A senha é obrigatória' },
-            })}
-          />
+          <Fields register={register} errors={errors} />
 
           {/* Manter conectado e esqueci minha senha */}
           {/* <styled.DivCheckbox>
