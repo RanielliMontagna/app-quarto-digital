@@ -1,5 +1,5 @@
 import type { ThunkStatefulAction } from 'store/store';
-import produtosActions from '../actions';
+import servicosActions from '../actions';
 
 import appActions from '../../app/actions';
 import { buscarServicos } from 'service';
@@ -15,12 +15,12 @@ const fetchServicos =
       if (data) {
         if (data.length === 0) {
           if (params.search) {
-            dispatch(produtosActions.storeServicos(data));
+            dispatch(servicosActions.storeServicos(data));
           } else {
-            dispatch(produtosActions.storeServicos(null));
+            dispatch(servicosActions.storeServicos(null));
           }
         } else {
-          dispatch(produtosActions.storeServicos(data));
+          dispatch(servicosActions.storeServicos(data));
         }
 
         dispatch(appActions.toggleLoading(false));

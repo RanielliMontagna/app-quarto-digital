@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import type { ClientesSlice } from './clientesSlice.types';
+import type { ClientesSlice, ICliente } from './clientesSlice.types';
 
 export const initialState: ClientesSlice = {
   clientes: [],
@@ -10,8 +10,8 @@ const clientesSlice = createSlice({
   name: 'clientes',
   initialState,
   reducers: {
-    clearClientes: (state) => {
-      state = initialState;
+    storeClientes: (state, { payload }: PayloadAction<ICliente[] | null>) => {
+      state.clientes = payload;
     },
   },
 });

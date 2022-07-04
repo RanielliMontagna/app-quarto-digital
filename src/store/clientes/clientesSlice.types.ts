@@ -1,10 +1,34 @@
-export type Cliente = {};
+import React from 'react';
+
+export interface ICliente {
+  id: number;
+  nome: string;
+  cpfCnpj: string | null;
+  email: string | null;
+  telefone: string;
+  dataNasc: string | null;
+}
+
+export type NovoClienteType = Omit<ICliente, 'id'>;
 
 export interface ClientesSlice {
-  clientes: Cliente[];
+  clientes: ICliente[] | null;
+}
+
+export interface AdicionarEditarClienteDialog {
+  open: boolean;
+  cliente?: ICliente;
+}
+
+export interface ExcluirClienteDialog {
+  open: boolean;
+  cliente?: ICliente;
 }
 
 export interface ClientesSliceWithCallbacks extends ClientesSlice {
-  novoCliente: boolean;
-  setNovoCliente: React.Dispatch<React.SetStateAction<boolean>>;
+  adicionarEditarCliente: AdicionarEditarClienteDialog;
+  excluirCliente: ExcluirClienteDialog;
+
+  setAdicionarEditarCliente: React.Dispatch<React.SetStateAction<AdicionarEditarClienteDialog>>;
+  setExcluirCliente: React.Dispatch<React.SetStateAction<ExcluirClienteDialog>>;
 }
