@@ -1,4 +1,4 @@
-import { Control, FieldErrors, UseFormRegister } from 'react-hook-form';
+import { Control, FieldErrors } from 'react-hook-form';
 
 export interface AdicionarEditarProdutoFormValues {
   nome: string;

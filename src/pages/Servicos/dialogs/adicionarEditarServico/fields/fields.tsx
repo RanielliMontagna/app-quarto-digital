@@ -1,8 +1,9 @@
 import { CurrencyField, TextField } from 'components';
+import { required } from 'utils/rules';
 
 import { IFields } from '../adicionarEditarServico.types';
 
-const Fields = ({ register, errors, control }: IFields) => {
+const Fields = ({ errors, control }: IFields) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <div>
@@ -10,12 +11,7 @@ const Fields = ({ register, errors, control }: IFields) => {
           name="nome"
           control={control}
           label="Nome *"
-          rules={{
-            required: {
-              value: true,
-              message: 'O nome é obrigatório',
-            },
-          }}
+          rules={required}
           fullWidth
           error={Boolean(errors?.nome)}
           helperText={errors?.nome?.message}
@@ -25,12 +21,7 @@ const Fields = ({ register, errors, control }: IFields) => {
         <CurrencyField
           name="preco"
           control={control}
-          rules={{
-            required: {
-              value: true,
-              message: 'O preço é obrigatório',
-            },
-          }}
+          rules={required}
           textFieldProps={{
             label: 'Preço *',
             error: Boolean(errors?.preco),

@@ -3,6 +3,8 @@ import { memo } from 'react';
 import { Field } from '../Login.styles';
 import { IFieldsLogin } from './fields.types';
 
+import { composeRules, email, required } from 'utils/rules';
+
 const Fields = ({ errors, register }: IFieldsLogin) => {
   const theme = createTheme({});
 
@@ -13,16 +15,7 @@ const Fields = ({ errors, register }: IFieldsLogin) => {
         error={Boolean(errors?.email)}
         helperText={errors?.email?.message}
         variant="outlined"
-        {...register('email', {
-          required: {
-            value: true,
-            message: 'O email é obrigatório',
-          },
-          pattern: {
-            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-            message: 'O email é inválido',
-          },
-        })}
+        {...register('email', composeRules([required, email]))}
       />
       <Field
         label="Senha *"
@@ -30,9 +23,7 @@ const Fields = ({ errors, register }: IFieldsLogin) => {
         type="password"
         helperText={errors?.password?.message}
         variant="outlined"
-        {...register('password', {
-          required: { value: true, message: 'A senha é obrigatória' },
-        })}
+        {...register('password', required)}
       />
     </ThemeProvider>
   );
