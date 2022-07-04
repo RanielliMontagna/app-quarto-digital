@@ -11,14 +11,14 @@ const TextField = ({ control, rules, name, defaultValue, shouldUnregister, ...re
       rules={rules}
       defaultValue={defaultValue}
       shouldUnregister={shouldUnregister}
-      render={({ field }) => (
+      render={({ field: { value, onChange } }) => (
         <TextFieldMui
           size="small"
           variant="outlined"
-          value={field.value}
-          defaultValue={field.value}
-          onChange={(v) => field.onChange(v)}
-          InputLabelProps={{ shrink: field.value ? true : false }}
+          value={value ?? ''}
+          defaultValue={value}
+          onChange={(v) => onChange(v)}
+          InputLabelProps={{ shrink: value ? true : false }}
           {...rest}
         />
       )}

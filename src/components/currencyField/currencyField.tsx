@@ -16,6 +16,7 @@ const CurrencyField = ({ textFieldProps, ...rest }: ICurrencyField) => {
           thousandsGroupStyle="thousand"
           thousandSeparator="."
           decimalSeparator=","
+          allowNegative={false}
           prefix={'R$ '}
           inputProps={{
             maxLength: 12,

@@ -17,6 +17,7 @@ export { default as EmptyState } from './emptyState/emptyState';
 export { default as TextField } from './textField/textField';
 export { default as CurrencyField } from './currencyField/currencyField';
 export { default as SearchField } from './searchField/searchField';
+export { default as NumberField } from './numberField/numberField';
 
 export { default as Private } from './layout/private/private';
 export { default as Public } from './layout/public/public';
