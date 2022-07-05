@@ -18,6 +18,7 @@ export { default as TextField } from './textField/textField';
 export { default as CurrencyField } from './currencyField/currencyField';
 export { default as SearchField } from './searchField/searchField';
 export { default as NumberField } from './numberField/numberField';
+export { default as DatePicker } from './datePicker/datePicker';
 
 export { default as Private } from './layout/private/private';
 export { default as Public } from './layout/public/public';
