@@ -20,6 +20,42 @@ export const email = {
   },
 };
 
+export const cpf = {
+  validate: (value: string) => {
+    if (value?.length !== 11) {
+      return 'O CPF deve ter 11 dígitos';
+    }
+  },
+};
+
+export const cnpj = {
+  validate: (value: string) => {
+    if (value?.length !== 14) {
+      return 'O CNPJ deve ter 14 dígitos';
+    }
+  },
+};
+
+export const cpfCnpj = {
+  validate: (value: string) => {
+    if (value?.length < 11) {
+      return 'O CPF deve ter 11 dígitos';
+    } else if (value?.length > 11 && value?.length < 14) {
+      return 'O CNPJ deve ter 14 dígitos';
+    }
+  },
+};
+
+export const phone = {
+  validate: (value: string) => {
+    if (value?.length < 10) {
+      return 'O telefone deve ter no mínimo 10 dígitos';
+    } else if (value?.length > 11) {
+      return 'O telefone deve ter no máximo 11 dígitos';
+    }
+  },
+};
+
 export const minLength = (min: number) => ({
   minLength: {
     value: min,

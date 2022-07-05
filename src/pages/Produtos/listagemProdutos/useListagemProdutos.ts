@@ -2,7 +2,7 @@ import { useEffect, useMemo } from 'react';
 
 import { useDispatch } from 'store/hooks';
 import { ProdutosActions, useProdutos } from 'store/produtos';
-import { valor } from 'utils';
+import { valor } from 'utils/masks';
 
 export const useListagemProdutos = () => {
   const _dispatch = useDispatch();

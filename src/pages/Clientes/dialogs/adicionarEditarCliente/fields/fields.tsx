@@ -1,5 +1,5 @@
-import { NumberField, TextField } from 'components';
-import { required, email } from 'utils/rules';
+import { DatePicker, NumberField, TextField } from 'components';
+import { required, email, cpfCnpj, composeRules, phone } from 'utils/rules';
 
 import { IFields } from '../adicionarEditarCliente.types';
 
@@ -14,6 +14,7 @@ const Fields = ({ errors, control }: IFields) => {
         error={Boolean(errors?.cpfCnpj)}
         helperText={errors?.cpfCnpj?.message}
         mask="cpfCnpj"
+        rules={cpfCnpj}
       />
       <TextField
         name="nome"
@@ -33,6 +34,17 @@ const Fields = ({ errors, control }: IFields) => {
         error={Boolean(errors?.email)}
         helperText={errors?.email?.message}
       />
+      <NumberField
+        name="telefone"
+        control={control}
+        label="Telefone *"
+        rules={composeRules([required, phone])}
+        fullWidth
+        error={Boolean(errors?.telefone)}
+        helperText={errors?.telefone?.message}
+        mask="phone"
+      />
+      <DatePicker name="dataNasc" label="Data de nascimento" control={control} />
     </div>
   );
 };

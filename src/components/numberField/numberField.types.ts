@@ -1,7 +1,7 @@
 import { TextFieldProps } from '@mui/material';
 import { Control, UseControllerProps } from 'react-hook-form';
 
-export type MasksType = 'cpf' | 'cnpj' | 'cpfCnpj';
+export type MasksType = 'cpf' | 'cnpj' | 'cpfCnpj' | 'phone';
 
 export type INumberField = Omit<UseControllerProps, 'control'> & {
   control: Control<any>;

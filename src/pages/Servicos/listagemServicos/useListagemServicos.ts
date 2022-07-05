@@ -2,7 +2,7 @@ import { useEffect, useMemo } from 'react';
 
 import { useDispatch } from 'store/hooks';
 import { ServicosActions, useServicos } from 'store/servicos';
-import { valor } from 'utils';
+import { valor } from 'utils/masks';
 
 export const useListagemServicos = () => {
   const _dispatch = useDispatch();

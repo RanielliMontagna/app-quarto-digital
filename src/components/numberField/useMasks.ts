@@ -22,6 +22,16 @@ export const useMasks = (mask?: MasksType) => {
               format: '###.###.###-###',
             };
           }
+        case 'phone':
+          if (valueWithoutMask?.length < 10) {
+            return masks.phone8Digits;
+          } else if (valueWithoutMask?.length > 10) {
+            return masks.phone9Digits;
+          } else {
+            return {
+              format: '(##) ####-#####',
+            };
+          }
         default:
           return {};
       }
