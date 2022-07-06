@@ -22,6 +22,7 @@ const CurrencyField = ({ textFieldProps, ...rest }: ICurrencyField) => {
             maxLength: 12,
             onFocus: (e: React.FocusEvent<HTMLInputElement>) => e.target.select(),
           }}
+          autoComplete="off"
           {...textFieldProps}
         />
       )}

@@ -7,7 +7,6 @@ import { TextField } from '@mui/material';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker as DatePickerMui } from '@mui/x-date-pickers/DatePicker';
-import { MdOutlineClear } from 'react-icons/md';
 
 const DatePicker = ({
   control,

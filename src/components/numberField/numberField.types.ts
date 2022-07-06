@@ -18,4 +18,7 @@ export type INumberField = Omit<UseControllerProps, 'control'> & {
    * @description Se true, o campo permitirá números negativos.
    */
   allowNegative?: boolean;
-} & Pick<TextFieldProps, 'label' | 'error' | 'helperText' | 'size' | 'fullWidth' | 'variant'>;
+} & Pick<
+    TextFieldProps,
+    'label' | 'error' | 'helperText' | 'size' | 'fullWidth' | 'variant' | 'autoFocus' | 'placeholder' | 'autoComplete'
+  >;

@@ -11,10 +11,12 @@ const Fields = ({ errors, control }: IFields) => {
           name="nome"
           control={control}
           label="Nome *"
+          placeholder="Informe o nome"
           rules={required}
           fullWidth
           error={Boolean(errors?.nome)}
           helperText={errors?.nome?.message}
+          autoFocus
         />
       </div>
       <div>
@@ -28,6 +30,7 @@ const Fields = ({ errors, control }: IFields) => {
             helperText: errors?.preco?.message,
             size: 'small',
             fullWidth: true,
+            placeholder: 'Informe o preço',
           }}
         />
       </div>

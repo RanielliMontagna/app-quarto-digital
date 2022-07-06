@@ -15,10 +15,10 @@ const TextField = ({ control, rules, name, defaultValue, shouldUnregister, ...re
         <TextFieldMui
           size="small"
           variant="outlined"
+          autoComplete="off"
           value={value ?? ''}
           defaultValue={value}
           onChange={(v) => onChange(v)}
-          InputLabelProps={{ shrink: value ? true : false }}
           {...rest}
         />
       )}

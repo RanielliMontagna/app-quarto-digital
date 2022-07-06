@@ -10,16 +10,19 @@ const Fields = ({ errors, control }: IFields) => {
         name="cpfCnpj"
         control={control}
         label="CPF/CNPJ"
+        placeholder="Informe o cpf ou cnpj"
         fullWidth
         error={Boolean(errors?.cpfCnpj)}
         helperText={errors?.cpfCnpj?.message}
         mask="cpfCnpj"
         rules={cpfCnpj}
+        autoFocus
       />
       <TextField
         name="nome"
         control={control}
         label="Nome *"
+        placeholder="Informe o nome"
         rules={required}
         fullWidth
         error={Boolean(errors?.nome)}
@@ -29,6 +32,7 @@ const Fields = ({ errors, control }: IFields) => {
         name="email"
         control={control}
         label="Email"
+        placeholder="Informe o email"
         rules={email}
         fullWidth
         error={Boolean(errors?.email)}
@@ -38,6 +42,7 @@ const Fields = ({ errors, control }: IFields) => {
         name="telefone"
         control={control}
         label="Telefone *"
+        placeholder="Informe o telefone"
         rules={composeRules([required, phone])}
         fullWidth
         error={Boolean(errors?.telefone)}

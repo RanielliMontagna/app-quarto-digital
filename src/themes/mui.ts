@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material';
-import { brancoQD, cinzaEscuro } from './cores';
+import { azulQD, brancoQD, cinzaClaro, cinzaEscuro, pretoQD } from './cores';
 
 export const lightTheme = createTheme({
   components: {
@@ -74,6 +74,22 @@ export const darkTheme = createTheme({
           color: `${brancoQD}90`,
         },
       },
+    },
+  },
+  palette: {
+    background: {
+      default: pretoQD,
+      paper: pretoQD,
+    },
+    text: {
+      primary: brancoQD,
+      secondary: `${brancoQD}90`,
+      disabled: cinzaClaro,
+    },
+    divider: `${brancoQD}90`,
+    action: {
+      active: cinzaClaro,
+      disabled: `${cinzaClaro}20`,
     },
   },
 });

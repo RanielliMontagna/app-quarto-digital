@@ -28,6 +28,7 @@ const NumberField = ({ control, name, defaultValue, shouldUnregister, rules, mas
           }}
           size="small"
           variant="outlined"
+          autoComplete="off"
           {...objMask(value)}
           {...rest}
         />
