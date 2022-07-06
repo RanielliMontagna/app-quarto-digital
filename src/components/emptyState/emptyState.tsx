@@ -24,7 +24,7 @@ const EmptyState = ({ imagem, titulo, descricao, botao }: IEmptyState) => {
       </div>
       <div>{descricao}</div>
       {botao && (
-        <div style={{ margin: '16px' }}>
+        <div style={{ margin: '16px', paddingBottom: '16px' }}>
           <Button {...botao} />
         </div>
       )}

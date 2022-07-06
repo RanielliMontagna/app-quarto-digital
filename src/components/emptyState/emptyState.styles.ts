@@ -10,4 +10,14 @@ export const DivEmptyState = styled.div`
   flex: 1;
   gap: 8px;
   text-align: center;
+
+  @media (max-width: 576px) {
+    img {
+      width: 70%;
+    }
+  }
+
+  @media (max-height: 550px) {
+    justify-content: initial;
+  }
 `;

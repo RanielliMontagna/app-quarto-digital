@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material';
-import { azulQD, brancoQD, cinzaClaro, cinzaEscuro, pretoQD } from './cores';
+import { brancoQD, cinzaClaro, cinzaEscuro, pretoQD } from './cores';
 
 export const lightTheme = createTheme({
   components: {
