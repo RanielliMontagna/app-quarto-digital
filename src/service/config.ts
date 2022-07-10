@@ -2,6 +2,7 @@ import { store } from 'store';
 import { AuthActions } from 'store/auth';
 
 export const apiUrls = {
+  geral: '',
   login: '/login',
   logout: '/logout',
   produtos: '/produtos',

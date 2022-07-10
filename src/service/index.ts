@@ -1,3 +1,6 @@
+// Export referente a funções gerais do sistema
+export * from './geral/geral';
+
 // Export referente a autenticação do usuário
 export * from './authentication/authentication';
 
@@ -12,3 +15,4 @@ export * from './servicos/servicos.types';
 // Export referente aos clientes
 export * from './clientes/clientes';
 export * from './clientes/clientes.types';
+

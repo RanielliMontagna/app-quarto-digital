@@ -1,9 +1,17 @@
+import { CircularProgress } from '@mui/material';
 import { DatePicker, NumberField, TextField } from 'components';
+import { useCnpj } from 'hooks';
 import { required, email, cpfCnpj, composeRules, phone } from 'utils/rules';
 
 import { IFields } from '../adicionarEditarCliente.types';
+import { useFields } from './useFields';
 
-const Fields = ({ errors, control }: IFields) => {
+const Fields = ({ errors, control, setValue }: IFields) => {
+  const {buscarCnpj, cnpj, loading} = useCnpj();
+  
+  // Lógicas dos fields (no momento somente o CNPJ)
+  useFields({cnpj, setValue})
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <NumberField
@@ -12,9 +20,18 @@ const Fields = ({ errors, control }: IFields) => {
         label="CPF/CNPJ"
         placeholder="Informe o cpf ou cnpj"
         fullWidth
+        disabled={loading}
+        InputProps={{
+          endAdornment: loading &&  <CircularProgress size={20} />,
+        }}
         error={Boolean(errors?.cpfCnpj)}
         helperText={errors?.cpfCnpj?.message}
         mask="cpfCnpj"
+        onInputChange={(value) => {
+          if(value.length === 14) {
+            buscarCnpj(value)
+          }
+        }}
         rules={cpfCnpj}
         autoFocus
       />

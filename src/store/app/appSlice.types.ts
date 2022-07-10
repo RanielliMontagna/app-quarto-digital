@@ -5,6 +5,7 @@ export type LoadingType = boolean;
 export type Notificacao = {
   variante?: VariantType;
   mensagem?: string;
+  autoHideDuration?: number;
 };
 
 export type Error = unknown;
@@ -15,3 +16,4 @@ export type AppSlice = {
   notificacao: Notificacao;
   error: Error;
 };
+

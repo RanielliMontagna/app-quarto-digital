@@ -4,7 +4,18 @@ import { Control, UseControllerProps } from 'react-hook-form';
 export type ITextField = Omit<UseControllerProps, 'control'> &
   Pick<
     TextFieldProps,
-    'label' | 'error' | 'helperText' | 'size' | 'fullWidth' | 'variant' | 'autoFocus' | 'placeholder' | 'autoComplete'
+    | 'label'
+    | 'error'
+    | 'helperText'
+    | 'size'
+    | 'fullWidth'
+    | 'variant'
+    | 'autoFocus'
+    | 'placeholder'
+    | 'autoComplete'
+    | 'InputProps'
+    | 'disabled'
   > & {
     control: Control<any>;
   };
+

@@ -29,7 +29,7 @@ const Clientes = () => {
     <PaginaBase
       titulo="Clientes"
       button={{
-        children: 'Novo produto',
+        children: 'Novo cliente',
         variant: 'outlined',
         startIcon: <IoAdd />,
         onClick: () => setAdicionarEditarCliente({ open: true }),

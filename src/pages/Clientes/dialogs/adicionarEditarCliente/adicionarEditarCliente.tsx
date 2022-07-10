@@ -11,6 +11,7 @@ const AdicionarEditarCliente = () => {
   const {
     handleSubmit,
     control,
+    setValue,
     reset,
     formState: { errors },
   } = useForm({
@@ -38,7 +39,7 @@ const AdicionarEditarCliente = () => {
           },
         }}
       >
-        <Fields errors={errors} control={control} />
+        <Fields errors={errors} control={control} setValue={setValue} />
       </Modal>
     </form>
   );

@@ -5,6 +5,17 @@ export type ICurrencyField = Omit<UseControllerProps, 'control'> & {
   control: Control<any>;
   textFieldProps?: Pick<
     TextFieldProps,
-    'label' | 'error' | 'helperText' | 'size' | 'fullWidth' | 'variant' | 'placeholder' | 'autoComplete' | 'autoFocus'
+    | 'label'
+    | 'error'
+    | 'helperText'
+    | 'size'
+    | 'fullWidth'
+    | 'variant'
+    | 'placeholder'
+    | 'autoComplete'
+    | 'autoFocus'
+    | 'InputProps'
+    | 'disabled'
   >;
 };
+

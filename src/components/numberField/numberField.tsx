@@ -5,7 +5,7 @@ import NumberFormat from 'react-number-format';
 import { INumberField } from './numberField.types';
 import { useMasks } from './useMasks';
 
-const NumberField = ({ control, name, defaultValue, shouldUnregister, rules, mask, ...rest }: INumberField) => {
+const NumberField = ({ control, name, defaultValue, shouldUnregister, rules, mask, onInputChange, ...rest }: INumberField) => {
   const { objMask } = useMasks(mask);
 
   return (
@@ -19,6 +19,7 @@ const NumberField = ({ control, name, defaultValue, shouldUnregister, rules, mas
         <NumberFormat
           customInput={TextField}
           onValueChange={(values) => {
+            onInputChange && onInputChange(values.value);
             onChange(values.value);
           }}
           value={value}

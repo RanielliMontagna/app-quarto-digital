@@ -12,11 +12,11 @@ export const useNotification = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   const dispararNotificacao = useCallback(
-    (mensagem: string, variante?: VariantType) => {
+    (mensagem: string, variante?: VariantType, autoHideDuration?: number) => {
       enqueueSnackbar(mensagem, {
         variant: variante ?? 'success',
         anchorOrigin: { horizontal: 'right', vertical: 'bottom' },
-        autoHideDuration: 3000,
+        autoHideDuration: autoHideDuration ?? 3000,
       });
       _dispatch(AppActions.toggleNotificacao({}));
     },
@@ -25,10 +25,11 @@ export const useNotification = () => {
 
   useEffect(() => {
     if (app.notificacao.mensagem) {
-      dispararNotificacao(app.notificacao.mensagem ?? '', app.notificacao.variante);
+      dispararNotificacao(app.notificacao.mensagem ?? '', app.notificacao.variante, app.notificacao.autoHideDuration);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [app.notificacao]);
 };
 
 export default useNotification;
+
