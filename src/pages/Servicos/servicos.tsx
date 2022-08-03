@@ -1,7 +1,9 @@
 import { IoAdd } from 'react-icons/io5';
 import throttle from 'lodash.throttle';
 
-import { PaginaBase, SearchField } from 'components';
+import { SearchField } from '@rm-monorepo/fields';
+
+import { PaginaBase } from 'components';
 import { useDispatch } from 'store/hooks';
 import { ServicosActions, ServicosProvider, useServicos } from 'store/servicos';
 
@@ -55,3 +57,4 @@ const ServicosWrapper = () => {
 };
 
 export default ServicosWrapper;
+

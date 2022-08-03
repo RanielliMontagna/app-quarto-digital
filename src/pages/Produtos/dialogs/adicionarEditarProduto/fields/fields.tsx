@@ -1,4 +1,4 @@
-import { CurrencyField, TextField } from 'components';
+import { CurrencyField, TextField } from '@rm-monorepo/fields';
 import { required } from 'utils/rules';
 
 import { IFields } from '../adicionarEditarProduto.types';
@@ -39,3 +39,4 @@ const Fields = ({ errors, control }: IFields) => {
 };
 
 export default Fields;
+

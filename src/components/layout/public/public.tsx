@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import { useApp } from 'store';
-import { Loading } from 'components';
+import Loading from '@rm-monorepo/loading';
 import { DivChildren } from './public.styles';
 
 const Public = () => {

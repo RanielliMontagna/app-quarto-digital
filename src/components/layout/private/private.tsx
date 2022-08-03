@@ -3,9 +3,11 @@ import { Outlet } from 'react-router-dom';
 
 import * as styled from './private.styles';
 
-import { AppBar, Drawer, Loading } from 'components';
+import { AppBar, Drawer } from 'components';
 import { ConfiguracoesProvider, useApp } from 'store';
 import { usePathname } from 'utils';
+
+import Loading from '@rm-monorepo/loading';
 
 const Private = () => {
   const { loading } = useApp();

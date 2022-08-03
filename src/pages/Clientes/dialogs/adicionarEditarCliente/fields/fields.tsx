@@ -1,5 +1,6 @@
 import { CircularProgress } from '@mui/material';
-import { DatePicker, NumberField, TextField } from 'components';
+import { NumberField, TextField, DatePicker } from '@rm-monorepo/fields';
+
 import { useCnpj } from 'hooks';
 import { required, email, cpfCnpj, composeRules, phone } from 'utils/rules';
 
@@ -7,10 +8,10 @@ import { IFields } from '../adicionarEditarCliente.types';
 import { useFields } from './useFields';
 
 const Fields = ({ errors, control, setValue }: IFields) => {
-  const {buscarCnpj, cnpj, loading} = useCnpj();
-  
+  const { buscarCnpj, cnpj, loading } = useCnpj();
+
   // Lógicas dos fields (no momento somente o CNPJ)
-  useFields({cnpj, setValue})
+  useFields({ cnpj, setValue });
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -22,14 +23,14 @@ const Fields = ({ errors, control, setValue }: IFields) => {
         fullWidth
         disabled={loading}
         InputProps={{
-          endAdornment: loading &&  <CircularProgress size={20} />,
+          endAdornment: loading && <CircularProgress size={20} />,
         }}
         error={Boolean(errors?.cpfCnpj)}
         helperText={errors?.cpfCnpj?.message}
         mask="cpfCnpj"
         onInputChange={(value) => {
-          if(value.length === 14) {
-            buscarCnpj(value)
+          if (value.length === 14) {
+            buscarCnpj(value);
           }
         }}
         rules={cpfCnpj}
@@ -72,3 +73,4 @@ const Fields = ({ errors, control, setValue }: IFields) => {
 };
 
 export default Fields;
+

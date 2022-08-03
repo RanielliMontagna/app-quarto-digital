@@ -1,7 +1,9 @@
 import { IoAdd } from 'react-icons/io5';
 import throttle from 'lodash.throttle';
 
-import { PaginaBase, SearchField } from 'components';
+import { SearchField } from '@rm-monorepo/fields';
+
+import { PaginaBase } from 'components';
 import { useDispatch } from 'store/hooks';
 import { ClientesActions, ClientesProvider, useClientes } from 'store/clientes';
 
@@ -55,3 +57,4 @@ const ClientesWrapper = () => {
 };
 
 export default ClientesWrapper;
+
