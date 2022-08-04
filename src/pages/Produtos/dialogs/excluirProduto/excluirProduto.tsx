@@ -1,4 +1,5 @@
-import { Modal, Typography } from 'components';
+import { Modal } from 'components';
+import { Typography } from '@rm-monorepo/typography/lib/typography/src';
 import useExcluirProduto from './useExcluirProduto';
 
 const ExcluirProduto = () => {
@@ -33,3 +34,4 @@ const ExcluirProduto = () => {
 };
 
 export default ExcluirProduto;
+

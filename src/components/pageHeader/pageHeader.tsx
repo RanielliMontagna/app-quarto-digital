@@ -1,8 +1,10 @@
 import { FC, memo } from 'react';
-import { Button, Typography } from 'components';
-import * as styled from './pageHeader.styles';
-import { ButtonProps } from 'components/button/button.types';
+
 import { MdAdd } from 'react-icons/md';
+import { Typography } from '@rm-monorepo/typography/lib/typography/src';
+import { Button, ButtonProps } from '@rm-monorepo/button/lib/button/src';
+
+import * as styled from './pageHeader.styles';
 
 interface PageHeaderProps {
   titulo: string;
@@ -39,3 +41,4 @@ const PageHeader: FC<PageHeaderProps> = ({ titulo, button, right }) => {
 };
 
 export default memo(PageHeader);
+

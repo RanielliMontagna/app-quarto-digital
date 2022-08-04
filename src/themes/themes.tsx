@@ -1,9 +1,10 @@
-import { ThemeProvider } from '@mui/material';
+import ThemeProvider from '@rm-monorepo/theme-provider';
+
 import { useApp } from 'store';
 import { ThemeProvider as ThemeProviderSC } from 'styled-components';
+
 import { azulQD, brancoQD, cinzaClaro, cinzaEscuro, danger, pretoAzulado, pretoQD, success, warning } from './cores';
-import { tamanhoFonte } from './fontes';
-import { darkTheme, lightTheme } from './mui';
+import { fontes } from './fontes';
 
 const _coresExtras = {
   cinzaClaro: cinzaClaro,
@@ -21,7 +22,7 @@ const _coresUtilitarias = {
 };
 
 export const _temaClaro = {
-  tamanhoFonte,
+  fontes,
   cores: {
     primaria: azulQD,
     secundaria: pretoQD,
@@ -32,7 +33,7 @@ export const _temaClaro = {
 };
 
 export const _temaEscuro = {
-  tamanhoFonte,
+  fontes,
   cores: {
     primaria: azulQD,
     secundaria: brancoQD,
@@ -48,8 +49,10 @@ export const Theme: React.FC = ({ children }) => {
   const { tema } = useApp();
 
   return (
-    <ThemeProvider theme={tema === 'escuro' ? darkTheme : lightTheme}>
-      <ThemeProviderSC theme={tema === 'escuro' ? _temaEscuro : _temaClaro}>{children}</ThemeProviderSC>{' '}
+    //@ts-ignore
+    <ThemeProvider theme={tema === 'escuro' ? _temaEscuro : _temaClaro}>
+      <ThemeProviderSC theme={tema === 'escuro' ? _temaEscuro : _temaClaro}>{children}</ThemeProviderSC>
     </ThemeProvider>
   );
 };
+

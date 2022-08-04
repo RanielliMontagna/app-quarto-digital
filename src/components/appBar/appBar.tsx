@@ -1,16 +1,20 @@
 import { Fragment, memo } from 'react';
+import crypto from 'crypto';
+import { useNavigate } from 'react-router-dom';
+import { IoChevronDownOutline, IoExitOutline } from 'react-icons/io5';
+import { FiMoon, FiSun } from 'react-icons/fi';
+
 import { MenuDivider, MenuItem } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 import '@szhsin/react-menu/dist/transitions/slide.css';
-import { Menu, MenuItemConteudo, DrawerMobile, Typography } from 'components';
-import { FiMoon, FiSun } from 'react-icons/fi';
-import { IoChevronDownOutline, IoExitOutline } from 'react-icons/io5';
-import { useNavigate } from 'react-router-dom';
+
+import { Tooltip } from '@mui/material';
+import { Typography } from '@rm-monorepo/typography/lib/typography/src';
+
+import { Menu, MenuItemConteudo, DrawerMobile } from 'components';
 import { useApp } from 'store';
 import * as styled from './appBar.styles';
-import { Tooltip } from '@mui/material';
 import { ItemsMenu } from './appBar.static';
-import crypto from 'crypto';
 import { useAuth } from 'store/auth';
 import { useAppBar } from './useAppBar';
 
@@ -68,3 +72,4 @@ const AppBar = () => {
 };
 
 export default memo(AppBar);
+

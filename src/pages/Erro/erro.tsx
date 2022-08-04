@@ -1,7 +1,8 @@
 import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Button, Typography } from 'components';
+import { Typography } from '@rm-monorepo/typography/lib/typography/src';
+import { Button } from '@rm-monorepo/button/lib/button/src';
 
 import { DivErro } from './erro.styles';
 

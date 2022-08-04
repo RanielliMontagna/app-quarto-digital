@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 import { PageHeader } from 'components';
 import * as styled from './paginaBase.styles';
-import { ButtonProps } from 'components/button/button.types';
+import { ButtonProps } from '@rm-monorepo/button/lib/button/src';
 
 interface PaginaBaseProps {
   titulo: string;
@@ -23,3 +23,4 @@ const PaginaBase: FC<PaginaBaseProps> = ({ titulo, children, button, right }) =>
 };
 
 export default memo(PaginaBase);
+

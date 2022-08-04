@@ -1,4 +1,4 @@
-import { ButtonProps } from 'components/button/button.types';
+import { ButtonProps } from '@rm-monorepo/button/lib/button/src';
 import { Size } from 'shared';
 
 export interface ModalProps {
@@ -13,3 +13,4 @@ export interface ModalProps {
     extra?: React.ReactElement;
   };
 }
+

@@ -1,8 +1,8 @@
 import { memo } from 'react';
 
 import { DivEmptyState } from './emptyState.styles';
-import { Button, Typography } from 'components';
-import { ButtonProps } from 'components/button/button.types';
+import { Typography } from '@rm-monorepo/typography/lib/typography/src';
+import { Button, ButtonProps } from '@rm-monorepo/button/lib/button/src';
 
 interface IEmptyState {
   imagem: string;
@@ -33,3 +33,4 @@ const EmptyState = ({ imagem, titulo, descricao, botao }: IEmptyState) => {
 };
 
 export default memo(EmptyState);
+
