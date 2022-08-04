@@ -2,7 +2,7 @@ import { AppActions } from 'store';
 import { useDispatch } from 'react-redux';
 import { useQuartos } from 'store/quartos';
 
-import { Modal } from 'components';
+import Modal from '@rm-monorepo/modal/lib/modal/src';
 import { MdAdd } from 'react-icons/md';
 
 const NovoQuarto = () => {

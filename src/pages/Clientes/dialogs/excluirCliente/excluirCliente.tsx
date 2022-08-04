@@ -1,4 +1,4 @@
-import { Modal } from 'components';
+import Modal from '@rm-monorepo/modal/lib/modal/src';
 import { Typography } from '@rm-monorepo/typography/lib/typography/src';
 import useExcluirCliente from './useExcluirCliente';
 

@@ -36,6 +36,7 @@
     "@rm-monorepo/button": "^1.3.1",
     "@rm-monorepo/fields": "^1.4.0",
     "@rm-monorepo/loading": "^1.3.0",
+    "@rm-monorepo/modal": "^1.1.0",
     "@rm-monorepo/page-header": "^1.1.0",
     "@rm-monorepo/theme-provider": "^1.3.1",
     "@rm-monorepo/typography": "^1.3.1",

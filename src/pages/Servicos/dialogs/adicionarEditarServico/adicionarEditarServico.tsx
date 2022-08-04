@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 
-import { Modal } from 'components';
+import Modal from '@rm-monorepo/modal/lib/modal/src';
 
 import useAdicionarEditarServico from './useAdicionarEditarServico';
 import Fields from './fields/fields';
@@ -46,3 +46,4 @@ const AdicionarEditarServico = () => {
 };
 
 export default AdicionarEditarServico;
+
