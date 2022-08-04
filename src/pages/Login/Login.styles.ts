@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export const DivLogin = styled.div`
   width: 50%;
   height: 100vh;
-  background-color: ${({ theme }) => theme.coresExtras.branco};
+  background-color: ${({ theme }) => theme?.coresExtras?.branco};
   overflow: auto;
 
   ::-webkit-scrollbar {
@@ -61,9 +61,9 @@ export const StayConnect = styled.div`
 export const ForgotPassword = styled.div`
   display: flex;
   align-items: flex-end;
-  color: ${({ theme }) => theme.coresExtras.cinzaClaro};
+  color: ${({ theme }) => theme?.coresExtras?.cinzaClaro};
   font-weight: 100;
-  font-size: ${(props) => `${props.theme.tamanhoFonte.sm}`};
+  font-size: ${(props) => `${props.theme?.fontes?.sm}`};
   cursor: pointer;
 `;
 
@@ -72,11 +72,11 @@ export const ButtonEnter = styled.button`
   padding: 10px 0px;
   width: 80%;
   height: 44px;
-  background-color: ${({ theme }) => theme.cores.primaria};
+  background-color: ${({ theme }) => theme?.cores?.primaria};
   border: none;
   border-radius: 4px;
-  color: ${({ theme }) => theme.coresExtras.branco};
-  font-size: ${(props) => `${props.theme.tamanhoFonte.md}`};
+  color: ${({ theme }) => theme?.coresExtras?.branco};
+  font-size: ${(props) => `${props.theme?.fontes?.md}`};
   font-weight: 500;
   cursor: pointer;
   transition: 0.5s;
@@ -86,7 +86,7 @@ export const ButtonEnter = styled.button`
   }
 
   &:hover {
-    background-color: ${({ theme }) => theme.cores.primaria}90;
+    background-color: ${({ theme }) => theme?.cores?.primaria}90;
   }
 `;
 
@@ -98,14 +98,14 @@ export const DivLayout = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme }) => theme.cores.primaria};
+  background-color: ${({ theme }) => theme?.cores?.primaria};
 
   @media (max-width: 950px) {
     display: none;
   }
 
   h1 {
-    color: ${({ theme }) => theme.coresExtras.branco};
+    color: ${({ theme }) => theme?.coresExtras?.branco};
     font-weight: 600;
     margin-bottom: 8px;
     margin-top: 32px;
@@ -116,7 +116,7 @@ export const DivLayout = styled.div`
   }
 
   h2 {
-    color: ${({ theme }) => theme.coresExtras.branco};
+    color: ${({ theme }) => theme?.coresExtras?.branco};
     font-weight: 300;
     text-align: center;
     padding: 0px 10px;
@@ -137,12 +137,13 @@ export const DivIlustracao = styled.div`
 export const VoltarHome = styled.div`
   padding-bottom: 16px;
   cursor: pointer;
-  color: ${({ theme }) => theme.coresExtras.cinzaClaro};
+  color: ${({ theme }) => theme?.coresExtras?.cinzaClaro};
   &:hover {
     transition: 0.5s;
-    color: ${({ theme }) => theme.coresExtras.cinzaEscuro};
+    color: ${({ theme }) => theme?.coresExtras?.cinzaEscuro};
   }
   @media (max-width: 576px) {
     cursor: none;
   }
 `;
+

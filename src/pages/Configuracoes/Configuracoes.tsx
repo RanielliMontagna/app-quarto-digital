@@ -1,4 +1,4 @@
-import { PageHeader } from 'components';
+import { PageHeader } from '@rm-monorepo/page-header/lib/pageHeader/src';
 
 export const Configuracoes = () => {
   return (
@@ -9,3 +9,4 @@ export const Configuracoes = () => {
 };
 
 export default Configuracoes;
+

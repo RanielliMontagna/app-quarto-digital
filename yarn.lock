@@ -1869,10 +1869,15 @@
   resolved "https://registry.npmjs.org/@rm-monorepo/loading/-/loading-1.3.0.tgz#c75005102727f13b2bf8733c2a8697cd4fe0a0ba"
   integrity sha512-/Od6Tpg6rA70wXnNVrPxqNsfRQqoRq6y9dnawfv0ZJ5r0mZ65NX9ttEkz2wnHqLiG5tiuzq42SraaTEH1WEgDw==
 
-"@rm-monorepo/theme-provider@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.npmjs.org/@rm-monorepo/theme-provider/-/theme-provider-1.3.0.tgz#e4ada643e7a10c3c256e29c4175cac0b334ca19d"
-  integrity sha512-KlYTzTeGXoKIApblvidfQ7gcT35ybLv+BYL9+eVYizZHb8ZjbcT5PfN5p/dpm04550tNoNDPuScXDzhZN0QI3Q==
+"@rm-monorepo/page-header@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/@rm-monorepo/page-header/-/page-header-1.1.0.tgz#bb02bc57d0398d75ee1187764f862146af2aa695"
+  integrity sha512-8qJ9gAjeeGfdoJZ+hgEXIjQtXNWaxXZgGerHuZznmWvkQ7xX/YSgfm/4+xS88LGu1cNnrccoeCPQjwk0Evo28g==
+
+"@rm-monorepo/theme-provider@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.npmjs.org/@rm-monorepo/theme-provider/-/theme-provider-1.3.1.tgz#cec2979c6c9f2361773b61883c055453d8f1572d"
+  integrity sha512-xxd/RCMZUgVfFgktu+JmPvStADXHzgbu32wIjH7tEPWlPD70XmOKrfoMH8vy747n9Yu+m8tTGioXuskoxZzpsw==
 
 "@rm-monorepo/typography@^1.3.1":
   version "1.3.1"

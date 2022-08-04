@@ -1,10 +1,11 @@
 import ThemeProvider from '@rm-monorepo/theme-provider';
+import { ThemeProvider as ThemeProviderMaterial } from '@mui/material';
 
 import { useApp } from 'store';
-import { ThemeProvider as ThemeProviderSC } from 'styled-components';
 
 import { azulQD, brancoQD, cinzaClaro, cinzaEscuro, danger, pretoAzulado, pretoQD, success, warning } from './cores';
 import { fontes } from './fontes';
+import { darkTheme, lightTheme } from './mui';
 
 const _coresExtras = {
   cinzaClaro: cinzaClaro,
@@ -49,10 +50,10 @@ export const Theme: React.FC = ({ children }) => {
   const { tema } = useApp();
 
   return (
-    //@ts-ignore
-    <ThemeProvider theme={tema === 'escuro' ? _temaEscuro : _temaClaro}>
-      <ThemeProviderSC theme={tema === 'escuro' ? _temaEscuro : _temaClaro}>{children}</ThemeProviderSC>
-    </ThemeProvider>
+    <ThemeProviderMaterial theme={tema === 'escuro' ? darkTheme : lightTheme}>
+      {/* @ts-ignore */}
+      <ThemeProvider theme={tema === 'escuro' ? _temaEscuro : _temaClaro}>{children}</ThemeProvider>
+    </ThemeProviderMaterial>
   );
 };
 

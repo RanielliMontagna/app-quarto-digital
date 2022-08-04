@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import { PageHeader } from 'components';
+import { PageHeader } from '@rm-monorepo/page-header/lib/pageHeader/src';
 import * as styled from './paginaBase.styles';
 import { ButtonProps } from '@rm-monorepo/button/lib/button/src';
 
