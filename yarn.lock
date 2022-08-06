@@ -1869,20 +1869,25 @@
   resolved "https://registry.npmjs.org/@rm-monorepo/loading/-/loading-1.3.0.tgz#c75005102727f13b2bf8733c2a8697cd4fe0a0ba"
   integrity sha512-/Od6Tpg6rA70wXnNVrPxqNsfRQqoRq6y9dnawfv0ZJ5r0mZ65NX9ttEkz2wnHqLiG5tiuzq42SraaTEH1WEgDw==
 
-"@rm-monorepo/modal@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.npmjs.org/@rm-monorepo/modal/-/modal-1.1.0.tgz#96fdc4434eb7fbc8d5f15d3a80b5af90aff23476"
-  integrity sha512-Mg3e/BkP7sCAs/KwylWkBY1arpHvJZ8+dPg4G6dn6W1psiGfvaOYSxnBiC0byZN1OZjtLRhZWdB/U0NqNrHFwg==
+"@rm-monorepo/menu@^1.5.1":
+  version "1.5.1"
+  resolved "https://registry.npmjs.org/@rm-monorepo/menu/-/menu-1.5.1.tgz#446796213ac028078302c68d0adcc0acd33be351"
+  integrity sha512-ZaWqFffGur3j4QoLGlURcnwg3Q8iNgek/AGdYyzNakZ28BbbWsGvrDverYa1BOiwn6DNJ40ojdSUdfmUfu3F3A==
+
+"@rm-monorepo/modal@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.npmjs.org/@rm-monorepo/modal/-/modal-1.2.1.tgz#af5efc5faac29347d1340714b5fdfa8da98954d4"
+  integrity sha512-YKoMWzQ0zW1uwDnnOVqfFAhK8R6Dw/wEd/1MtVDTuHMyHM+VknxzR7YABh60o7jYGAoTU653thFkNzuYhtIu4w==
 
 "@rm-monorepo/page-header@^1.1.0":
   version "1.1.0"
   resolved "https://registry.npmjs.org/@rm-monorepo/page-header/-/page-header-1.1.0.tgz#bb02bc57d0398d75ee1187764f862146af2aa695"
   integrity sha512-8qJ9gAjeeGfdoJZ+hgEXIjQtXNWaxXZgGerHuZznmWvkQ7xX/YSgfm/4+xS88LGu1cNnrccoeCPQjwk0Evo28g==
 
-"@rm-monorepo/theme-provider@^1.3.1":
-  version "1.3.1"
-  resolved "https://registry.npmjs.org/@rm-monorepo/theme-provider/-/theme-provider-1.3.1.tgz#cec2979c6c9f2361773b61883c055453d8f1572d"
-  integrity sha512-xxd/RCMZUgVfFgktu+JmPvStADXHzgbu32wIjH7tEPWlPD70XmOKrfoMH8vy747n9Yu+m8tTGioXuskoxZzpsw==
+"@rm-monorepo/theme-provider@^1.3.2":
+  version "1.3.2"
+  resolved "https://registry.npmjs.org/@rm-monorepo/theme-provider/-/theme-provider-1.3.2.tgz#bce10fd897e57fa48711d624da728cc16dacd5cf"
+  integrity sha512-5MvYkRTU5ZMSYVXjDEjUyDhEHFP858hQvDqnZwybO5vJiovHlBguO97aSk6zxzzGK1K5OHkJwx9lRMrNT1RW1w==
 
 "@rm-monorepo/typography@^1.3.1":
   version "1.3.1"

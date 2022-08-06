@@ -3,7 +3,7 @@ import { IAcoes } from '../dataTable.types';
 import { MenuItem, Tooltip } from '@mui/material';
 import { RiMenu4Fill } from 'react-icons/ri';
 
-import { Menu, MenuItemConteudo } from 'components';
+import { Menu, MenuItemConteudo } from '@rm-monorepo/menu';
 
 const Acoes = ({ acoes }: { acoes: IAcoes[] }) => {
   return (

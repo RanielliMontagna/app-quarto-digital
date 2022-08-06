@@ -11,7 +11,8 @@ import '@szhsin/react-menu/dist/transitions/slide.css';
 import { Tooltip } from '@mui/material';
 import { Typography } from '@rm-monorepo/typography/lib/typography/src';
 
-import { Menu, MenuItemConteudo, DrawerMobile } from 'components';
+import { DrawerMobile } from 'components';
+import { Menu, MenuItemConteudo } from '@rm-monorepo/menu';
 import { useApp } from 'store';
 import * as styled from './appBar.styles';
 import { ItemsMenu } from './appBar.static';

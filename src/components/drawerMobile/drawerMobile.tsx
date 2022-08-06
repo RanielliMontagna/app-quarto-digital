@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { MenuItem } from '@szhsin/react-menu';
-import { Menu, MenuItemConteudo, OpcoesMenu } from 'components';
+import { OpcoesMenu } from 'components';
+import { Menu, MenuItemConteudo } from '@rm-monorepo/menu';
 import { IoMenuSharp } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
 import crypto from 'crypto';
@@ -29,3 +30,4 @@ const DrawerMobile = () => {
 };
 
 export default memo(DrawerMobile);
+

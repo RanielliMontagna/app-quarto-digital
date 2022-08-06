@@ -31,6 +31,14 @@ export const _temaClaro = {
   },
   coresUtilitarias: _coresUtilitarias,
   coresExtras: _coresExtras,
+  modal: {
+    background: brancoQD,
+    foreground: pretoQD,
+  },
+  menu: {
+    background: brancoQD,
+    foreground: pretoQD,
+  },
 };
 
 export const _temaEscuro = {
@@ -42,6 +50,14 @@ export const _temaEscuro = {
   },
   coresUtilitarias: _coresUtilitarias,
   coresExtras: _coresExtras,
+  modal: {
+    background: pretoAzulado,
+    foreground: brancoQD,
+  },
+  menu: {
+    background: pretoAzulado,
+    foreground: brancoQD,
+  },
 };
 
 export type ThemeType = typeof _temaClaro;

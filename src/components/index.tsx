@@ -1,7 +1,6 @@
 export { default as Drawer } from './drawer/drawer';
 export { default as DrawerMobile } from './drawerMobile/drawerMobile';
 export { default as AppBar } from './appBar/appBar';
-export { default as Menu, MenuItemConteudo } from './menu/menu';
 export { default as PaginaBase } from './paginaBase/paginaBase';
 export { default as CardIndicador } from './cardIndicador/cardIndicador';
 export { default as Footer } from './footer/footer';
