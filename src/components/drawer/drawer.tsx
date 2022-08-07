@@ -1,20 +1,18 @@
-import { FC, memo } from 'react';
-import * as styled from './drawer.styles';
-import Botoes from './botoes/botoes';
+import { memo } from 'react';
+import { Drawer } from '@rm-monorepo/drawer';
 
-interface DrawerProps {}
-
-const Drawer: FC<DrawerProps> = () => {
-  const logo = '/assets/logo/logoSimplificadoBranco.svg';
-
+export const DrawerWithoutMemo = () => {
   return (
-    <styled.DivMenu>
-      <styled.DivLogo>
-        <img src={logo} alt={logo} style={{ width: '40px' }} />
-      </styled.DivLogo>
-      <Botoes />
-    </styled.DivMenu>
+    <Drawer>
+      <Drawer.Header onClick={() => {}}>
+        <img src="/assets/logo/logoSimplificadoBranco.svg" alt="Logo" />
+      </Drawer.Header>
+      <Drawer.Content>
+        <></>
+      </Drawer.Content>
+    </Drawer>
   );
 };
 
-export default memo(Drawer);
+export default memo(DrawerWithoutMemo);
+
