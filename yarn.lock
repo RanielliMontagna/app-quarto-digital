@@ -1859,6 +1859,11 @@
   resolved "https://registry.npmjs.org/@rm-monorepo/button/-/button-1.3.1.tgz#182595e5f413e64b1fa97101eda34d5859800ec9"
   integrity sha512-GUlWC0z0gv9raBJlBBuG8I4ArnIcaj51qAansqiIq515afDrlwdgbX8dX9L4n5pnRWXh05+4RnKUKXvejP8B1w==
 
+"@rm-monorepo/data-table@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/@rm-monorepo/data-table/-/data-table-1.1.0.tgz#7c9149bc2dec430b448fa1876a4fc05213dceef5"
+  integrity sha512-OtzrnMHLLqrxAvyLVrRJS6dxBUwaObZiqPmMmODXGZhb1R6AEG/TwRkpXPwg7pmKlMkwCBeh1Ye0hYGkorq6LA==
+
 "@rm-monorepo/drawer@^1.1.1":
   version "1.1.1"
   resolved "https://registry.npmjs.org/@rm-monorepo/drawer/-/drawer-1.1.1.tgz#d2592dc3fd499f918ef2e3d7477f65c3cf660e59"

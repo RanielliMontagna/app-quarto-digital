@@ -1,4 +1,4 @@
-import { IColunas } from 'components';
+import { IColunas } from '@rm-monorepo/data-table/lib/dataTable/src';
 
 export const colunasClientes: IColunas[] = [
   {
@@ -27,3 +27,4 @@ export const colunasClientes: IColunas[] = [
     align: 'right',
   },
 ];
+

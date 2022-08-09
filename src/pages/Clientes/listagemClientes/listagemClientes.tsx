@@ -1,5 +1,6 @@
-import { DataTable } from 'components';
 import { useMemo } from 'react';
+import { DataTable } from '@rm-monorepo/data-table/lib/dataTable/src';
+
 import { useClientes } from 'store/clientes';
 import { EmptyStateSearch, EmptyStateSemClientes } from '../emptyStateClientes/emptyStateClientes';
 import { colunasClientes } from './listagemCliente.static';

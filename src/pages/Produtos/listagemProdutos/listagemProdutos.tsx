@@ -1,5 +1,6 @@
-import { DataTable } from 'components';
 import { useMemo } from 'react';
+import { DataTable } from '@rm-monorepo/data-table/lib/dataTable/src';
+
 import { useProdutos } from 'store/produtos';
 import { EmptyStateSearch, EmptyStateSemProdutos } from '../emptyStateProdutos/emptyStateProdutos';
 import { colunasProdutos } from './listagemProduto.static';
@@ -29,3 +30,4 @@ const ListagemProdutos = () => {
 };
 
 export default ListagemProdutos;
+
