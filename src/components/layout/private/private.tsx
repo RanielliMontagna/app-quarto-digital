@@ -8,7 +8,7 @@ import * as styled from './private.styles';
 import { usePrivate } from './usePrivate';
 
 import { Tooltip } from '@mui/material';
-import Loading from '@rm-monorepo/loading';
+import { Loading } from '@rm-monorepo/loading';
 import { Menu, MenuItemConteudo } from '@rm-monorepo/menu';
 import { AppBar } from '@rm-monorepo/app-bar';
 import { Typography } from '@rm-monorepo/typography/lib/typography/src';

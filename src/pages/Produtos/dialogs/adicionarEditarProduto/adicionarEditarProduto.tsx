@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import Modal from '@rm-monorepo/modal/lib/modal/src';
+import { Modal } from '@rm-monorepo/modal/lib/modal/src';
 
 import useAdicionarEditarProduto from './useAdicionarEditarProduto';
 import Fields from './fields/fields';

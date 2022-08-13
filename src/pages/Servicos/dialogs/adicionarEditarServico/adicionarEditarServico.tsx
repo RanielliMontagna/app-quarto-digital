@@ -1,10 +1,10 @@
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
-import Modal from '@rm-monorepo/modal/lib/modal/src';
+import { Modal } from '@rm-monorepo/modal/lib/modal/src';
 
 import useAdicionarEditarServico from './useAdicionarEditarServico';
 import Fields from './fields/fields';
-import { useEffect } from 'react';
 
 const AdicionarEditarServico = () => {
   const { open, titulo, labelBotao, initialValues, onSubmit, handleClose } = useAdicionarEditarServico();

@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import { useApp } from 'store';
-import Loading from '@rm-monorepo/loading';
+import { Loading } from '@rm-monorepo/loading';
 import { DivChildren } from './public.styles';
 
 const Public = () => {
@@ -19,3 +19,4 @@ const Public = () => {
 };
 
 export default memo(Public);
+
