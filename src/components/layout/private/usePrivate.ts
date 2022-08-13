@@ -1,11 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import { logout } from 'service';
 
-import { AuthActions } from 'store/auth';
 import { AppActions, useApp } from 'store';
+import { AuthActions } from 'store/auth';
 import { useDispatch } from 'store/hooks';
-import { useNavigate } from 'react-router-dom';
 
-export const useAppBar = () => {
+export const usePrivate = () => {
   const { tema } = useApp();
   const _dispatch = useDispatch();
   const _navigate = useNavigate();
@@ -41,3 +41,4 @@ export const useAppBar = () => {
 
   return { handleSair, handleMudarTema };
 };
+

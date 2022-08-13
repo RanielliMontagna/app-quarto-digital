@@ -1,6 +1,6 @@
 import { IoPersonOutline, IoSettingsOutline } from 'react-icons/io5';
 
-export const ItemsMenu = [
+export const ItemsMenuAppBar = [
   {
     label: 'Configurações',
     route: '/configuracoes',
@@ -12,3 +12,4 @@ export const ItemsMenu = [
     icon: <IoPersonOutline size={16} />,
   },
 ];
+
