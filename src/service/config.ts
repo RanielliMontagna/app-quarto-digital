@@ -8,6 +8,7 @@ export const apiUrls = {
   produtos: '/produtos',
   servicos: '/servicos',
   clientes: '/clientes',
+  quartos: '/quartos',
 };
 
 export const makeHeaders = () => {
@@ -24,3 +25,4 @@ export const makeHeaders = () => {
     store.dispatch(AuthActions.clearAuth());
   }
 };
+

@@ -4,8 +4,6 @@ import { CurrencyField, TextField } from '@rm-monorepo/fields';
 import { rules } from '@rm-monorepo/utils';
 
 const Fields = ({ errors, control }: IFields) => {
-  const { required } = rules;
-
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <div>
@@ -14,7 +12,7 @@ const Fields = ({ errors, control }: IFields) => {
           control={control}
           label="Nome *"
           placeholder="Informe o nome"
-          rules={required}
+          rules={rules.required}
           fullWidth
           error={Boolean(errors?.nome)}
           helperText={errors?.nome?.message}
@@ -25,7 +23,7 @@ const Fields = ({ errors, control }: IFields) => {
         <CurrencyField
           name="preco"
           control={control}
-          rules={required}
+          rules={rules.required}
           textFieldProps={{
             label: 'Preço *',
             error: Boolean(errors?.preco),

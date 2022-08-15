@@ -16,13 +16,7 @@ const Produtos = () => {
   const _dispatch = useDispatch();
 
   const handleSearch = throttle(
-    async (term: string) => {
-      await _dispatch(
-        ProdutosActions.buscarProdutos({
-          search: term,
-        })
-      );
-    },
+    async (term: string) => await _dispatch(ProdutosActions.buscarProdutos({ search: term })),
     500,
     { leading: false }
   );

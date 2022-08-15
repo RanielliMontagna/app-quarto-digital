@@ -1,0 +1,47 @@
+import { masks } from '@rm-monorepo/utils';
+import { useEffect, useMemo } from 'react';
+
+import { useDispatch } from 'store/hooks';
+import { QuartosActions, useQuartos } from 'store/quartos';
+
+export const useListagemQuartos = () => {
+  const _dispatch = useDispatch();
+  const { quartos, setAdicionarEditarQuarto, setExcluirQuarto } = useQuartos();
+
+  useEffect(() => {
+    if (!quartos?.length) {
+      _dispatch(QuartosActions.buscarQuartos({}));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const dataQuartos = useMemo(() => {
+    //TODO: implementar status do quarto
+
+    return quartos?.map((quarto) => ({
+      ...quarto,
+      diaria: masks.valor(quarto.diaria),
+      acoes: [
+        {
+          id: 'editar',
+          label: 'Editar',
+          onClick: () => {
+            setAdicionarEditarQuarto({ open: true, quarto });
+          },
+        },
+        {
+          id: 'excluir',
+          label: 'Excluir',
+          onClick: () => {
+            setExcluirQuarto({ open: true, quarto });
+          },
+        },
+      ],
+    }));
+  }, [quartos, setAdicionarEditarQuarto, setExcluirQuarto]);
+
+  return {
+    dataQuartos,
+  };
+};
+

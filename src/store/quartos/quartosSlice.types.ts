@@ -1,10 +1,29 @@
-export type Quarto = {};
+export interface IQuarto {
+  id: number;
+  identificacao: string;
+  diaria: number;
+  status: string;
+}
 
+export type NovoQuartoType = Omit<IQuarto, 'id' | 'status'>;
 export interface QuartosSlice {
-  quartos: Quarto[];
+  quartos: IQuarto[] | null;
 }
 
-export interface QuartosSliceWithCallbacks extends QuartosSlice {
-  novoQuarto: boolean;
-  setNovoQuarto: React.Dispatch<React.SetStateAction<boolean>>;
+export interface AdicionarEditarQuartoDialog {
+  open: boolean;
+  quarto?: IQuarto;
 }
+
+export interface ExcluirQuartoDialog {
+  open: boolean;
+  quarto?: IQuarto;
+}
+export interface QuartosSliceWithCallbacks extends QuartosSlice {
+  adicionarEditarQuarto: AdicionarEditarQuartoDialog;
+  excluirQuarto: ExcluirQuartoDialog;
+
+  setAdicionarEditarQuarto: React.Dispatch<React.SetStateAction<AdicionarEditarQuartoDialog>>;
+  setExcluirQuarto: React.Dispatch<React.SetStateAction<ExcluirQuartoDialog>>;
+}
+

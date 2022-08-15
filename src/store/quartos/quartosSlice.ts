@@ -1,19 +1,20 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import type { QuartosSlice } from './quartosSlice.types';
+import type { IQuarto, QuartosSlice } from './quartosSlice.types';
 
 export const initialState: QuartosSlice = {
-  quartos: [],
+  quartos: null,
 };
 
 const quartosSlice = createSlice({
   name: 'quartos',
   initialState,
   reducers: {
-    clearQuartos: (state) => {
-      state = initialState;
+    storeQuartos: (state, { payload }: PayloadAction<IQuarto[] | null>) => {
+      state.quartos = payload;
     },
   },
 });
 
 export default quartosSlice;
+

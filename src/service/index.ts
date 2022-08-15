@@ -16,3 +16,6 @@ export * from './servicos/servicos.types';
 export * from './clientes/clientes';
 export * from './clientes/clientes.types';
 
+// Export referente aos quartos
+export * from './quartos/quartos';
+export * from './quartos/quartos.types';

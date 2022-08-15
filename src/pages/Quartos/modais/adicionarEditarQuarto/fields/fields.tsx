@@ -1,36 +1,36 @@
+import type { IFields } from '../adicionarEditarQuarto.types';
+
 import { CurrencyField, TextField } from '@rm-monorepo/fields';
 import { rules } from '@rm-monorepo/utils';
-
-import { IFields } from '../adicionarEditarServico.types';
 
 const Fields = ({ errors, control }: IFields) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <div>
         <TextField
-          name="nome"
+          name="identificacao"
           control={control}
-          label="Nome *"
-          placeholder="Informe o nome"
+          label="Identificação *"
+          placeholder="Informe a identificação"
           rules={rules.required}
           fullWidth
-          error={Boolean(errors?.nome)}
-          helperText={errors?.nome?.message}
+          error={Boolean(errors?.identificacao)}
+          helperText={errors?.identificacao?.message}
           autoFocus
         />
       </div>
       <div>
         <CurrencyField
-          name="preco"
+          name="diaria"
           control={control}
           rules={rules.required}
           textFieldProps={{
-            label: 'Preço *',
-            error: Boolean(errors?.preco),
-            helperText: errors?.preco?.message,
+            label: 'Diária *',
+            error: Boolean(errors?.diaria),
+            helperText: errors?.diaria?.message,
             size: 'small',
             fullWidth: true,
-            placeholder: 'Informe o preço',
+            placeholder: 'Informe a diária',
           }}
         />
       </div>
