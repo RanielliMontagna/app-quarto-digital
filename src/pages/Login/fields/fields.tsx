@@ -1,11 +1,13 @@
-import { createTheme, ThemeProvider } from '@mui/material';
 import { memo } from 'react';
-import { Field } from '../Login.styles';
-import { IFieldsLogin } from './fields.types';
 
-import { composeRules, email, required } from 'utils/rules';
+import { createTheme, ThemeProvider } from '@mui/material';
+import { rules } from '@rm-monorepo/utils';
+
+import { Field } from '../Login.styles';
+import type { IFieldsLogin } from './fields.types';
 
 const Fields = ({ errors, register }: IFieldsLogin) => {
+  const { required, email, composeRules } = rules;
   const theme = createTheme({});
 
   return (
@@ -30,3 +32,4 @@ const Fields = ({ errors, register }: IFieldsLogin) => {
 };
 
 export default memo(Fields);
+

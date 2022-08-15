@@ -2,12 +2,13 @@ import { CircularProgress } from '@mui/material';
 import { NumberField, TextField, DatePicker } from '@rm-monorepo/fields';
 
 import { useCnpj } from 'hooks';
-import { required, email, cpfCnpj, composeRules, phone } from 'utils/rules';
+import { rules } from '@rm-monorepo/utils';
 
 import { IFields } from '../adicionarEditarCliente.types';
 import { useFields } from './useFields';
 
 const Fields = ({ errors, control, setValue }: IFields) => {
+  const { cpfCnpj, required, email, phone, composeRules } = rules;
   const { buscarCnpj, cnpj, loading } = useCnpj();
 
   // Lógicas dos fields (no momento somente o CNPJ)

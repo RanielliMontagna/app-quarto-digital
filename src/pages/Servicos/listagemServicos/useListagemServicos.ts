@@ -2,7 +2,7 @@ import { useEffect, useMemo } from 'react';
 
 import { useDispatch } from 'store/hooks';
 import { ServicosActions, useServicos } from 'store/servicos';
-import { valor } from 'utils/masks';
+import { masks } from '@rm-monorepo/utils';
 
 export const useListagemServicos = () => {
   const _dispatch = useDispatch();
@@ -18,7 +18,7 @@ export const useListagemServicos = () => {
   const dataServicos = useMemo(() => {
     return servicos?.map((servico) => ({
       ...servico,
-      preco: valor(servico.preco),
+      preco: masks.valor(servico.preco),
       acoes: [
         {
           id: 'editar',
@@ -42,3 +42,4 @@ export const useListagemServicos = () => {
     dataServicos,
   };
 };
+

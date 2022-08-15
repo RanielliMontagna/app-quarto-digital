@@ -2,7 +2,7 @@ import { useEffect, useMemo } from 'react';
 
 import { useDispatch } from 'store/hooks';
 import { ProdutosActions, useProdutos } from 'store/produtos';
-import { valor } from 'utils/masks';
+import { masks } from '@rm-monorepo/utils';
 
 export const useListagemProdutos = () => {
   const _dispatch = useDispatch();
@@ -18,7 +18,7 @@ export const useListagemProdutos = () => {
   const dataProdutos = useMemo(() => {
     return produtos?.map((produto) => ({
       ...produto,
-      preco: valor(produto.preco),
+      preco: masks.valor(produto.preco),
       acoes: [
         {
           id: 'editar',
@@ -42,3 +42,4 @@ export const useListagemProdutos = () => {
     dataProdutos,
   };
 };
+

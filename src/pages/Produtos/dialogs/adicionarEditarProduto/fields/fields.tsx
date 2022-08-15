@@ -1,9 +1,11 @@
-import { CurrencyField, TextField } from '@rm-monorepo/fields';
-import { required } from 'utils/rules';
+import type { IFields } from '../adicionarEditarProduto.types';
 
-import { IFields } from '../adicionarEditarProduto.types';
+import { CurrencyField, TextField } from '@rm-monorepo/fields';
+import { rules } from '@rm-monorepo/utils';
 
 const Fields = ({ errors, control }: IFields) => {
+  const { required } = rules;
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <div>

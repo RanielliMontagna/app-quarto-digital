@@ -4,7 +4,7 @@ import { useDispatch } from 'store/hooks';
 import { ClientesActions, useClientes } from 'store/clientes';
 
 import dayjs from 'dayjs';
-import { cpfCnpj, phone } from 'utils/masks';
+import { masks } from '@rm-monorepo/utils';
 
 export const useListagemClientes = () => {
   const _dispatch = useDispatch();
@@ -21,8 +21,8 @@ export const useListagemClientes = () => {
     return clientes?.map((cliente) => ({
       ...cliente,
       email: cliente.email ?? '-',
-      cpfCnpj: cliente.cpfCnpj ? cpfCnpj(cliente.cpfCnpj) : '-',
-      telefone: cliente.telefone ? phone(cliente.telefone) : '-',
+      cpfCnpj: cliente.cpfCnpj ? masks.cpfCnpj(cliente.cpfCnpj) : '-',
+      telefone: cliente.telefone ? masks.phone(cliente.telefone) : '-',
       dataNasc: cliente.dataNasc ? dayjs(cliente.dataNasc).format('DD/MM/YYYY') : '-',
       acoes: [
         {
@@ -47,3 +47,4 @@ export const useListagemClientes = () => {
     dataClientes,
   };
 };
+
