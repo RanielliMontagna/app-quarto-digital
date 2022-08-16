@@ -5,7 +5,10 @@ export interface IQuarto {
   status: string;
 }
 
-export type NovoQuartoType = Omit<IQuarto, 'id' | 'status'>;
+export type NovoQuartoType = {
+  identificacao: number;
+  diaria: number;
+};
 export interface QuartosSlice {
   quartos: IQuarto[] | null;
 }

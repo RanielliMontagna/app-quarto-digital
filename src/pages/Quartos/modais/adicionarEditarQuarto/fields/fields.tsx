@@ -1,13 +1,13 @@
 import type { IFields } from '../adicionarEditarQuarto.types';
 
-import { CurrencyField, TextField } from '@rm-monorepo/fields';
+import { CurrencyField, NumberField } from '@rm-monorepo/fields';
 import { rules } from '@rm-monorepo/utils';
 
 const Fields = ({ errors, control }: IFields) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <div>
-        <TextField
+        <NumberField
           name="identificacao"
           control={control}
           label="Identificação *"

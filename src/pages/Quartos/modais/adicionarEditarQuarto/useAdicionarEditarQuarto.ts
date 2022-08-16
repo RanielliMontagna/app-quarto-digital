@@ -16,7 +16,10 @@ const useAdicionarEditarQuarto = () => {
 
   const _adicionarQuarto = async (values: AdicionarQuarto) => {
     try {
-      const { data } = await adicionarQuarto(values);
+      const { data } = await adicionarQuarto({
+        ...values,
+        identificacao: Number(values.identificacao),
+      });
       if (data) {
         _dispatch(AppActions.toggleNotificacao({ mensagem: 'Novo quarto adicionado com sucesso!' }));
         const search = document.getElementById('search') as HTMLInputElement;
@@ -35,7 +38,10 @@ const useAdicionarEditarQuarto = () => {
 
   const _editarQuarto = async (values: EditarQuarto) => {
     try {
-      const { status } = await editarQuarto(values);
+      const { status } = await editarQuarto({
+        ...values,
+        identificacao: Number(values.identificacao),
+      });
       if (status === 200) {
         _dispatch(AppActions.toggleNotificacao({ mensagem: 'Quarto editado com sucesso!' }));
         const search = document.getElementById('search') as HTMLInputElement;
@@ -83,7 +89,7 @@ const useAdicionarEditarQuarto = () => {
   const initialValues = useMemo(() => {
     if (quarto?.id) {
       return {
-        identificacao: quarto?.identificacao,
+        identificacao: String(quarto?.identificacao),
         diaria: quarto?.diaria,
       };
     }

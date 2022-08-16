@@ -13,7 +13,7 @@ const DrawerMobile = () => {
     <Menu
       align="start"
       menuButton={
-        <div style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
+        <div style={{ height: '100%', display: 'flex', alignItems: 'center', padding: '0 12px' }}>
           <IoMenuSharp size={24} />
         </div>
       }
