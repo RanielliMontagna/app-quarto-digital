@@ -1,3 +1,4 @@
+import { Typography } from '@rm-monorepo/typography/lib/typography/src';
 import styled from 'styled-components';
 
 export const ContainerCard = styled.div`
@@ -42,6 +43,20 @@ export const CardHeader = styled.div`
 `;
 
 export const CardBody = styled.div`
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+
+  width: calc(100% - 50px);
+  gap: 4px;
+  padding: 16px;
+`;
+
+export const TypographyWithEllipis = styled(Typography)`
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 

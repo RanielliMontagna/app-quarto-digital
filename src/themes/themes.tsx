@@ -4,7 +4,6 @@ import { ThemeProvider as ThemeProviderMaterial } from '@mui/material';
 import { useApp } from 'store';
 
 import { azulQD, brancoQD, cinzaClaro, cinzaEscuro, danger, pretoAzulado, pretoQD, success, warning } from './cores';
-import { fontes } from './fontes';
 import { darkTheme, lightTheme } from './mui';
 
 const _coresExtras = {
@@ -23,7 +22,6 @@ const _coresUtilitarias = {
 };
 
 export const _temaClaro = {
-  fontes,
   cores: {
     primaria: azulQD,
     secundaria: pretoQD,
@@ -42,7 +40,6 @@ export const _temaClaro = {
 };
 
 export const _temaEscuro = {
-  fontes,
   cores: {
     primaria: azulQD,
     secundaria: brancoQD,
