@@ -1,4 +1,4 @@
-import ThemeProvider from '@rm-monorepo/theme-provider';
+import { ThemeProvider } from '@rm-monorepo/theme-provider';
 import { ThemeProvider as ThemeProviderMaterial } from '@mui/material';
 
 import { useApp } from 'store';
@@ -29,14 +29,6 @@ export const _temaClaro = {
   },
   coresUtilitarias: _coresUtilitarias,
   coresExtras: _coresExtras,
-  modal: {
-    background: brancoQD,
-    foreground: pretoQD,
-  },
-  menu: {
-    background: brancoQD,
-    foreground: pretoQD,
-  },
 };
 
 export const _temaEscuro = {
@@ -55,6 +47,10 @@ export const _temaEscuro = {
     background: pretoAzulado,
     foreground: brancoQD,
   },
+  appBar: {
+    background: pretoAzulado,
+    foreground: brancoQD,
+  },
 };
 
 export type ThemeType = typeof _temaClaro;
@@ -64,7 +60,6 @@ export const Theme: React.FC = ({ children }) => {
 
   return (
     <ThemeProviderMaterial theme={tema === 'escuro' ? darkTheme : lightTheme}>
-      {/* @ts-ignore */}
       <ThemeProvider theme={tema === 'escuro' ? _temaEscuro : _temaClaro}>{children}</ThemeProvider>
     </ThemeProviderMaterial>
   );
