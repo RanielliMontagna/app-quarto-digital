@@ -16,7 +16,10 @@ export const useFields = ({ cnpj, setValue }: IUseFields) => {
       setValue('nome', cnpj?.nome ?? '');
       setValue('email', cnpj?.email ?? '');
       setValue('telefone', cnpj?.telefone ?? '');
-      setValue('dataNasc', cnpj?.data_situacao ? dayjs(cnpj?.data_situacao, 'DD/MM/YYYY').toString() : '');
+      setValue(
+        'dataNasc',
+        cnpj?.data_situacao ? dayjs(cnpj?.data_situacao, 'DD/MM/YYYY').format('YYYY-MM-DD[T]HH:mm:ss.SSS[Z]') : ''
+      );
     }
   }, [cnpj, setValue]);
 
