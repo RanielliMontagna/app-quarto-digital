@@ -1,8 +1,10 @@
-import { FC, memo, PropsWithChildren, ReactNode } from 'react';
+import { FC, memo } from 'react';
+
+import type { IPaperDataTable } from './paperDataTable.types';
 import { Container } from './paperDataTable.styles';
 
-const PaperDataTable: FC<PropsWithChildren<ReactNode>> = ({ children }) => {
-  return <Container>{children}</Container>;
+const PaperDataTable: FC<IPaperDataTable> = ({ children, height }) => {
+  return <Container height={height}>{children}</Container>;
 };
 
 export default memo(PaperDataTable);
