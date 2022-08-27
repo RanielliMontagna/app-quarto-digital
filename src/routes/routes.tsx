@@ -4,7 +4,7 @@ import Configuracoes from 'pages/Configuracoes/Configuracoes';
 import { useAuth } from 'store/auth';
 
 // Rotas Privadas
-import { Clientes, Dashboard, Indicadores, MinhaConta, Produtos, Quartos, Servicos } from 'pages';
+import { Clientes, Dashboard, Indicadores, MinhaConta, Produtos, Quartos, Servicos, Mapa } from 'pages';
 
 //Rotas Publicas
 import { Login, Erro } from 'pages';
@@ -29,6 +29,7 @@ export const Router = () => {
             <Route path="/" element={<Navigate to="/dashboard" />} />
             <Route path="/login" element={<Navigate to="/dashboard" />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/mapa" element={<Mapa />} />
             <Route path="/indicadores" element={<Indicadores />} />
             <Route path="/quartos" element={<Quartos />} />
             <Route path="/clientes" element={<Clientes />} />
@@ -44,3 +45,4 @@ export const Router = () => {
     </BrowserRouter>
   );
 };
+
