@@ -10,3 +10,7 @@ export const danger = '#E52A08';
 export const cinzaClaro = '#8B8B8B';
 export const cinzaEscuro = '#575757';
 export const pretoAzulado = '#2B2F38';
+
+export const fundoBranco = '#ECECEC';
+export const fundoPreto = '#1b1d23';
+

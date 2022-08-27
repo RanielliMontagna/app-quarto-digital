@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { DataTable } from '@rm-monorepo/data-table/lib/dataTable/src';
 
+import { PaperDataTable } from 'components';
 import { useClientes } from 'store/clientes';
 import { EmptyStateSearch, EmptyStateSemClientes } from '../emptyStateClientes/emptyStateClientes';
 import { colunasClientes } from './listagemCliente.static';
@@ -19,14 +20,15 @@ const ListagemClientes = () => {
   }, [clientes]);
 
   return (
-    <div style={{ display: 'flex', height: '100%', width: '100%' }}>
+    <PaperDataTable>
       {dataClientes && dataClientes?.length > 0 ? (
         <DataTable colunas={colunasClientes} data={dataClientes} />
       ) : (
         _renderEmptyState
       )}
-    </div>
+    </PaperDataTable>
   );
 };
 
 export default ListagemClientes;
+

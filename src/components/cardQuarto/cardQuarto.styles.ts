@@ -5,6 +5,9 @@ export const ContainerCard = styled.div`
   display: flex;
   /* TODO: ajustar cor conforme status */
   box-shadow: 0px 0px 5px 0px ${({ theme }) => theme.cores.primaria};
+  background-color: ${({ theme }) => theme?.cores?.terciaria};
+
+  transition: all 0.3s ease-in-out;
 
   margin: 8px;
   border-radius: 8px;

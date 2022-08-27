@@ -38,7 +38,7 @@ const Private = () => {
       )}
 
       <ConfiguracoesProvider>
-        <styled.DivChildren>
+        <styled.DivChildren tema={tema}>
           {pathname !== 'erro' && (
             <AppBar>
               <AppBar.LeftSide>

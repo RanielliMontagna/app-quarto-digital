@@ -1,10 +1,11 @@
 import { Avatar } from '@mui/material';
 import styled from 'styled-components';
+import { fundoBranco, fundoPreto } from 'themes';
 
-export const DivChildren = styled.div`
+export const DivChildren = styled.div<{ tema: string | null }>`
   width: 100%;
   color: ${({ theme }) => theme.cores.secundaria};
-  background-color: ${({ theme }) => theme.cores.terciaria};
+  background-color: ${({ tema }) => (tema !== 'escuro' ? fundoBranco : fundoPreto)};
   transition: 0.3s ease-in-out;
 `;
 

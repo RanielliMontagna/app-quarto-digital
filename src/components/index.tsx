@@ -5,6 +5,7 @@ export { default as Footer } from './footer/footer';
 export { default as Divider } from './divider/divider';
 export { default as EmptyState } from './emptyState/emptyState';
 export { default as CardQuarto } from './cardQuarto/cardQuarto';
+export { default as PaperDataTable } from './paperDataTable/paperDataTable';
 
 export { default as Private } from './layout/private/private';
 export { default as Public } from './layout/public/public';

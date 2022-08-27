@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { DataTable } from '@rm-monorepo/data-table/lib/dataTable/src';
 
+import { PaperDataTable } from 'components';
 import { useQuartos } from 'store/quartos';
 import { EmptyStateSearch, EmptyStateSemQuartos } from '../emptyStateQuartos/emptyStateQuartos';
 import { colunasQuartos } from './listagemQuartos.static';
@@ -19,13 +20,13 @@ const ListagemQuartos = () => {
   }, [quartos]);
 
   return (
-    <div style={{ display: 'flex', height: '100%', width: '100%' }}>
+    <PaperDataTable>
       {dataQuartos && dataQuartos?.length > 0 ? (
         <DataTable colunas={colunasQuartos} data={dataQuartos} />
       ) : (
         _renderEmptyState
       )}
-    </div>
+    </PaperDataTable>
   );
 };
 
