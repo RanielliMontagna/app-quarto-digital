@@ -13,17 +13,14 @@ export const apexOptions = (theme: ThemeType) => {
 
   let apexOptions: ApexOptions = {
     dataLabels: { enabled: true, formatter: (value) => (!value ? '' : masks.valor(Number(value))) },
+    tooltip: { cssClass: 'tooltip' },
     chart: {
       toolbar: { show: false },
-      zoom: {
-        enabled: false,
-      },
+      zoom: { enabled: false },
     },
     legend: { show: true },
     yaxis: {
-      labels: {
-        formatter: (value) => masks.valor(Number(value)),
-      },
+      labels: { formatter: (value) => masks.valor(Number(value)) },
     },
     xaxis: {
       categories: dayjs.months().map((month) => capitalize(month)),

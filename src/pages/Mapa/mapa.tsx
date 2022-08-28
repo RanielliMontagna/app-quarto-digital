@@ -1,11 +1,16 @@
+import { MapaContainer } from './mapa.styles';
+
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+
 import { PaginaBase } from 'components';
 
 const Mapa = () => {
   return (
     <PaginaBase titulo="Mapa">
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
-        <h1>Em breve...</h1>
-      </div>
+      <MapaContainer>
+        <FullCalendar plugins={[dayGridPlugin]} initialView="dayGridMonth" height="100%" />
+      </MapaContainer>
     </PaginaBase>
   );
 };
