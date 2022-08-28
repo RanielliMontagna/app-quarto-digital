@@ -31,7 +31,6 @@ const useAdicionarEditarQuarto = () => {
         handleClose();
       }
     } catch (err) {
-      console.log(err);
       _dispatch(AppActions.handleErrors(err));
     }
   };

@@ -8,7 +8,7 @@ export const ContainerBase = styled.div`
   min-height: 68px;
 
   padding: 16px;
-  border-radius: 8px;
+  border-radius: 16px;
   margin-top: 10px;
 
   transition: all 0.3s ease-in-out;
