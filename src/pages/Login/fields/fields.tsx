@@ -3,12 +3,15 @@ import { memo } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { rules } from '@rm-monorepo/utils';
 
-import { Field } from '../Login.styles';
+import { Field, ForgotPassword } from '../Login.styles';
 import type { IFieldsLogin } from './fields.types';
+import { useNavigate } from 'react-router-dom';
 
 const Fields = ({ errors, register }: IFieldsLogin) => {
   const { required, email, composeRules } = rules;
+
   const theme = createTheme({});
+  const _navigate = useNavigate();
 
   return (
     <ThemeProvider theme={theme}>
@@ -27,6 +30,7 @@ const Fields = ({ errors, register }: IFieldsLogin) => {
         variant="outlined"
         {...register('password', required)}
       />
+      <ForgotPassword onClick={() => _navigate('/redefinir-senha')}>Esqueceu sua senha?</ForgotPassword>
     </ThemeProvider>
   );
 };

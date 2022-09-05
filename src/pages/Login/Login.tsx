@@ -26,12 +26,6 @@ const Login = () => {
 
           <Fields register={register} errors={errors} />
 
-          {/* Manter conectado e esqueci minha senha */}
-          {/* <styled.DivCheckbox>
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Manter conectado" />
-            <styled.ForgotPassword>Esqueci minha senha</styled.ForgotPassword>
-          </styled.DivCheckbox> */}
-
           {/* Botao Login */}
           <styled.ButtonEnter type="submit">Entrar</styled.ButtonEnter>
         </styled.DivLogin>
@@ -54,3 +48,4 @@ const Login = () => {
 };
 
 export default Login;
+

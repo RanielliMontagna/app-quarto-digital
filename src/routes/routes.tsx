@@ -4,7 +4,7 @@ import Configuracoes from 'pages/Configuracoes/Configuracoes';
 import { useAuth } from 'store/auth';
 
 // Rotas Privadas
-import { Clientes, Dashboard, Indicadores, MinhaConta, Produtos, Quartos, Servicos, Mapa } from 'pages';
+import { Clientes, Dashboard, Indicadores, MinhaConta, Produtos, Quartos, Servicos, Mapa, RedefinirSenha } from 'pages';
 
 //Rotas Publicas
 import { Login, Erro } from 'pages';
@@ -22,6 +22,7 @@ export const Router = () => {
           <Route path="/" element={<Public />}>
             <Route path="/" element={<Login />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/redefinir-senha" element={<RedefinirSenha />} />
             <Route path="*" element={<Navigate to="/login" />} />
           </Route>
         ) : (

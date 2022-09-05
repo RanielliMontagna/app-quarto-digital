@@ -40,31 +40,18 @@ export const Field = styled(TextField)`
   }
 `;
 
-export const Label = styled.p``;
-
-export const DivCheckbox = styled.div`
-  width: 80%;
+export const ForgotPassword = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-end;
+  width: 80%;
+  font-weight: 100;
+  color: ${({ theme }) => theme?.coresExtras?.cinzaClaro};
+  font-size: ${(props) => `${props.theme?.fontes?.sm}`};
+  cursor: pointer;
 
   @media (min-width: 1500px) {
     width: 60%;
   }
-`;
-
-export const StayConnect = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-export const ForgotPassword = styled.div`
-  display: flex;
-  align-items: flex-end;
-  color: ${({ theme }) => theme?.coresExtras?.cinzaClaro};
-  font-weight: 100;
-  font-size: ${(props) => `${props.theme?.fontes?.sm}`};
-  cursor: pointer;
 `;
 
 export const ButtonEnter = styled.button`

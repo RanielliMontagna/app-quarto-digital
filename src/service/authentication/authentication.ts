@@ -13,3 +13,24 @@ export const logout = async () => {
 
   return response;
 };
+
+export const resetarSenha = async (email: string) => {
+  const response = await api.post(apiUrls.resetarSenha, { email });
+
+  return response;
+};
+
+export const alterarSenha = async ({ token, senha }: { token: string; senha: string }) => {
+  const response = await api.post(
+    apiUrls.alterarSenha,
+    { senha },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+
+  return response;
+};
+

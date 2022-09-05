@@ -5,6 +5,8 @@ export const apiUrls = {
   geral: '',
   login: '/login',
   logout: '/logout',
+  resetarSenha: '/resetar-senha',
+  alterarSenha: '/alterar-senha',
   produtos: '/produtos',
   servicos: '/servicos',
   clientes: '/clientes',
