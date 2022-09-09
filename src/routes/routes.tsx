@@ -38,6 +38,7 @@ export const Router = () => {
             <Route path="/servicos" element={<Servicos />} />
             <Route path="/configuracoes" element={<Configuracoes />} />
             <Route path="/minha-conta" element={<MinhaConta />} />
+            <Route path="/redefinir-senha" element={<RedefinirSenha />} />
             <Route path="/erro" element={<Erro />} />
             <Route path="*" element={<Navigate to="/erro" />} />
           </Route>

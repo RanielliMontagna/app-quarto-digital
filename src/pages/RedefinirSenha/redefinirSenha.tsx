@@ -5,6 +5,9 @@ import * as styled from './redefinirSenha.styles';
 import type { RedefinirSenhaFormValues } from './redefinirSenha.types';
 import useRedefinirSenha from './useRedefinirSenha';
 
+import { useDispatch } from 'store/hooks';
+import { AuthActions, useAuth } from 'store/auth';
+
 import { EnviarEmail } from './etapas/enviarEmail/enviarEmail';
 import { RedefinirSenhaProvider, useRedefinirSenhaContext } from './redefinirSenha.context';
 import { EmailEnviado } from './etapas/emailEnviado/emailEnviado';
@@ -48,6 +51,11 @@ const RedefinirSenha = () => {
 };
 
 const RedefinirSenhaWrapper = () => {
+  const _dispatch = useDispatch();
+  const { isAuthenticated } = useAuth();
+
+  if (isAuthenticated) _dispatch(AuthActions.clearAuth());
+
   return (
     <RedefinirSenhaProvider>
       <RedefinirSenha />
