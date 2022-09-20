@@ -9,3 +9,4 @@ export const DivGeral = styled.div`
     height: calc(100% - 99px);
   }
 `;
+

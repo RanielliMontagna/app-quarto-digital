@@ -1,13 +1,17 @@
+import { useState } from 'react';
+import { IoAdd } from 'react-icons/io5';
 import { CardQuarto, PaginaBase } from 'components';
 
 import { ContainerCards } from './dashboard.styles';
 import { QuartosProvider } from 'store/quartos';
 import useDashboard from './useDashboard';
-
-import { IoAdd } from 'react-icons/io5';
+import { NovaHospedagem } from './dialogs/novaHospedagem/novaHospedagem';
 
 const Dashboard = () => {
   const { quartos } = useDashboard();
+
+  const [_novaHospedagem, setNovaHospedagem] = useState(false);
+  const handleClose = () => setNovaHospedagem(false);
 
   return (
     <PaginaBase
@@ -16,7 +20,7 @@ const Dashboard = () => {
         children: 'Nova hospedagem',
         variant: 'outlined',
         startIcon: <IoAdd />,
-        onClick: () => null,
+        onClick: () => setNovaHospedagem(true),
       }}
     >
       <ContainerCards>
@@ -25,6 +29,7 @@ const Dashboard = () => {
             <CardQuarto key={quarto.id} {...quarto} />
           ))}
         </div>
+        {_novaHospedagem && <NovaHospedagem handleCloseNovaHospedagem={handleClose} />}
       </ContainerCards>
     </PaginaBase>
   );
