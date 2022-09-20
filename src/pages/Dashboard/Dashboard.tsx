@@ -4,15 +4,27 @@ import { ContainerCards } from './dashboard.styles';
 import { QuartosProvider } from 'store/quartos';
 import useDashboard from './useDashboard';
 
+import { IoAdd } from 'react-icons/io5';
+
 const Dashboard = () => {
   const { quartos } = useDashboard();
 
   return (
-    <PaginaBase titulo="Dashboard">
+    <PaginaBase
+      titulo="Dashboard"
+      button={{
+        children: 'Nova hospedagem',
+        variant: 'outlined',
+        startIcon: <IoAdd />,
+        onClick: () => null,
+      }}
+    >
       <ContainerCards>
-        {quartos?.map((quarto) => (
-          <CardQuarto key={quarto.id} {...quarto} />
-        ))}
+        <div>
+          {quartos?.map((quarto) => (
+            <CardQuarto key={quarto.id} {...quarto} />
+          ))}
+        </div>
       </ContainerCards>
     </PaginaBase>
   );

@@ -20,8 +20,8 @@ export const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
   }
 
   &::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 7px;
+    height: 7px;
 
     @media (max-width: 576px) {
       width: 5px;
@@ -39,3 +39,4 @@ export const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
     background: ${({ theme }) => theme.coresExtras.cinzaEscuro}; 
   }
 `;
+

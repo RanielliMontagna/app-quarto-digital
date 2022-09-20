@@ -10,5 +10,10 @@ export const Container = styled.div<{ height?: string }>`
 
   transition: all 0.3s ease-in-out;
   background: ${({ theme }) => theme?.cores?.terciaria};
+
+  thead > tr > th {
+    background-color: ${({ theme }) => theme?.cores?.terciaria};
+    transition: all 0.3s ease-in-out;
+  }
 `;
 
