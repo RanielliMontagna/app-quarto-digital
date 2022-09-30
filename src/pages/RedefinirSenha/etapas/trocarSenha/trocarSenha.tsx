@@ -7,12 +7,12 @@ import type { ITrocarSenha } from '../../redefinirSenha.types';
 
 import { Button } from '@rm-monorepo/button/lib/button/src';
 import { Typography } from '@rm-monorepo/typography/lib/typography/src';
-import { TextField } from '@rm-monorepo/fields';
+import { TextField } from '@rm-monorepo/fields/lib/fields/src';
 import { composeRules, required } from '@rm-monorepo/utils/lib/rules/rules';
 
 import { danger, success } from 'themes';
 
-const TrocarSenha = ({ errors, control, watch }: ITrocarSenha) => {
+const TrocarSenha = ({ errors, watch }: ITrocarSenha) => {
   const _navigate = useNavigate();
 
   const [mostrarSenha, setMostrarSenha] = useState(false);
@@ -46,7 +46,6 @@ const TrocarSenha = ({ errors, control, watch }: ITrocarSenha) => {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <TextField
             name="senha"
-            control={control}
             InputProps={{
               type: !mostrarSenha ? 'password' : 'text',
               endAdornment: (
@@ -64,7 +63,6 @@ const TrocarSenha = ({ errors, control, watch }: ITrocarSenha) => {
           />
           <TextField
             name="confirmarSenha"
-            control={control}
             InputProps={{
               type: !mostrarConfirmacaoSenha ? 'password' : 'text',
               endAdornment: (

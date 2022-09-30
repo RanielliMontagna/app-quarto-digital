@@ -1,15 +1,18 @@
-import type { IFields } from '../adicionarEditarProduto.types';
+import { useFormContext } from 'react-hook-form';
 
-import { CurrencyField, TextField } from '@rm-monorepo/fields';
+import { CurrencyField, TextField } from '@rm-monorepo/fields/lib/fields/src';
 import { rules } from '@rm-monorepo/utils';
 
-const Fields = ({ errors, control }: IFields) => {
+const Fields = () => {
+  const {
+    formState: { errors },
+  } = useFormContext();
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <div>
         <TextField
           name="nome"
-          control={control}
           label="Nome *"
           placeholder="Informe o nome"
           rules={rules.required}
@@ -22,7 +25,6 @@ const Fields = ({ errors, control }: IFields) => {
       <div>
         <CurrencyField
           name="preco"
-          control={control}
           rules={rules.required}
           textFieldProps={{
             label: 'Preço *',

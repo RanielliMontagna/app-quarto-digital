@@ -1,4 +1,4 @@
-import { Control, FieldErrors } from 'react-hook-form';
+import { FieldErrors } from 'react-hook-form';
 
 export interface AdicionarEditarQuartoFormValues {
   identificacao: string;
@@ -12,6 +12,5 @@ export interface EditarQuarto extends AdicionarEditarQuartoFormValues {
 
 export interface IFields {
   errors: FieldErrors<AdicionarEditarQuartoFormValues>;
-  control: Control<AdicionarEditarQuartoFormValues>;
 }
 

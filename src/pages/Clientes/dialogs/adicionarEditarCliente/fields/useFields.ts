@@ -1,16 +1,16 @@
 import { useEffect } from 'react';
 
 import type { ICnpj } from 'hooks';
-import type { UseFormSetValue } from 'react-hook-form';
-import type { AdicionarEditarClienteFormValues } from '../adicionarEditarCliente.types';
 import dayjs from 'dayjs';
+import { useFormContext } from 'react-hook-form';
 
 interface IUseFields {
   cnpj?: ICnpj;
-  setValue: UseFormSetValue<AdicionarEditarClienteFormValues>;
 }
 
-export const useFields = ({ cnpj, setValue }: IUseFields) => {
+export const useFields = ({ cnpj }: IUseFields) => {
+  const { setValue } = useFormContext();
+
   useEffect(() => {
     if (cnpj) {
       setValue('nome', cnpj?.nome ?? '');

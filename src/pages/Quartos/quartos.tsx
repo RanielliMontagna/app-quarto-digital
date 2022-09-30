@@ -4,7 +4,7 @@ import { IoAdd } from 'react-icons/io5';
 import { PaginaBase } from 'components';
 import { QuartosActions, QuartosProvider, useQuartos } from 'store/quartos';
 import { useDispatch } from 'store/hooks';
-import { SearchField } from '@rm-monorepo/fields';
+import { SearchField } from '@rm-monorepo/fields/lib/fields/src';
 
 import ListagemQuartos from './listagemQuartos/listagemQuartos';
 import AdicionarEditarQuarto from './modais/adicionarEditarQuarto/adicionarEditarQuarto';

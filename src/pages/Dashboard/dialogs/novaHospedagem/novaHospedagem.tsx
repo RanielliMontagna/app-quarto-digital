@@ -8,13 +8,14 @@ import { Hospede } from './steps/hospede/hospede';
 import { Periodo } from './steps/periodo/periodo';
 import { Resumo } from './steps/resumo/resumo';
 import { Step, StepLabel, Stepper } from '@mui/material';
+import { Form } from '@rm-monorepo/fields/lib/fields/src';
 
 const NovaHospedagem = (props: NovaHospedagemProps) => {
   const { step } = useNovaHospedagemContext();
   const { onSubmit, onBack } = useNovaHospedagem(props);
 
   return (
-    <form onSubmit={onSubmit}>
+    <Form onSubmit={onSubmit}>
       <Modal
         open
         onClose={props.handleCloseNovaHospedagem}
@@ -51,7 +52,7 @@ const NovaHospedagem = (props: NovaHospedagemProps) => {
           </div>
         </div>
       </Modal>
-    </form>
+    </Form>
   );
 };
 

@@ -2,11 +2,11 @@ import { useNavigate } from 'react-router-dom';
 import type { IEnviarEmail } from '../../redefinirSenha.types';
 
 import { Button } from '@rm-monorepo/button/lib/button/src';
-import { TextField } from '@rm-monorepo/fields';
+import { TextField } from '@rm-monorepo/fields/lib/fields/src';
 import { Typography } from '@rm-monorepo/typography/lib/typography/src';
 import { rules } from '@rm-monorepo/utils';
 
-const EnviarEmail = ({ errors, control }: IEnviarEmail) => {
+const EnviarEmail = ({ errors }: IEnviarEmail) => {
   const { required, email, composeRules } = rules;
 
   const _navigate = useNavigate();
@@ -27,7 +27,6 @@ const EnviarEmail = ({ errors, control }: IEnviarEmail) => {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
         <TextField
           name="email"
-          control={control}
           label="Email *"
           error={Boolean(errors?.email)}
           helperText={errors?.email?.message}

@@ -1,12 +1,9 @@
-import { TextField } from '@rm-monorepo/fields';
-import { useNovaHospedagemContext } from '../../novaHospedagem.context';
+import { TextField } from '@rm-monorepo/fields/lib/fields/src';
 
 const Hospede = () => {
-  const { control } = useNovaHospedagemContext();
-
   return (
     <div>
-      <TextField name="observacao" label="Observação" control={control} fullWidth />
+      <TextField name="observacao" label="Observação" fullWidth />
     </div>
   );
 };

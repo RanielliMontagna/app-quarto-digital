@@ -1,15 +1,17 @@
-import { CurrencyField, TextField } from '@rm-monorepo/fields';
+import { CurrencyField, TextField } from '@rm-monorepo/fields/lib/fields/src';
 import { rules } from '@rm-monorepo/utils';
+import { useFormContext } from 'react-hook-form';
 
-import { IFields } from '../adicionarEditarServico.types';
+const Fields = () => {
+  const {
+    formState: { errors },
+  } = useFormContext();
 
-const Fields = ({ errors, control }: IFields) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <div>
         <TextField
           name="nome"
-          control={control}
           label="Nome *"
           placeholder="Informe o nome"
           rules={rules.required}
@@ -22,7 +24,6 @@ const Fields = ({ errors, control }: IFields) => {
       <div>
         <CurrencyField
           name="preco"
-          control={control}
           rules={rules.required}
           textFieldProps={{
             label: 'Preço *',

@@ -1,7 +1,7 @@
 import { IoAdd } from 'react-icons/io5';
 import throttle from 'lodash.throttle';
 
-import { SearchField } from '@rm-monorepo/fields';
+import { SearchField } from '@rm-monorepo/fields/lib/fields/src';
 
 import { PaginaBase } from 'components';
 import { useDispatch } from 'store/hooks';

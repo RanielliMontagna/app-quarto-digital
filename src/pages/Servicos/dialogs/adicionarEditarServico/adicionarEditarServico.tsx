@@ -1,29 +1,14 @@
-import { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-
 import { Modal } from '@rm-monorepo/modal/lib/modal/src';
 
 import useAdicionarEditarServico from './useAdicionarEditarServico';
 import Fields from './fields/fields';
+import { Form } from '@rm-monorepo/fields/lib/fields/src';
 
 const AdicionarEditarServico = () => {
   const { open, titulo, labelBotao, initialValues, onSubmit, handleClose } = useAdicionarEditarServico();
-  const {
-    handleSubmit,
-    register,
-    control,
-    reset,
-    formState: { errors },
-  } = useForm({
-    defaultValues: initialValues,
-  });
-
-  useEffect(() => {
-    reset(initialValues);
-  }, [initialValues, reset]);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={onSubmit} defaultValues={initialValues}>
       <Modal
         open={open}
         onClose={handleClose}
@@ -39,9 +24,9 @@ const AdicionarEditarServico = () => {
           },
         }}
       >
-        <Fields register={register} errors={errors} control={control} />
+        <Fields />
       </Modal>
-    </form>
+    </Form>
   );
 };
 

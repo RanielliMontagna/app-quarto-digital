@@ -18,7 +18,6 @@ const RedefinirSenha = () => {
   const logo = '/assets/logo/quartoDigitalBranco.svg';
 
   const {
-    control,
     handleSubmit,
     watch,
     formState: { errors },
@@ -41,9 +40,9 @@ const RedefinirSenha = () => {
         </styled.DivLayout>
         <styled.DivResetPassword>
           {step === 0 && <CircularProgress style={{ color: azulQD }} size="64px" />}
-          {step === 1 && <EnviarEmail control={control} errors={errors} />}
+          {step === 1 && <EnviarEmail errors={errors} />}
           {step === 2 && <EmailEnviado />}
-          {step === 3 && <TrocarSenha control={control} errors={errors} watch={watch} />}
+          {step === 3 && <TrocarSenha errors={errors} watch={watch} />}
         </styled.DivResetPassword>
       </div>
     </form>

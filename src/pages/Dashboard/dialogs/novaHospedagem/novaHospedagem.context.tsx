@@ -1,19 +1,14 @@
 import { createContext, PropsWithChildren, ReactNode, useContext, useState } from 'react';
-import type { INovaHospedagemContext, INovaHospedagemFormValues } from './novaHospedagem.types';
-import { useForm } from 'react-hook-form';
+import type { INovaHospedagemContext } from './novaHospedagem.types';
 
 const NovaHospedagemContext = createContext({} as INovaHospedagemContext);
 
 const NovaHospedagemProvider = ({ children }: PropsWithChildren<ReactNode>) => {
-  const { handleSubmit, control, formState } = useForm<INovaHospedagemFormValues>();
   const [step, setStep] = useState(0);
 
   return (
     <NovaHospedagemContext.Provider
       value={{
-        handleSubmit,
-        control,
-        formState,
         step,
         setStep,
       }}

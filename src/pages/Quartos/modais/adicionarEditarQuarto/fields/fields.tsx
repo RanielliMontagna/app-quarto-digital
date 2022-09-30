@@ -1,15 +1,18 @@
-import type { IFields } from '../adicionarEditarQuarto.types';
+import { useFormContext } from 'react-hook-form';
 
-import { CurrencyField, NumberField } from '@rm-monorepo/fields';
+import { CurrencyField, NumberField } from '@rm-monorepo/fields/lib/fields/src';
 import { rules } from '@rm-monorepo/utils';
 
-const Fields = ({ errors, control }: IFields) => {
+const Fields = () => {
+  const {
+    formState: { errors },
+  } = useFormContext();
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <div>
         <NumberField
           name="identificacao"
-          control={control}
           label="Identificação *"
           placeholder="Informe a identificação"
           rules={rules.required}
@@ -22,7 +25,6 @@ const Fields = ({ errors, control }: IFields) => {
       <div>
         <CurrencyField
           name="diaria"
-          control={control}
           rules={rules.required}
           textFieldProps={{
             label: 'Diária *',

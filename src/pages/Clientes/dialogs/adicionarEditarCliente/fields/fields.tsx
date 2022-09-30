@@ -1,24 +1,26 @@
 import { CircularProgress } from '@mui/material';
-import { NumberField, TextField, DatePicker } from '@rm-monorepo/fields';
+import { NumberField, TextField, DatePicker } from '@rm-monorepo/fields/lib/fields/src';
 
 import { useCnpj } from 'hooks';
 import { rules } from '@rm-monorepo/utils';
 
-import { IFields } from '../adicionarEditarCliente.types';
 import { useFields } from './useFields';
+import { useFormContext } from 'react-hook-form';
 
-const Fields = ({ errors, control, setValue }: IFields) => {
+const Fields = () => {
   const { cpfCnpj, required, email, phone, composeRules } = rules;
   const { buscarCnpj, cnpj, loading } = useCnpj();
+  const {
+    formState: { errors },
+  } = useFormContext();
 
   // Lógicas dos fields (no momento somente o CNPJ)
-  useFields({ cnpj, setValue });
+  useFields({ cnpj });
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <NumberField
         name="cpfCnpj"
-        control={control}
         label="CPF/CNPJ"
         placeholder="Informe o cpf ou cnpj"
         fullWidth
@@ -39,7 +41,6 @@ const Fields = ({ errors, control, setValue }: IFields) => {
       />
       <TextField
         name="nome"
-        control={control}
         label="Nome *"
         placeholder="Informe o nome"
         rules={required}
@@ -49,7 +50,6 @@ const Fields = ({ errors, control, setValue }: IFields) => {
       />
       <TextField
         name="email"
-        control={control}
         label="Email"
         placeholder="Informe o email"
         rules={email}
@@ -59,7 +59,6 @@ const Fields = ({ errors, control, setValue }: IFields) => {
       />
       <NumberField
         name="telefone"
-        control={control}
         label="Telefone *"
         placeholder="Informe o telefone"
         rules={composeRules([required, phone])}
@@ -68,7 +67,7 @@ const Fields = ({ errors, control, setValue }: IFields) => {
         helperText={errors?.telefone?.message}
         mask="phone"
       />
-      <DatePicker name="dataNasc" label="Data de nascimento" control={control} />
+      <DatePicker name="dataNasc" label="Data de nascimento" />
     </div>
   );
 };

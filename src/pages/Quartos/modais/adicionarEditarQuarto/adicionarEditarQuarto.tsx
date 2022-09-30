@@ -1,27 +1,14 @@
-import { useForm } from 'react-hook-form';
 import { Modal } from '@rm-monorepo/modal/lib/modal/src';
 
 import useAdicionarEditarQuarto from './useAdicionarEditarQuarto';
 import Fields from './fields/fields';
-import { useEffect } from 'react';
+import { Form } from '@rm-monorepo/fields/lib/fields/src';
 
 const AdicionarEditarQuarto = () => {
   const { open, titulo, labelBotao, initialValues, onSubmit, handleClose } = useAdicionarEditarQuarto();
-  const {
-    handleSubmit,
-    control,
-    reset,
-    formState: { errors },
-  } = useForm({
-    defaultValues: initialValues,
-  });
-
-  useEffect(() => {
-    reset(initialValues);
-  }, [initialValues, reset]);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={onSubmit} defaultValues={initialValues}>
       <Modal
         open={open}
         onClose={handleClose}
@@ -37,9 +24,9 @@ const AdicionarEditarQuarto = () => {
           },
         }}
       >
-        <Fields errors={errors} control={control} />
+        <Fields />
       </Modal>
-    </form>
+    </Form>
   );
 };
 
