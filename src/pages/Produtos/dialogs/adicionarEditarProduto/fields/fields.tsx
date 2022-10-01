@@ -1,6 +1,6 @@
 import { useFormContext } from 'react-hook-form';
 
-import { CurrencyField, TextField } from '@rm-monorepo/fields/lib/fields/src';
+import { TextField } from '@rm-monorepo/fields/lib/fields/src';
 import { rules } from '@rm-monorepo/utils';
 
 const Fields = () => {
@@ -23,17 +23,16 @@ const Fields = () => {
         />
       </div>
       <div>
-        <CurrencyField
+        <TextField
           name="preco"
           rules={rules.required}
-          textFieldProps={{
-            label: 'Preço *',
-            error: Boolean(errors?.preco),
-            helperText: errors?.preco?.message,
-            size: 'small',
-            fullWidth: true,
-            placeholder: 'Informe o preço',
-          }}
+          label="Preço *"
+          mask="valor"
+          error={Boolean(errors?.preco)}
+          helperText={errors?.preco?.message}
+          size="small"
+          fullWidth
+          placeholder="Informe o preço"
         />
       </div>
     </div>

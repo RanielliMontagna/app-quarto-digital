@@ -19,7 +19,7 @@ export const colunasClientes: IColunas[] = [
   },
   {
     id: 'dataNasc',
-    label: 'Data de Nascimento',
+    label: 'Idade/Criação',
   },
   {
     id: 'acoes',

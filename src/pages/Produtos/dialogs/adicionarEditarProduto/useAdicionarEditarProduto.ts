@@ -16,7 +16,10 @@ const useAdicionarEditarProduto = () => {
 
   const _adicionarProduto = async (values: AdicionarProduto) => {
     try {
-      const { data } = await adicionarProduto(values);
+      const { data } = await adicionarProduto({
+        nome: values.nome,
+        preco: Number(values.preco),
+      });
       if (data) {
         _dispatch(AppActions.toggleNotificacao({ mensagem: 'Novo produto adicionado com sucesso!' }));
         const search = document.getElementById('search') as HTMLInputElement;
@@ -34,7 +37,11 @@ const useAdicionarEditarProduto = () => {
 
   const _editarProduto = async (values: EditarProduto) => {
     try {
-      const { status } = await editarProduto(values);
+      const { status } = await editarProduto({
+        id: values.id,
+        nome: values.nome,
+        preco: Number(values.preco),
+      });
       if (status === 200) {
         _dispatch(AppActions.toggleNotificacao({ mensagem: 'Produto editado com sucesso!' }));
         const search = document.getElementById('search') as HTMLInputElement;

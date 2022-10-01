@@ -1,5 +1,5 @@
 import { CircularProgress } from '@mui/material';
-import { NumberField, TextField, DatePicker } from '@rm-monorepo/fields/lib/fields/src';
+import { TextField, DatePicker } from '@rm-monorepo/fields/lib/fields/src';
 
 import { useCnpj } from 'hooks';
 import { rules } from '@rm-monorepo/utils';
@@ -19,7 +19,7 @@ const Fields = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <NumberField
+      <TextField
         name="cpfCnpj"
         label="CPF/CNPJ"
         placeholder="Informe o cpf ou cnpj"
@@ -32,8 +32,10 @@ const Fields = () => {
         helperText={errors?.cpfCnpj?.message}
         mask="cpfCnpj"
         onInputChange={(value) => {
-          if (value.length === 14) {
-            buscarCnpj(value);
+          const valueWithoutMask = value.replace(/[^0-9]/g, '');
+
+          if (valueWithoutMask.length === 14) {
+            buscarCnpj(valueWithoutMask);
           }
         }}
         rules={cpfCnpj}
@@ -57,7 +59,7 @@ const Fields = () => {
         error={Boolean(errors?.email)}
         helperText={errors?.email?.message}
       />
-      <NumberField
+      <TextField
         name="telefone"
         label="Telefone *"
         placeholder="Informe o telefone"
@@ -65,9 +67,9 @@ const Fields = () => {
         fullWidth
         error={Boolean(errors?.telefone)}
         helperText={errors?.telefone?.message}
-        mask="phone"
+        mask="telefone"
       />
-      <DatePicker name="dataNasc" label="Data de nascimento" />
+      <DatePicker name="dataNasc" label="Data nascimento/criação" />
     </div>
   );
 };

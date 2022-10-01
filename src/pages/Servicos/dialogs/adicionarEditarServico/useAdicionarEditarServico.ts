@@ -16,7 +16,10 @@ const useAdicionarEditarServico = () => {
 
   const _adicionarServico = async (values: AdicionarServico) => {
     try {
-      const { data } = await adicionarServico(values);
+      const { data } = await adicionarServico({
+        nome: values.nome,
+        preco: Number(values.preco),
+      });
       if (data) {
         _dispatch(AppActions.toggleNotificacao({ mensagem: 'Novo serviço adicionado com sucesso!' }));
         const search = document.getElementById('search') as HTMLInputElement;
@@ -34,7 +37,11 @@ const useAdicionarEditarServico = () => {
 
   const _editarServico = async (values: EditarServico) => {
     try {
-      const { status } = await editarServico(values);
+      const { status } = await editarServico({
+        id: values.id,
+        nome: values.nome,
+        preco: Number(values.preco),
+      });
       if (status === 200) {
         _dispatch(AppActions.toggleNotificacao({ mensagem: 'Serviço editado com sucesso!' }));
         const search = document.getElementById('search') as HTMLInputElement;
