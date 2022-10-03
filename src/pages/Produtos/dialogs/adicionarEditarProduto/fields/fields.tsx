@@ -14,6 +14,7 @@ const Fields = () => {
         <TextField
           name="nome"
           label="Nome *"
+          id="nome"
           placeholder="Informe o nome"
           rules={rules.required}
           fullWidth
@@ -25,8 +26,9 @@ const Fields = () => {
       <div>
         <TextField
           name="preco"
-          rules={rules.required}
           label="Preço *"
+          id="preco"
+          rules={rules.required}
           mask="valor"
           error={Boolean(errors?.preco)}
           helperText={errors?.preco?.message}
