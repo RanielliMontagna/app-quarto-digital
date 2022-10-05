@@ -11,6 +11,7 @@ const Fields = () => {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <div>
         <TextField
+          id="nome"
           name="nome"
           label="Nome *"
           placeholder="Informe o nome"
@@ -23,6 +24,7 @@ const Fields = () => {
       </div>
       <div>
         <TextField
+          id="preco"
           name="preco"
           rules={rules.required}
           label="Preço *"

@@ -12,6 +12,7 @@ const Fields = () => {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <div>
         <TextField
+          id="identificacao"
           name="identificacao"
           label="Identificação *"
           placeholder="Informe a identificação"
@@ -24,7 +25,9 @@ const Fields = () => {
       </div>
       <div>
         <TextField
+          id="diaria"
           name="diaria"
+          mask="valor"
           rules={rules.required}
           label="Diária *"
           error={Boolean(errors?.diaria)}

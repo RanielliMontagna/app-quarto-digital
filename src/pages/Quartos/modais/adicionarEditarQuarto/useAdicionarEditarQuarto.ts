@@ -19,6 +19,7 @@ const useAdicionarEditarQuarto = () => {
       const { data } = await adicionarQuarto({
         ...values,
         identificacao: Number(values.identificacao),
+        diaria: Number(values.diaria),
       });
       if (data) {
         _dispatch(AppActions.toggleNotificacao({ mensagem: 'Novo quarto adicionado com sucesso!' }));
@@ -40,6 +41,7 @@ const useAdicionarEditarQuarto = () => {
       const { status } = await editarQuarto({
         ...values,
         identificacao: Number(values.identificacao),
+        diaria: Number(values.diaria),
       });
       if (status === 200) {
         _dispatch(AppActions.toggleNotificacao({ mensagem: 'Quarto editado com sucesso!' }));

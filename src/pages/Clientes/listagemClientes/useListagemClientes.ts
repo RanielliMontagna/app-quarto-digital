@@ -23,7 +23,7 @@ export const useListagemClientes = () => {
       email: cliente.email ?? '-',
       cpfCnpj: cliente.cpfCnpj ? masks.cpfCnpj(cliente.cpfCnpj) : '-',
       telefone: cliente.telefone ? masks.phone(cliente.telefone) : '-',
-      dataNasc: dayjs().diff(cliente.dataNasc, 'year'),
+      dataNasc: cliente.dataNasc ? dayjs().diff(cliente.dataNasc, 'year') : '-',
       acoes: [
         {
           id: 'editar',

@@ -20,6 +20,7 @@ const Fields = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <TextField
+        id="cpfCnpj"
         name="cpfCnpj"
         label="CPF/CNPJ"
         placeholder="Informe o cpf ou cnpj"
@@ -42,6 +43,7 @@ const Fields = () => {
         autoFocus
       />
       <TextField
+        id="nome"
         name="nome"
         label="Nome *"
         placeholder="Informe o nome"
@@ -51,6 +53,7 @@ const Fields = () => {
         helperText={errors?.nome?.message}
       />
       <TextField
+        id="email"
         name="email"
         label="Email"
         placeholder="Informe o email"
@@ -60,6 +63,7 @@ const Fields = () => {
         helperText={errors?.email?.message}
       />
       <TextField
+        id="telefone"
         name="telefone"
         label="Telefone *"
         placeholder="Informe o telefone"
