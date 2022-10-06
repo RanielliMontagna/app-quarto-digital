@@ -18,6 +18,9 @@ export interface ClientesSlice {
 export interface AdicionarEditarClienteDialog {
   open: boolean;
   cliente?: ICliente;
+
+  nome?: string;
+  callback?: (data: ICliente) => void;
 }
 
 export interface ExcluirClienteDialog {
@@ -32,3 +35,4 @@ export interface ClientesSliceWithCallbacks extends ClientesSlice {
   setAdicionarEditarCliente: React.Dispatch<React.SetStateAction<AdicionarEditarClienteDialog>>;
   setExcluirCliente: React.Dispatch<React.SetStateAction<ExcluirClienteDialog>>;
 }
+

@@ -1,14 +1,15 @@
-import { Modal } from '@rm-monorepo/modal/lib/modal/src';
-
 import type { NovaHospedagemProps } from './novaHospedagem.types';
 import { NovaHospedagemProvider, useNovaHospedagemContext } from './novaHospedagem.context';
 import { useNovaHospedagem } from './useNovaHospedagem';
 
+import { Step, StepLabel, Stepper } from '@mui/material';
+import { Modal } from '@rm-monorepo/modal/lib/modal/src';
+import { Form } from '@rm-monorepo/fields/lib/fields/src';
+
 import { Hospede } from './steps/hospede/hospede';
 import { Periodo } from './steps/periodo/periodo';
 import { Resumo } from './steps/resumo/resumo';
-import { Step, StepLabel, Stepper } from '@mui/material';
-import { Form } from '@rm-monorepo/fields/lib/fields/src';
+import { Quarto } from './steps/quarto/quarto';
 
 const NovaHospedagem = (props: NovaHospedagemProps) => {
   const { step } = useNovaHospedagemContext();
@@ -22,7 +23,7 @@ const NovaHospedagem = (props: NovaHospedagemProps) => {
         titulo="Nova hospedagem"
         footer={{
           botaoPrimario: {
-            children: step === 2 ? 'Confirmar' : 'Avançar',
+            children: step === 3 ? 'Confirmar' : 'Avançar',
           },
           botaoSecundario: {
             children: step === 0 ? 'Cancelar' : 'Voltar',
@@ -41,6 +42,9 @@ const NovaHospedagem = (props: NovaHospedagemProps) => {
                 <StepLabel>Período</StepLabel>
               </Step>
               <Step>
+                <StepLabel>Quarto</StepLabel>
+              </Step>
+              <Step>
                 <StepLabel>Resumo</StepLabel>
               </Step>
             </Stepper>
@@ -48,7 +52,8 @@ const NovaHospedagem = (props: NovaHospedagemProps) => {
           <div>
             {step === 0 && <Hospede />}
             {step === 1 && <Periodo />}
-            {step === 2 && <Resumo />}
+            {step === 2 && <Quarto />}
+            {step === 3 && <Resumo />}
           </div>
         </div>
       </Modal>

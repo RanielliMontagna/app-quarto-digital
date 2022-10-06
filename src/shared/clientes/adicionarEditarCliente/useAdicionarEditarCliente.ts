@@ -4,8 +4,10 @@ import { AppActions } from 'store';
 import { useDispatch } from 'store/hooks';
 import { ICliente, ClientesActions, useClientes } from 'store/clientes';
 import { AdicionarEditarClienteFormValues, AdicionarCliente, EditarCliente } from './adicionarEditarCliente.types';
+import { usePathname } from 'utils';
 
 const useAdicionarEditarCliente = () => {
+  const pathname = usePathname();
   const _dispatch = useDispatch();
   const { adicionarEditarCliente, setAdicionarEditarCliente } = useClientes();
   const [cliente, setCliente] = useState<ICliente>();
@@ -19,12 +21,20 @@ const useAdicionarEditarCliente = () => {
       const { data } = await adicionarCliente(values);
       if (data) {
         _dispatch(AppActions.toggleNotificacao({ mensagem: 'Novo cliente adicionado com sucesso!' }));
-        const search = document.getElementById('search') as HTMLInputElement;
-        _dispatch(
-          ClientesActions.buscarClientes({
-            search: search.value ?? undefined,
-          })
-        );
+
+        if (pathname === '/clientes') {
+          const search = document.getElementById('search') as HTMLInputElement;
+          _dispatch(
+            ClientesActions.buscarClientes({
+              search: search.value ?? undefined,
+            })
+          );
+        } else {
+          _dispatch(ClientesActions.buscarClientes({}));
+          _dispatch(AppActions.toggleLoading(false));
+          adicionarEditarCliente.callback?.(data);
+        }
+
         handleClose();
       }
     } catch (err) {
@@ -53,7 +63,7 @@ const useAdicionarEditarCliente = () => {
   const onSubmit = (values: AdicionarEditarClienteFormValues) => {
     _dispatch(AppActions.toggleLoading(true));
     try {
-      if (adicionarEditarCliente.cliente) {
+      if (adicionarEditarCliente?.cliente) {
         _editarCliente({ ...values, id: adicionarEditarCliente.cliente.id });
       } else {
         _adicionarCliente(values);
@@ -88,10 +98,12 @@ const useAdicionarEditarCliente = () => {
         telefone: cliente.telefone,
         dataNasc: cliente.dataNasc,
       };
+    } else {
+      return {
+        nome: adicionarEditarCliente.nome || '',
+      };
     }
-
-    return {};
-  }, [cliente]);
+  }, [cliente, adicionarEditarCliente?.nome]);
 
   useEffect(() => {
     if (adicionarEditarCliente.cliente) {
@@ -110,3 +122,4 @@ const useAdicionarEditarCliente = () => {
 };
 
 export default useAdicionarEditarCliente;
+

@@ -13,8 +13,8 @@ export const DrawerWithoutMemo = () => {
         <img src="/assets/logo/logoSimplificadoBranco.svg" alt="Logo" />
       </Drawer.Header>
       <Drawer.Content>
-        {OpcoesMenu.map(({ caminho, icone, titulo }) => (
-          <Drawer.Item path={caminho} onClick={() => _navigate(caminho)} icon={icone}>
+        {OpcoesMenu?.map(({ caminho, icone, titulo }, key) => (
+          <Drawer.Item key={key} path={caminho} onClick={() => _navigate(caminho)} icon={icone}>
             {titulo}
           </Drawer.Item>
         ))}

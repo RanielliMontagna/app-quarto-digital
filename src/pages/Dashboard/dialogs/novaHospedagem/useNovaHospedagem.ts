@@ -5,7 +5,7 @@ const useNovaHospedagem = ({ handleCloseNovaHospedagem }: NovaHospedagemProps) =
   const { step, setStep } = useNovaHospedagemContext();
 
   const onSubmit = (data: any) => {
-    if (step !== 2) {
+    if (step !== 3) {
       setStep((step) => step + 1);
     } else {
       console.log(data);
