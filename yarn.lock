@@ -1497,46 +1497,6 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fullcalendar/common@~5.11.2", "@fullcalendar/common@~5.11.3":
-  version "5.11.3"
-  resolved "https://registry.npmjs.org/@fullcalendar/common/-/common-5.11.3.tgz#6d555a06925b8a6d1556570c9f039960539908d5"
-  integrity sha512-welVwyfQOXQQGfDwBMSfYEPbiO1cPfUD+C7jd3ZoweJR+dSO11ddFugxIQ7dGfABAGZ63oq/+LW9FsmAJezVNg==
-  dependencies:
-    tslib "^2.1.0"
-
-"@fullcalendar/daygrid@^5.11.3", "@fullcalendar/daygrid@~5.11.3":
-  version "5.11.3"
-  resolved "https://registry.npmjs.org/@fullcalendar/daygrid/-/daygrid-5.11.3.tgz#6bc1f956c95f84438428aa6e7a106c863a791a70"
-  integrity sha512-PCK0y80DRNCzWuC5lGpIWqCgKDvql1ah7rXql5lu+Gn2EeFj15ZQ8diMFjtNIQucEmFaNOXnR05Pgcry1n6Shg==
-  dependencies:
-    "@fullcalendar/common" "~5.11.3"
-    tslib "^2.1.0"
-
-"@fullcalendar/interaction@^5.11.3":
-  version "5.11.3"
-  resolved "https://registry.npmjs.org/@fullcalendar/interaction/-/interaction-5.11.3.tgz#c6712c1305ecb8e975953c7ff462222b49204187"
-  integrity sha512-L955wkDjza62K96ndstvYs2Fd4V0kayTDpqW8W7huFG3Ox8MutpLqKAa2SCaTvcNIlWS4oexGQRiQAaJG7u47A==
-  dependencies:
-    "@fullcalendar/common" "~5.11.3"
-    tslib "^2.1.0"
-
-"@fullcalendar/react@^5.11.2":
-  version "5.11.2"
-  resolved "https://registry.npmjs.org/@fullcalendar/react/-/react-5.11.2.tgz#019e6a0573d869c2a52f63426e13593857ee2d30"
-  integrity sha512-OnLvfV406VEQcK4QGN8xR4ro6Manp9dKE7/n9dhs19J1kKpqS1w1sIEYg1dT11njbk0Ob+TdF3cXLDFq73jUlA==
-  dependencies:
-    "@fullcalendar/common" "~5.11.2"
-    tslib "^2.1.0"
-
-"@fullcalendar/timegrid@^5.11.3":
-  version "5.11.3"
-  resolved "https://registry.npmjs.org/@fullcalendar/timegrid/-/timegrid-5.11.3.tgz#77c45b6596da54bfa9b7f7d2ab3f2ad42aa1d2b4"
-  integrity sha512-SjIj2ZQ7nTyL1RxZkCPvNbuUQ0xHT+gfYJdUL3FT4bPjPJCxWtQ2CL8hxaeNmVozYYuy0yrGTW5Oup2+9IplbA==
-  dependencies:
-    "@fullcalendar/common" "~5.11.3"
-    "@fullcalendar/daygrid" "~5.11.3"
-    tslib "^2.1.0"
-
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -1951,10 +1911,10 @@
   resolved "https://registry.npmjs.org/@rm-monorepo/drawer/-/drawer-1.1.4.tgz#43c0126d5920fbb1275bddfb09482938aca79b19"
   integrity sha512-ui0CM3u6LA9N4rC/O6C9dXcuz1Ig/P4/rmeBkYm3U+xKDlAPloSvmvuaz9YYwiKtYgKqk/m1m+2ymTe2Io2Kww==
 
-"@rm-monorepo/fields@^1.6.1":
-  version "1.6.1"
-  resolved "https://registry.npmjs.org/@rm-monorepo/fields/-/fields-1.6.1.tgz#1f5337ea5a6e9f24ea9c0f495ba9ab98fc87b406"
-  integrity sha512-QPPxgtuiIZQtJ2tgJTsRLsVpS00JNOCfQDNJeQUD0SoI6/+LllpaCOmQyLFHZdxFATCqtPCSWP+Em0I/ua7HAQ==
+"@rm-monorepo/fields@^1.6.5":
+  version "1.6.5"
+  resolved "https://registry.npmjs.org/@rm-monorepo/fields/-/fields-1.6.5.tgz#261856c2635d463ec092c3ec9cba5319f04109c6"
+  integrity sha512-gFJHl1jqLvRkQ93X3P3+so25NLfj86/w1RSJNUvlsB86aF8Raxhy+RFCca1IXnDABr0D65jnpUn8JprSWUhEuQ==
 
 "@rm-monorepo/loading@^1.3.1":
   version "1.3.1"
@@ -1986,10 +1946,10 @@
   resolved "https://registry.npmjs.org/@rm-monorepo/typography/-/typography-1.3.3.tgz#c625f0adb704d7e7396b5e059392cd2effa82de1"
   integrity sha512-ITC4dEq0B5idN/nOJLCfWNaJSxbIakYw8UeeDCnkFK3mClaKyMqiG4rINo92EJ6nNspV8PseJ9v/m6Z2QS8zpQ==
 
-"@rm-monorepo/utils@^1.3.2":
-  version "1.3.2"
-  resolved "https://registry.npmjs.org/@rm-monorepo/utils/-/utils-1.3.2.tgz#23a29f029640f9abc19663995b7d7ea13ad052e0"
-  integrity sha512-D5bJ/7+2uVV4H+UlPjvaOUAZkPFUnpi88QSFDxqfDzFMeH5wTDz1clL+PgtnNMeZaysMoJyLDDuV/pY2BbYd4w==
+"@rm-monorepo/utils@^1.3.3":
+  version "1.3.3"
+  resolved "https://registry.npmjs.org/@rm-monorepo/utils/-/utils-1.3.3.tgz#079b19f9146ce76877630a4e976b588b17b5e1b3"
+  integrity sha512-F+JAAZYV9u8JdFbJIsldAXv73AE8DBTdg3oWwmbtARUCSiCUTUPxBsmgU2P83BOj7d2S1T92VX9p+yE2AzWVlQ==
 
 "@rollup/plugin-node-resolve@^7.1.1":
   version "7.1.3"

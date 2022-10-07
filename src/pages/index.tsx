@@ -1,5 +1,4 @@
 export { default as Dashboard } from './Dashboard/Dashboard';
-export { default as Mapa } from './Mapa/mapa';
 export { default as Login } from './Login/Login';
 export { default as Clientes } from './Clientes/clientes';
 export { default as Quartos } from './Quartos/quartos';

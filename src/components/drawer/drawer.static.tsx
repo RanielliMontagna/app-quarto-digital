@@ -2,18 +2,13 @@ import { VscPackage } from 'react-icons/vsc';
 import { AiOutlineAppstore } from 'react-icons/ai';
 import { MdOutlineRoomService, MdPeopleOutline } from 'react-icons/md';
 import { IoBedOutline } from 'react-icons/io5';
-import { BiLineChart, BiMapAlt } from 'react-icons/bi';
+import { BiLineChart } from 'react-icons/bi';
 
 export const OpcoesMenu = [
   {
     titulo: 'Dashboard',
     caminho: '/dashboard',
     icone: <AiOutlineAppstore size={24} />,
-  },
-  {
-    titulo: 'Mapa',
-    caminho: '/mapa',
-    icone: <BiMapAlt size={24} />,
   },
   {
     titulo: 'Indicadores',

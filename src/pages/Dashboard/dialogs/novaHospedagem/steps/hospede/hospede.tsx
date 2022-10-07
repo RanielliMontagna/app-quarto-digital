@@ -12,6 +12,7 @@ import { useClientes } from 'store/clientes';
 const Hospede = () => {
   const {
     setValue,
+    watch,
     formState: { errors },
   } = useFormContext<INovaHospedagemFormValues>();
 
@@ -29,13 +30,13 @@ const Hospede = () => {
             error: Boolean(errors?.hospede),
             helperText: errors?.hospede?.message,
           }}
+          value={typeof watch('hospede') === 'object' ? (watch('hospede') as any) : undefined}
           rules={required}
           onCreateOption={(value) =>
             setAdicionarEditarCliente({
               open: true,
               nome: value,
               callback: (cliente) => {
-                //TODO: select the new option
                 setValue('hospede', {
                   label: cliente.nome,
                   value: cliente.id,
