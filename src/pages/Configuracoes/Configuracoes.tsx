@@ -9,4 +9,3 @@ export const Configuracoes = () => {
 };
 
 export default Configuracoes;
-
