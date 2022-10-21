@@ -9,10 +9,9 @@ import { ProdutosActions, ProdutosProvider, useProdutos } from 'store/produtos';
 
 import ListagemProdutos from './listagemProdutos/listagemProdutos';
 import ExcluirProduto from './dialogs/excluirProduto/excluirProduto';
-import AdicionarEditarProduto from './dialogs/adicionarEditarProduto/adicionarEditarProduto';
 
 const Produtos = () => {
-  const { setAdicionarEditarProduto, adicionarEditarProduto, excluirProduto, produtos } = useProdutos();
+  const { setAdicionarEditarProduto, excluirProduto, produtos } = useProdutos();
   const _dispatch = useDispatch();
 
   const handleSearch = throttle(
@@ -27,7 +26,7 @@ const Produtos = () => {
       button={{
         children: 'Novo produto',
         variant: 'outlined',
-        startIcon: <IoAdd />,
+        startIcon: <IoAdd size="18" />,
         onClick: () => setAdicionarEditarProduto({ open: true }),
         hide: produtos === null,
       }}
@@ -35,7 +34,6 @@ const Produtos = () => {
     >
       <div style={{ display: 'flex', height: '100%' }}>
         <ListagemProdutos />
-        {adicionarEditarProduto.open && <AdicionarEditarProduto />}
         {excluirProduto.open && <ExcluirProduto />}
       </div>
     </PaginaBase>
@@ -51,4 +49,3 @@ const ProdutosWrapper = () => {
 };
 
 export default ProdutosWrapper;
-

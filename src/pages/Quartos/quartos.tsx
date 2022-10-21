@@ -7,11 +7,9 @@ import { useDispatch } from 'store/hooks';
 import { SearchField } from '@rm-monorepo/fields/lib/fields/src';
 
 import ListagemQuartos from './listagemQuartos/listagemQuartos';
-import AdicionarEditarQuarto from './modais/adicionarEditarQuarto/adicionarEditarQuarto';
 import ExcluirQuarto from './modais/excluirQuarto/excluirQuarto';
-
 export const Quartos = () => {
-  const { adicionarEditarQuarto, excluirQuarto, setAdicionarEditarQuarto, quartos } = useQuartos();
+  const { excluirQuarto, setAdicionarEditarQuarto, quartos } = useQuartos();
   const _dispatch = useDispatch();
 
   const handleSearch = throttle(
@@ -26,7 +24,7 @@ export const Quartos = () => {
       button={{
         children: 'Novo quarto',
         variant: 'outlined',
-        startIcon: <IoAdd />,
+        startIcon: <IoAdd size="18" />,
         onClick: () => setAdicionarEditarQuarto({ open: true }),
         hide: quartos === null,
       }}
@@ -34,7 +32,6 @@ export const Quartos = () => {
     >
       <div style={{ display: 'flex', height: '100%' }}>
         <ListagemQuartos />
-        {adicionarEditarQuarto.open && <AdicionarEditarQuarto />}
         {excluirQuarto.open && <ExcluirQuarto />}
       </div>
     </PaginaBase>
@@ -50,4 +47,3 @@ const QuartosWrapper: React.FC = () => {
 };
 
 export default QuartosWrapper;
-

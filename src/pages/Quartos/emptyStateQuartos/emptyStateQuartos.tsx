@@ -18,7 +18,7 @@ export const EmptyStateSemQuartos = () => {
       botao={{
         children: 'Novo quarto',
         variant: 'outlined',
-        startIcon: <IoAdd />,
+        startIcon: <IoAdd size="18" />,
         onClick: () => setAdicionarEditarQuarto({ open: true }),
       }}
     />
@@ -42,4 +42,3 @@ export const EmptyStateSearch = () => {
     />
   );
 };
-

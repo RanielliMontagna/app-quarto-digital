@@ -33,7 +33,7 @@ const Servicos = () => {
       button={{
         children: 'Novo serviço',
         variant: 'outlined',
-        startIcon: <IoAdd />,
+        startIcon: <IoAdd size="18" />,
         onClick: () => setAdicionarEditarServico({ open: true }),
         hide: servicos === null,
       }}
@@ -57,4 +57,3 @@ const ServicosWrapper = () => {
 };
 
 export default ServicosWrapper;
-

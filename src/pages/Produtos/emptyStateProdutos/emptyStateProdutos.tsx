@@ -19,7 +19,7 @@ export const EmptyStateSemProdutos = () => {
       botao={{
         children: 'Novo produto',
         variant: 'outlined',
-        startIcon: <IoAdd />,
+        startIcon: <IoAdd size="18" />,
         onClick: () => setAdicionarEditarProduto({ open: true }),
       }}
     />

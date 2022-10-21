@@ -33,7 +33,7 @@ const Fields = () => {
         helperText={errors?.cpfCnpj?.message}
         mask="cpfCnpj"
         onInputChange={(value) => {
-          const valueWithoutMask = value.replace(/[^0-9]/g, '');
+          const valueWithoutMask = value?.replace(/[^0-9]/g, '');
 
           if (valueWithoutMask.length === 14) {
             buscarCnpj(valueWithoutMask);
@@ -79,4 +79,3 @@ const Fields = () => {
 };
 
 export default Fields;
-

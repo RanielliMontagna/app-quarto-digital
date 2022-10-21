@@ -15,7 +15,7 @@ export const apiUrls = {
 
 export const makeHeaders = () => {
   const token = store.getState().Auth.token;
-  const pathname = window.location.pathname.replace('/', '');
+  const pathname = window.location.pathname?.replace('/', '');
 
   if (token) {
     return {
@@ -27,4 +27,3 @@ export const makeHeaders = () => {
     store.dispatch(AuthActions.clearAuth());
   }
 };
-

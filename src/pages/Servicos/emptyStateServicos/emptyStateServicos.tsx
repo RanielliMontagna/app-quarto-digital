@@ -19,7 +19,7 @@ export const EmptyStateSemServicos = () => {
       botao={{
         children: 'Novo serviço',
         variant: 'outlined',
-        startIcon: <IoAdd />,
+        startIcon: <IoAdd size="18" />,
         onClick: () => setAdicionarEditarServico({ open: true }),
       }}
     />

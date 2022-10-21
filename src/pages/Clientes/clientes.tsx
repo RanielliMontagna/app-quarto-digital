@@ -32,7 +32,7 @@ const Clientes = () => {
       button={{
         children: 'Novo cliente',
         variant: 'outlined',
-        startIcon: <IoAdd />,
+        startIcon: <IoAdd size="18" />,
         onClick: () => setAdicionarEditarCliente({ open: true }),
         hide: clientes === null,
       }}
@@ -55,4 +55,3 @@ const ClientesWrapper = () => {
 };
 
 export default ClientesWrapper;
-

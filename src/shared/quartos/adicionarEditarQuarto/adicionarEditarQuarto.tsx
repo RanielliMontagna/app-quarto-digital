@@ -31,4 +31,3 @@ const AdicionarEditarQuarto = () => {
 };
 
 export default AdicionarEditarQuarto;
-
