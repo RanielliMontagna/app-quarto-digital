@@ -1,8 +1,21 @@
+export interface IHospedagemQuarto {
+  Cliente: {
+    id: number;
+    nome: string;
+    telefone: string;
+  };
+  dataEntrada: string;
+  dataSaida: string;
+  id: number;
+  status: number;
+}
+
 export interface IQuarto {
   id: number;
-  identificacao: string;
+  identificacao: number;
   diaria: number;
-  status: string;
+  status: number;
+  hospedagem: IHospedagemQuarto | null;
 }
 
 export type NovoQuartoType = {
@@ -29,4 +42,3 @@ export interface QuartosSliceWithCallbacks extends QuartosSlice {
   setAdicionarEditarQuarto: React.Dispatch<React.SetStateAction<AdicionarEditarQuartoDialog>>;
   setExcluirQuarto: React.Dispatch<React.SetStateAction<ExcluirQuartoDialog>>;
 }
-

@@ -12,9 +12,11 @@ import useDashboard from './useDashboard';
 import { NovaHospedagem } from './dialogs/novaHospedagem/novaHospedagem';
 import { center } from 'themes/globalStyles';
 import { Typography } from '@mui/material';
+import { useWindowSize } from 'utils';
 
 const Dashboard = () => {
   const emptyState = './assets/svgs/dashboard/emptyState.svg';
+  const { width } = useWindowSize();
 
   const { quartos } = useDashboard();
   const { setAdicionarEditarQuarto } = useQuartos();
@@ -62,7 +64,8 @@ const Dashboard = () => {
         hide: !quartos?.length,
       }}
       right={
-        quartos?.length && (
+        quartos?.length &&
+        width > 650 && (
           <Button
             startIcon={<IoAdd size="18" />}
             variant="outlined"

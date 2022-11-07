@@ -17,6 +17,7 @@ const Fields = () => {
           label="Identificação *"
           placeholder="Informe a identificação"
           rules={rules.required}
+          mask="numero"
           fullWidth
           error={Boolean(errors?.identificacao)}
           helperText={errors?.identificacao?.message}
@@ -42,4 +43,3 @@ const Fields = () => {
 };
 
 export default Fields;
-

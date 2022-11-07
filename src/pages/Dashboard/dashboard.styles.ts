@@ -15,4 +15,3 @@ export const ContainerCards = styled.div`
     flex-wrap: wrap;
   }
 `;
-

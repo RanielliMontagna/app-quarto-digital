@@ -64,4 +64,3 @@ export const Theme: React.FC = ({ children }) => {
     </ThemeProviderMaterial>
   );
 };
-
