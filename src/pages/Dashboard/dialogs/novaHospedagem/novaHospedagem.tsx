@@ -1,4 +1,6 @@
+import type { UseFormReturn } from 'react-hook-form';
 import type { NovaHospedagemProps } from './novaHospedagem.types';
+
 import { NovaHospedagemProvider, useNovaHospedagemContext } from './novaHospedagem.context';
 import { useNovaHospedagem } from './useNovaHospedagem';
 
@@ -17,46 +19,51 @@ const NovaHospedagem = (props: NovaHospedagemProps) => {
 
   return (
     <Form onSubmit={onSubmit}>
-      <Modal
-        open
-        onClose={props.handleCloseNovaHospedagem}
-        titulo="Nova hospedagem"
-        footer={{
-          botaoPrimario: {
-            children: step === 3 ? 'Confirmar' : 'Avançar',
-          },
-          botaoSecundario: {
-            children: step === 0 ? 'Cancelar' : 'Voltar',
-            variant: 'outlined',
-            onClick: onBack,
-          },
-        }}
-      >
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <div>
-            <Stepper activeStep={step} alternativeLabel>
-              <Step>
-                <StepLabel>Hospede</StepLabel>
-              </Step>
-              <Step>
-                <StepLabel>Período</StepLabel>
-              </Step>
-              <Step>
-                <StepLabel>Quarto</StepLabel>
-              </Step>
-              <Step>
-                <StepLabel>Resumo</StepLabel>
-              </Step>
-            </Stepper>
-          </div>
-          <div>
-            {step === 0 && <Hospede />}
-            {step === 1 && <Periodo />}
-            {step === 2 && <Quarto />}
-            {step === 3 && <Resumo />}
-          </div>
-        </div>
-      </Modal>
+      {(formProps: UseFormReturn) => {
+        return (
+          <Modal
+            open
+            onClose={props.handleCloseNovaHospedagem}
+            titulo="Nova hospedagem"
+            footer={{
+              botaoPrimario: {
+                children: step === 3 ? 'Confirmar' : 'Avançar',
+                disabled: step === 2 && !formProps.watch('quarto'),
+              },
+              botaoSecundario: {
+                children: step === 0 ? 'Cancelar' : 'Voltar',
+                variant: 'outlined',
+                onClick: onBack,
+              },
+            }}
+          >
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div>
+                <Stepper activeStep={step} alternativeLabel>
+                  <Step>
+                    <StepLabel>Hospede</StepLabel>
+                  </Step>
+                  <Step>
+                    <StepLabel>Período</StepLabel>
+                  </Step>
+                  <Step>
+                    <StepLabel>Quarto</StepLabel>
+                  </Step>
+                  <Step>
+                    <StepLabel>Resumo</StepLabel>
+                  </Step>
+                </Stepper>
+              </div>
+              <div>
+                {step === 0 && <Hospede />}
+                {step === 1 && <Periodo />}
+                {step === 2 && <Quarto />}
+                {step === 3 && <Resumo />}
+              </div>
+            </div>
+          </Modal>
+        );
+      }}
     </Form>
   );
 };
@@ -68,4 +75,3 @@ const NovaHospedagemWrapper = (props: NovaHospedagemProps) => (
 );
 
 export { NovaHospedagemWrapper as NovaHospedagem };
-

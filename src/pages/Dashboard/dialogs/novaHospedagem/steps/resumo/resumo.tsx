@@ -5,6 +5,7 @@ import type { INovaHospedagemFormValues } from '../../novaHospedagem.types';
 import { Divider } from '@mui/material';
 import { Typography } from '@rm-monorepo/typography/lib/typography/src';
 import dayjs from 'dayjs';
+import { masks } from '@rm-monorepo/utils';
 
 const Resumo = () => {
   const { getValues } = useFormContext<INovaHospedagemFormValues>();
@@ -26,7 +27,7 @@ const Resumo = () => {
       </div>
       <div>
         <div>
-          Nome do hospede: <b>{_values?.hospede?.label}</b>
+          Nome do hóspede: <b>{_values?.hospede?.label}</b>
         </div>
       </div>
       {Boolean(_values?.observacao) && (
@@ -46,11 +47,11 @@ const Resumo = () => {
           </b>
         </div>
         <div>
-          Valor diária: <b>R$ 60,00</b>
+          Valor diária: <b>{masks.valor(_values.quarto?.diaria || 0)}</b>
         </div>
         <Divider />
         <div>
-          Valor total: <b>R$ 240,00</b>
+          Valor total: <b>{masks.valor(_diasHospedagem * (_values.quarto?.diaria || 0))}</b>
         </div>
       </div>
     </div>
@@ -58,4 +59,3 @@ const Resumo = () => {
 };
 
 export { Resumo };
-

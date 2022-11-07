@@ -1,15 +1,14 @@
 import { memo, useMemo } from 'react';
-
-import { Typography } from '@rm-monorepo/typography/lib/typography/src';
-
-import { CardBody, CardHeader, ContainerCard, TypographyWithEllipis } from './cardQuarto.styles';
-
-import { IQuarto } from 'store/quartos';
 import { BiCalendar, BiCalendarX, BiCheck, BiPhone, BiUser } from 'react-icons/bi';
 import dayjs from 'dayjs';
+
+import { Typography } from '@rm-monorepo/typography/lib/typography/src';
 import { masks } from '@rm-monorepo/utils';
 
-const CardQuarto = ({ identificacao, status, hospedagem }: IQuarto) => {
+import { CardBody, CardHeader, ContainerCard, TypographyWithEllipis } from './cardQuarto.styles';
+import type { CardQuartoProps } from './cardQuarto.types';
+
+const CardQuarto = ({ identificacao, status, hospedagem, novaHospedagem, id, onClick }: CardQuartoProps) => {
   const conteudoCard = useMemo(() => {
     if (hospedagem === null) {
       return (
@@ -63,7 +62,12 @@ const CardQuarto = ({ identificacao, status, hospedagem }: IQuarto) => {
   }, [hospedagem]);
 
   return (
-    <ContainerCard status={status}>
+    <ContainerCard
+      status={status}
+      novaHospedagem={novaHospedagem?.open}
+      onClick={onClick}
+      selecionado={novaHospedagem?.quarto?.id === id}
+    >
       <CardHeader status={status}>
         <Typography weight="bold">{String(identificacao).padStart(3, '0')}</Typography>
       </CardHeader>

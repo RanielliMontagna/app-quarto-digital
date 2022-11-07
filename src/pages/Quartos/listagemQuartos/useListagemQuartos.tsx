@@ -1,8 +1,10 @@
-import { masks } from '@rm-monorepo/utils';
 import { useEffect, useMemo } from 'react';
+import { masks } from '@rm-monorepo/utils';
+import { Chip } from '@mui/material';
 
 import { useDispatch } from 'store/hooks';
 import { QuartosActions, useQuartos } from 'store/quartos';
+import { danger, success } from 'themes';
 
 export const useListagemQuartos = () => {
   const _dispatch = useDispatch();
@@ -16,11 +18,18 @@ export const useListagemQuartos = () => {
   }, []);
 
   const dataQuartos = useMemo(() => {
-    //TODO: implementar status do quarto
-
     return quartos?.map((quarto) => ({
       ...quarto,
       diaria: masks.valor(quarto.diaria),
+      status: (
+        <Chip
+          label={quarto.status === 0 ? 'Disponível' : 'Ocupado'}
+          style={{
+            backgroundColor: quarto.status === 0 ? success : danger,
+            color: 'white',
+          }}
+        />
+      ),
       acoes: [
         {
           id: 'editar',
@@ -44,4 +53,3 @@ export const useListagemQuartos = () => {
     dataQuartos,
   };
 };
-
