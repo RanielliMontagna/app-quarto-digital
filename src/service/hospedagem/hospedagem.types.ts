@@ -55,3 +55,8 @@ export interface IAdicionarServico {
   codigoServico: number;
   quantidade: number;
 }
+
+export interface ICheckout {
+  codigoHospedagem: number;
+  valor: number;
+}

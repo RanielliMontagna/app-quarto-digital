@@ -26,6 +26,7 @@ const HospedagemDialog = (props: HospedagemDialogProps) => {
     setAdicionarProdutoDialog,
     setAdicionarServicoDialog,
     atualizarHospedagem,
+    handleCheckout,
   } = useHospedagemDialog(props);
 
   if (!hospedagem) return <CircularProgress />;
@@ -38,8 +39,8 @@ const HospedagemDialog = (props: HospedagemDialogProps) => {
       size="lg"
       footer={{
         botaoPrimario: {
-          children: 'Finalizar',
-          onClick: props.handleClose,
+          children: 'Check-out',
+          onClick: handleCheckout,
         },
         botaoSecundario: {
           children: 'Fechar',
@@ -58,6 +59,10 @@ const HospedagemDialog = (props: HospedagemDialogProps) => {
             <Grid item xs={12} display="flex" alignItems="center" gap={1}>
               <Typography weight="bold">Hóspede:</Typography>
               <Typography>{hospedagem?.Cliente?.nome}</Typography>
+            </Grid>
+            <Grid item xs={12} display="flex" alignItems="center" gap={1}>
+              <Typography weight="bold">Telefone:</Typography>
+              <Typography>{masks.phone(hospedagem?.Cliente?.telefone)}</Typography>
             </Grid>
             <Grid item xs={12} display="flex" alignItems="center" gap={1}>
               <Typography weight="bold">Período:</Typography>

@@ -2,7 +2,13 @@ import { AxiosResponse } from 'axios';
 import api from 'service/api';
 import { makeHeaders } from 'service/config';
 
-import type { DadosHospedagem, IAdicionarHospedagem, IAdicionarProduto, IAdicionarServico } from './hospedagem.types';
+import type {
+  DadosHospedagem,
+  IAdicionarHospedagem,
+  IAdicionarProduto,
+  IAdicionarServico,
+  ICheckout,
+} from './hospedagem.types';
 
 export const adicionarHospedagem = async (hospedagem: IAdicionarHospedagem) => {
   const headers = makeHeaders();
@@ -40,6 +46,14 @@ export const adicionarServicoHospedagem = async (payload: IAdicionarServico) => 
   const response = await api.post('/hospedagem/servico', payload, {
     headers,
   });
+
+  return response;
+};
+
+export const checkoutHospedagem = async (payload: ICheckout) => {
+  const headers = makeHeaders();
+
+  const response = await api.post('/hospedagem/checkout', payload, { headers });
 
   return response;
 };

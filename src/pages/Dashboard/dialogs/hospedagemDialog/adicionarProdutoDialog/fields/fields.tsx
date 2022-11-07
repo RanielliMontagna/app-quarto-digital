@@ -24,8 +24,6 @@ const Fields = () => {
     }
   }, [_dispatch, produtos]);
 
-  console.log(watch('produto'));
-
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>

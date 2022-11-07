@@ -1,9 +1,10 @@
 import dayjs from 'dayjs';
 import { useEffect, useCallback, useState, useMemo } from 'react';
-import { buscarHospedagem } from 'service/hospedagem/hospedagem';
+import { buscarHospedagem, checkoutHospedagem } from 'service/hospedagem/hospedagem';
 import { DadosHospedagem } from 'service/hospedagem/hospedagem.types';
 import { AppActions } from 'store';
 import { useDispatch } from 'store/hooks';
+import { QuartosActions } from 'store/quartos';
 import { HospedagemDialogProps } from './hospedagemDialog.types';
 
 const useHospedagemDialog = ({ quarto, handleClose }: HospedagemDialogProps) => {
@@ -51,6 +52,32 @@ const useHospedagemDialog = ({ quarto, handleClose }: HospedagemDialogProps) => 
     }
   }, [_dispatch, quarto?.hospedagem?.id]);
 
+  const handleCheckout = useCallback(async () => {
+    _dispatch(AppActions.toggleLoading(true));
+
+    try {
+      const response = await checkoutHospedagem({
+        codigoHospedagem: Number(hospedagem?.id),
+        valor: valoresHospedagem.total,
+      });
+
+      if (response.data) {
+        _dispatch(
+          AppActions.toggleNotificacao({
+            mensagem: 'Checkout realizado com sucesso',
+          })
+        );
+
+        _dispatch(QuartosActions.buscarQuartos({}));
+        handleClose();
+      }
+    } catch (err) {
+      _dispatch(AppActions.handleErrors(err));
+    } finally {
+      _dispatch(AppActions.toggleLoading(false));
+    }
+  }, [_dispatch, handleClose, hospedagem?.id, valoresHospedagem.total]);
+
   useEffect(() => {
     if (quarto) {
       handleBuscarHospedagem();
@@ -65,6 +92,7 @@ const useHospedagemDialog = ({ quarto, handleClose }: HospedagemDialogProps) => 
     setAdicionarProdutoDialog,
     setAdicionarServicoDialog,
     atualizarHospedagem: handleBuscarHospedagem,
+    handleCheckout,
   };
 };
 
