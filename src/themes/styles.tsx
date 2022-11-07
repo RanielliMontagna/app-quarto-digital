@@ -5,7 +5,7 @@ export const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
   * {
     margin: 0px;
     padding: 0px;
-    font-family: 'Qanelas Soft', sans-serif;
+    font-family: 'Inter', sans-serif !important;
     user-select: none;
   }
 
@@ -39,4 +39,3 @@ export const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
     background: ${({ theme }) => theme.coresExtras.cinzaEscuro}; 
   }
 `;
-
