@@ -1,3 +1,7 @@
+import { AxiosResponse } from 'axios';
+
+import type { IIndicadores } from './geral.types';
+
 import api from 'service/api';
 import { apiUrls, makeHeaders } from 'service/config';
 
@@ -11,3 +15,12 @@ export const buscarCnpj = async (cnpj: string) => {
   return response;
 };
 
+// Indicadores
+export const buscarIndicadores = async (): Promise<AxiosResponse<IIndicadores>> => {
+  const headers = makeHeaders();
+  const response = await api.get(`${apiUrls.geral}/indicadores`, {
+    headers,
+  });
+
+  return response;
+};

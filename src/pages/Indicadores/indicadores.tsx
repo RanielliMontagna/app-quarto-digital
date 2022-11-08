@@ -13,27 +13,43 @@ import { Typography } from '@rm-monorepo/typography/lib/typography/src';
 
 import { useTheme } from 'hooks';
 import { useWindowSize } from 'utils';
+import { useIndicadores } from './useIndicadores';
+import { masks } from '@rm-monorepo/utils';
 
 export const Indicadores = () => {
   const theme = useTheme();
   const { width } = useWindowSize();
+
+  const { indicadores, valorAnuais } = useIndicadores();
+
+  const taxaOcupacao = String(indicadores?.taxaOcupacao || 0).replace('.', ',') + '%';
 
   return (
     <ContainerIndicadores>
       <PageHeader style={{ paddingLeft: '0' }} titulo="Indicadores" />
       <div style={{ display: 'flex', gap: '16px', flexDirection: width >= 1024 ? 'row' : 'column' }}>
         <div style={{ display: 'flex', gap: '16px', flex: 1, flexDirection: width > 576 ? 'row' : 'column' }}>
-          <Card titulo="Taxa de ocupação" valor="48.04%" icone={<RiHotelLine size={24} />} />
-          <Card titulo="Nº de hóspedes" valor="10" icone={<FiUsers size={24} />} background="#4A3885" />
+          <Card titulo="Taxa de ocupação" valor={taxaOcupacao} icone={<RiHotelLine size={24} />} />
+          <Card
+            titulo="Nº de hóspedes"
+            valor={indicadores?.hospedes || 0}
+            icone={<FiUsers size={24} />}
+            background="#4A3885"
+          />
         </div>
         <div style={{ display: 'flex', gap: '16px', flex: 1, flexDirection: width > 576 ? 'row' : 'column' }}>
           <Card
             titulo={`Receita mensal atual`}
-            valor="R$ 1240,00"
+            valor={masks.valor(indicadores?.receitasMensais || 0)}
             icone={<MdOutlineAttachMoney size={28} />}
             background="#9AC452"
           />
-          <Card titulo="Reservas" valor="15" icone={<FiCalendar size={24} />} background="#784D44" />
+          <Card
+            titulo="Reservas"
+            valor={indicadores?.reservas || 0}
+            icone={<FiCalendar size={24} />}
+            background="#784D44"
+          />
         </div>
       </div>
       <ContainerGrafico>
@@ -48,7 +64,7 @@ export const Indicadores = () => {
             series={[
               {
                 name: 'Receita no mês',
-                data: [0, 0, 0, 500, 700, 900, 1400, 450, 700, 1500, 1400, 1000],
+                data: valorAnuais,
               },
             ]}
             type="area"
@@ -61,4 +77,3 @@ export const Indicadores = () => {
 };
 
 export default Indicadores;
-

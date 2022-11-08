@@ -1,7 +1,6 @@
 export interface ICard {
   titulo: string;
-  valor: string;
+  valor: string | number;
   icone: React.ReactNode;
   background?: string;
 }
-
