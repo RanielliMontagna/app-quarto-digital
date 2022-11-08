@@ -1,11 +1,14 @@
-import dayjs from 'dayjs';
 import { useEffect, useCallback, useState, useMemo } from 'react';
+import dayjs from 'dayjs';
+
+import type { DadosHospedagem } from 'service/hospedagem/hospedagem.types';
+import type { HospedagemDialogProps } from './hospedagemDialog.types';
+import type { CancelarHospedagemDialogState } from './cancelarHospedagemDialog/cancelarHospedagemDialog.types';
+
 import { buscarHospedagem, checkoutHospedagem } from 'service/hospedagem/hospedagem';
-import { DadosHospedagem } from 'service/hospedagem/hospedagem.types';
 import { AppActions } from 'store';
 import { useDispatch } from 'store/hooks';
 import { QuartosActions } from 'store/quartos';
-import { HospedagemDialogProps } from './hospedagemDialog.types';
 
 const useHospedagemDialog = ({ quarto, handleClose }: HospedagemDialogProps) => {
   const _dispatch = useDispatch();
@@ -13,6 +16,9 @@ const useHospedagemDialog = ({ quarto, handleClose }: HospedagemDialogProps) => 
 
   const [adicionarProdutoDialog, setAdicionarProdutoDialog] = useState(false);
   const [adicionarServicoDialog, setAdicionarServicoDialog] = useState(false);
+  const [cancelarHospedagemDialog, setCancelarHospedagemDialog] = useState<CancelarHospedagemDialogState>({
+    open: false,
+  });
 
   const valoresHospedagem = useMemo(() => {
     const diaria = hospedagem?.Quarto?.diaria || 0;
@@ -29,6 +35,13 @@ const useHospedagemDialog = ({ quarto, handleClose }: HospedagemDialogProps) => 
       servicos,
       total: diaria * qtdDiarias + produtos + servicos,
     };
+  }, [hospedagem]);
+
+  const handleCancelarHospedagem = useCallback(async () => {
+    setCancelarHospedagemDialog({
+      open: true,
+      hospedagem,
+    });
   }, [hospedagem]);
 
   const handleBuscarHospedagem = useCallback(async () => {
@@ -89,10 +102,13 @@ const useHospedagemDialog = ({ quarto, handleClose }: HospedagemDialogProps) => 
     valoresHospedagem,
     adicionarProdutoDialog,
     adicionarServicoDialog,
+    cancelarHospedagemDialog,
     setAdicionarProdutoDialog,
     setAdicionarServicoDialog,
+    setCancelarHospedagemDialog,
     atualizarHospedagem: handleBuscarHospedagem,
     handleCheckout,
+    handleCancelarHospedagem,
   };
 };
 

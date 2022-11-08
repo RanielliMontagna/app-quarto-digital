@@ -60,3 +60,8 @@ export interface ICheckout {
   codigoHospedagem: number;
   valor: number;
 }
+
+export interface IAlterarStatusHospedagem {
+  codigoHospedagem: number;
+  status: number;
+}

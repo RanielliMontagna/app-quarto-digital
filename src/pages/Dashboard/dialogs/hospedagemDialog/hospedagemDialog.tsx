@@ -4,6 +4,8 @@ import type { HospedagemDialogProps } from './hospedagemDialog.types';
 
 import { Grid, CircularProgress, Chip, Divider } from '@mui/material';
 import { BiPlus } from 'react-icons/bi';
+import { MdBlock } from 'react-icons/md';
+import { IoCheckmarkOutline } from 'react-icons/io5';
 
 import { Modal } from '@rm-monorepo/modal/lib/modal/src';
 import { Typography } from '@rm-monorepo/typography/lib/typography/src';
@@ -15,6 +17,7 @@ import { useTheme } from 'hooks';
 
 import { AdicionarProdutoDialog } from './adicionarProdutoDialog/adicionarProdutoDialog';
 import { AdicionarServicoDialog } from './adicionarServicoDialog/adicionarServicoDialog';
+import { CancelarHospedagemDialog } from './cancelarHospedagemDialog/cancelarHospedagemDialog';
 
 const HospedagemDialog = (props: HospedagemDialogProps) => {
   const { coresExtras } = useTheme();
@@ -23,10 +26,13 @@ const HospedagemDialog = (props: HospedagemDialogProps) => {
     hospedagem,
     adicionarProdutoDialog,
     adicionarServicoDialog,
+    cancelarHospedagemDialog,
     setAdicionarProdutoDialog,
     setAdicionarServicoDialog,
+    setCancelarHospedagemDialog,
     atualizarHospedagem,
     handleCheckout,
+    handleCancelarHospedagem,
   } = useHospedagemDialog(props);
 
   if (!hospedagem) return <CircularProgress />;
@@ -41,12 +47,25 @@ const HospedagemDialog = (props: HospedagemDialogProps) => {
         botaoPrimario: {
           children: 'Check-out',
           onClick: handleCheckout,
+          startIcon: <IoCheckmarkOutline size={18} />,
         },
         botaoSecundario: {
           children: 'Fechar',
           onClick: props.handleClose,
           variant: 'outlined',
         },
+        extra: (
+          <>
+            <Button
+              variant="outlined"
+              color="danger"
+              onClick={handleCancelarHospedagem}
+              startIcon={<MdBlock size={18} />}
+            >
+              Cancelar hospedagem
+            </Button>
+          </>
+        ),
       }}
     >
       <Grid container spacing={2}>
@@ -157,6 +176,13 @@ const HospedagemDialog = (props: HospedagemDialogProps) => {
             onClose={() => setAdicionarServicoDialog(false)}
             atualizarHospedagem={atualizarHospedagem}
             idHospedagem={props.quarto?.hospedagem?.id}
+          />
+        )}
+        {cancelarHospedagemDialog.open && (
+          <CancelarHospedagemDialog
+            onClose={() => setCancelarHospedagemDialog({ open: false })}
+            onCloseHospedagem={props.handleClose}
+            hospedagem={hospedagem}
           />
         )}
       </Grid>
