@@ -10,7 +10,12 @@ export const AdicionarProdutoDialog = (props: AdicionarProdutoDialogProps) => {
   const { handleSubmit } = useAdicionarProdutoDialog(props);
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form
+      onSubmit={handleSubmit}
+      defaultValues={{
+        quantidade: '1',
+      }}
+    >
       {(formProps: UseFormReturn<AdicionarProdutoDialogFormValues>) => {
         return (
           <Modal

@@ -10,7 +10,12 @@ export const AdicionarServicoDialog = (props: AdicionarServicoDialogProps) => {
   const { handleSubmit } = useAdicionarServicoDialog(props);
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form
+      onSubmit={handleSubmit}
+      defaultValues={{
+        quantidade: '1',
+      }}
+    >
       {(formProps: UseFormReturn<AdicionarServicoDialogFormValues>) => {
         return (
           <Modal

@@ -1,5 +1,4 @@
 import { ThemeProvider } from '@rm-monorepo/theme-provider';
-import { ThemeProvider as ThemeProviderMaterial } from '@mui/material';
 
 import { useApp } from 'store';
 
@@ -59,8 +58,11 @@ export const Theme: React.FC = ({ children }) => {
   const { tema } = useApp();
 
   return (
-    <ThemeProviderMaterial theme={tema === 'escuro' ? darkTheme : lightTheme}>
-      <ThemeProvider theme={tema === 'escuro' ? _temaEscuro : _temaClaro}>{children}</ThemeProvider>
-    </ThemeProviderMaterial>
+    <ThemeProvider
+      theme={tema === 'escuro' ? _temaEscuro : _temaClaro}
+      muiTheme={tema === 'escuro' ? darkTheme : lightTheme}
+    >
+      {children}
+    </ThemeProvider>
   );
 };
