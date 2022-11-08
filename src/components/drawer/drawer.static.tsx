@@ -3,12 +3,18 @@ import { AiOutlineAppstore } from 'react-icons/ai';
 import { MdOutlineRoomService, MdPeopleOutline } from 'react-icons/md';
 import { IoBedOutline } from 'react-icons/io5';
 import { BiLineChart } from 'react-icons/bi';
+import { RiHotelLine } from 'react-icons/ri';
 
 export const OpcoesMenu = [
   {
     titulo: 'Dashboard',
     caminho: '/dashboard',
     icone: <AiOutlineAppstore size={24} />,
+  },
+  {
+    titulo: 'Hospedagens',
+    caminho: '/hospedagens',
+    icone: <RiHotelLine />,
   },
   {
     titulo: 'Indicadores',
@@ -36,4 +42,3 @@ export const OpcoesMenu = [
     icone: <MdOutlineRoomService size={24} />,
   },
 ];
-

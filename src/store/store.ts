@@ -1,11 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import appSlice from './app/appSlice';
+
+import hospedagensSlice from './hospedagens/hospedagensSlice';
 import configuracoesSlice from './config/configuracoesSlice';
 import clientesSlice from './clientes/clientesSlice';
 import produtosSlice from './produtos/produtosSlice';
-import quartosSlice from './quartos/quartosSlice';
 import servicosSlice from './servicos/servicosSlice';
+import quartosSlice from './quartos/quartosSlice';
 import authSlice from './auth/authSlice';
+import appSlice from './app/appSlice';
 
 const makeStore = () =>
   configureStore({
@@ -22,6 +24,7 @@ const makeStore = () =>
       Produtos: produtosSlice.reducer,
       Quartos: quartosSlice.reducer,
       Servicos: servicosSlice.reducer,
+      Hospedagens: hospedagensSlice.reducer,
     },
   });
 

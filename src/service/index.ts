@@ -19,3 +19,7 @@ export * from './clientes/clientes.types';
 // Export referente aos quartos
 export * from './quartos/quartos';
 export * from './quartos/quartos.types';
+
+//Export referente as hospedagens
+export * from './hospedagem/hospedagem';
+export * from './hospedagem/hospedagem.types';

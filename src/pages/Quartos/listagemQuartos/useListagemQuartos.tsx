@@ -4,7 +4,6 @@ import { Chip } from '@mui/material';
 
 import { useDispatch } from 'store/hooks';
 import { QuartosActions, useQuartos } from 'store/quartos';
-import { danger, success } from 'themes';
 
 export const useListagemQuartos = () => {
   const _dispatch = useDispatch();
@@ -25,7 +24,7 @@ export const useListagemQuartos = () => {
         <Chip
           label={quarto.status === 0 ? 'Disponível' : 'Ocupado'}
           style={{
-            backgroundColor: quarto.status === 0 ? success : danger,
+            backgroundColor: quarto.status === 0 ? '#4caf50' : '#f44336',
             color: 'white',
           }}
         />

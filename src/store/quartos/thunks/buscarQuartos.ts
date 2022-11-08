@@ -1,5 +1,5 @@
 import type { ThunkStatefulAction } from 'store/store';
-import produtosActions from '../actions';
+import quartosActions from '../actions';
 
 import appActions from '../../app/actions';
 import { buscarQuartos } from 'service';
@@ -15,12 +15,12 @@ const fetchQuartos =
       if (data) {
         if (data.length === 0) {
           if (params.search) {
-            dispatch(produtosActions.storeQuartos(data));
+            dispatch(quartosActions.storeQuartos(data));
           } else {
-            dispatch(produtosActions.storeQuartos(null));
+            dispatch(quartosActions.storeQuartos(null));
           }
         } else {
-          dispatch(produtosActions.storeQuartos(data));
+          dispatch(quartosActions.storeQuartos(data));
         }
 
         dispatch(appActions.toggleLoading(false));
@@ -31,4 +31,3 @@ const fetchQuartos =
   };
 
 export default fetchQuartos;
-

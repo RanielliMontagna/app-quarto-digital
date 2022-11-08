@@ -26,12 +26,9 @@ export const usePrivate = () => {
         _navigate('/login');
         _dispatch(AuthActions.storeToken(''));
         _dispatch(AuthActions.storeIsAuthenticated(false));
-        _dispatch(
-          AppActions.toggleNotificacao({
-            mensagem: 'Deslogado com sucesso!',
-          })
-        );
         _dispatch(AppActions.toggleLoading(false));
+
+        window.location.reload();
       }
     } catch (err) {
       _navigate('/login');
@@ -41,4 +38,3 @@ export const usePrivate = () => {
 
   return { handleSair, handleMudarTema };
 };
-

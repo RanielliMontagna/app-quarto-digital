@@ -5,6 +5,10 @@ export interface IAdicionarHospedagem {
   dataSaida: string;
 }
 
+export interface BuscarHospedagensOptions {
+  search?: string;
+}
+
 export interface DadosHospedagem {
   id: number;
   dataEntrada: string;

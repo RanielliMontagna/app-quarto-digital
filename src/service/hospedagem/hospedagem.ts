@@ -3,6 +3,7 @@ import api from 'service/api';
 import { makeHeaders } from 'service/config';
 
 import type {
+  BuscarHospedagensOptions,
   DadosHospedagem,
   IAdicionarHospedagem,
   IAdicionarProduto,
@@ -16,6 +17,19 @@ export const adicionarHospedagem = async (hospedagem: IAdicionarHospedagem) => {
 
   const response = await api.post('/hospedagem', hospedagem, {
     headers,
+  });
+
+  return response;
+};
+
+export const buscarHospedagens = async ({ search }: BuscarHospedagensOptions) => {
+  const headers = makeHeaders();
+
+  const response = await api.get('/hospedagem', {
+    headers,
+    params: {
+      search,
+    },
   });
 
   return response;
