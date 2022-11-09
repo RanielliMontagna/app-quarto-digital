@@ -14,8 +14,9 @@ export interface IQuarto {
   id: number;
   identificacao: number;
   diaria: number;
-  status: number;
   hospedagem: IHospedagemQuarto | null;
+  hospedagens: IHospedagemQuarto[];
+  status: number;
 }
 
 export type NovoQuartoType = {

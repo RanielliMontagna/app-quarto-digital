@@ -1,15 +1,17 @@
 import { useCallback, useMemo } from 'react';
 import dayjs from 'dayjs';
 
+import type { IHospedagem } from 'store/hospedagens/hospedagensSlice.types';
+
+import { Chip } from '@mui/material';
 import { DataTable } from '@rm-monorepo/data-table/lib/dataTable/src';
+import { masks } from '@rm-monorepo/utils';
 
 import { PaperDataTable } from 'components';
 import { useHospedagens } from 'store/hospedagens';
 import { EmptyStateSearch, EmptyStateSemHospedagens } from '../emptyStateHospedagens/emptyStateHospedagens';
 import { colunasHospedagens } from './listagemHospedagens.static';
 import { useListagemHospedagens } from './useListagemHospedagens';
-import { Chip } from '@mui/material';
-import { masks } from '@rm-monorepo/utils';
 
 const ListagemHospedagens = () => {
   const { dataHospedagens } = useListagemHospedagens();
@@ -23,10 +25,14 @@ const ListagemHospedagens = () => {
     }
   }, [hospedagens]);
 
-  const _status = useCallback((status: number) => {
-    switch (status) {
+  const _status = useCallback((hospedagem: IHospedagem) => {
+    switch (hospedagem.status) {
       case 0:
-        return <Chip style={{ width: 100 }} label="Ativo" color="info" />;
+        if (dayjs(hospedagem.dataEntrada).isAfter(dayjs(), 'day')) {
+          return <Chip style={{ width: 100 }} label="Reservado" color="secondary" />;
+        } else {
+          return <Chip style={{ width: 100 }} label="Ativo" color="primary" />;
+        }
       case 1:
         return <Chip style={{ width: 100 }} label="Finalizado" color="success" />;
       default:
@@ -50,7 +56,7 @@ const ListagemHospedagens = () => {
               quarto: hospedagem?.Quarto?.identificacao,
               dataEntrada: dayjs(hospedagem?.dataEntrada).format('DD/MM/YYYY'),
               dataSaida: dayjs(hospedagem?.dataSaida).format('DD/MM/YYYY'),
-              status: _status(hospedagem?.status),
+              status: _status(hospedagem),
               valor: masks.valor(valorTotal),
             };
           })}

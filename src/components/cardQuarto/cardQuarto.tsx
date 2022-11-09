@@ -1,5 +1,5 @@
 import { memo, useMemo } from 'react';
-import { BiCalendar, BiCalendarX, BiCheck, BiPhone, BiUser } from 'react-icons/bi';
+import { BiCalendar, BiCalendarEvent, BiCalendarX, BiCheck, BiPhone, BiUser } from 'react-icons/bi';
 import dayjs from 'dayjs';
 
 import { Typography } from '@rm-monorepo/typography/lib/typography/src';
@@ -10,7 +10,7 @@ import type { CardQuartoProps } from './cardQuarto.types';
 
 const CardQuarto = ({ identificacao, status, hospedagem, novaHospedagem, id, onClick }: CardQuartoProps) => {
   const conteudoCard = useMemo(() => {
-    if (hospedagem === null) {
+    if (hospedagem === null || hospedagem.status === 2 || novaHospedagem) {
       return (
         <>
           <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
@@ -30,36 +30,70 @@ const CardQuarto = ({ identificacao, status, hospedagem, novaHospedagem, id, onC
         </>
       );
     } else {
-      return (
-        <>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-            <div>
-              <BiUser size="24" />
+      if (dayjs(hospedagem?.dataEntrada).format('YYYY-MM-DD') > dayjs().format('YYYY-MM-DD')) {
+        return (
+          <>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <div>
+                <BiCheck size="24" />
+              </div>
+              <TypographyWithEllipis weight="bold" style={{ whiteSpace: 'nowrap' }}>
+                Quarto vago
+              </TypographyWithEllipis>
             </div>
-            <TypographyWithEllipis weight="bold" style={{ whiteSpace: 'nowrap' }}>
-              {hospedagem.Cliente.nome}
-            </TypographyWithEllipis>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-            <div>
-              <BiPhone size="24" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <div>
+                <BiCalendarEvent size="24" />
+              </div>
+              <div>
+                <div>
+                  <TypographyWithEllipis weight="bold" style={{ whiteSpace: 'nowrap' }}>
+                    Próxima reserva
+                  </TypographyWithEllipis>
+                </div>
+                <div>
+                  <TypographyWithEllipis size="sm" style={{ whiteSpace: 'nowrap' }}>
+                    {dayjs(hospedagem.dataEntrada).format('DD/MM/YYYY')} -{' '}
+                    {dayjs(hospedagem.dataSaida).format('DD/MM/YYYY')}
+                  </TypographyWithEllipis>
+                </div>
+              </div>
             </div>
-            <TypographyWithEllipis style={{ whiteSpace: 'nowrap' }}>
-              {masks.phone(hospedagem.Cliente.telefone)}
-            </TypographyWithEllipis>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-            <div>
-              <BiCalendar size="24" />
+          </>
+        );
+      } else {
+        return (
+          <>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <div>
+                <BiUser size="24" />
+              </div>
+              <TypographyWithEllipis weight="bold" style={{ whiteSpace: 'nowrap' }}>
+                {hospedagem.Cliente.nome}
+              </TypographyWithEllipis>
             </div>
-            <TypographyWithEllipis size="sm">
-              {dayjs(hospedagem.dataEntrada).format('DD/MM/YYYY')} - {dayjs(hospedagem.dataSaida).format('DD/MM/YYYY')}
-            </TypographyWithEllipis>
-          </div>
-        </>
-      );
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <div>
+                <BiPhone size="24" />
+              </div>
+              <TypographyWithEllipis style={{ whiteSpace: 'nowrap' }}>
+                {masks.phone(hospedagem.Cliente.telefone)}
+              </TypographyWithEllipis>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <div>
+                <BiCalendar size="24" />
+              </div>
+              <TypographyWithEllipis size="sm">
+                {dayjs(hospedagem.dataEntrada).format('DD/MM/YYYY')} -{' '}
+                {dayjs(hospedagem.dataSaida).format('DD/MM/YYYY')}
+              </TypographyWithEllipis>
+            </div>
+          </>
+        );
+      }
     }
-  }, [hospedagem]);
+  }, [hospedagem, novaHospedagem]);
 
   return (
     <ContainerCard

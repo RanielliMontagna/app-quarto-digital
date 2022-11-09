@@ -1,9 +1,9 @@
 import { Grid, Typography } from '@mui/material';
+import { masks } from '@rm-monorepo/utils';
 import dayjs from 'dayjs';
 
 import { ReciboContainer } from './recibo.styles';
 import type { DadosHospedagem } from 'service';
-import { masks } from '@rm-monorepo/utils';
 import { azulQD } from 'themes';
 
 interface ReciboProps {

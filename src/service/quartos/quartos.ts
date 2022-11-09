@@ -1,11 +1,14 @@
+import { AxiosResponse } from 'axios';
 import api from 'service/api';
 import { apiUrls, makeHeaders } from 'service/config';
 
-import type { NovoQuartoType } from 'store/quartos';
+import type { IQuarto, NovoQuartoType } from 'store/quartos';
 import type { BuscarQuartosOptions } from './quartos.types';
 
 // Buscar todos os quartos
-export const buscarQuartos = async ({ search }: BuscarQuartosOptions) => {
+export const buscarQuartos = async ({
+  search,
+}: BuscarQuartosOptions): Promise<AxiosResponse<Omit<IQuarto, 'status'>[]>> => {
   const headers = makeHeaders();
   const response = await api.get(apiUrls.quartos, {
     headers,
@@ -50,4 +53,3 @@ export const excluirQuarto = async (id: number) => {
 };
 
 //TODO: adicionar endpoint para atualizar status de um quarto
-
