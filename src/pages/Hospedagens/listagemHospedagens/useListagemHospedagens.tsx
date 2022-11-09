@@ -8,11 +8,8 @@ export const useListagemHospedagens = () => {
   const { hospedagens } = useHospedagens();
 
   useEffect(() => {
-    if (!hospedagens?.length) {
-      _dispatch(HospedagensActions.buscarHospedagens({}));
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    _dispatch(HospedagensActions.buscarHospedagens({}));
+  }, [_dispatch]);
 
   const dataHospedagens = useMemo(() => {
     return hospedagens?.map((hospedagem) => ({

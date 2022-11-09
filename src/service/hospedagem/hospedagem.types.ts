@@ -20,6 +20,8 @@ export interface DadosHospedagem {
     id: number;
     nome: string;
     telefone: string;
+    cpfCnpj: string;
+    email: string;
   };
 
   ProdutosHospedagem: {
@@ -37,6 +39,7 @@ export interface DadosHospedagem {
   }[];
 
   Quarto: {
+    identificacao: number;
     diaria: number;
   };
 

@@ -1,5 +1,6 @@
 import { useEffect, useCallback, useState, useMemo } from 'react';
 import dayjs from 'dayjs';
+import domtoimage from 'dom-to-image-more';
 
 import type { DadosHospedagem } from 'service/hospedagem/hospedagem.types';
 import type { HospedagemDialogProps } from './hospedagemDialog.types';
@@ -36,6 +37,17 @@ const useHospedagemDialog = ({ quarto, handleClose }: HospedagemDialogProps) => 
       total: diaria * qtdDiarias + produtos + servicos,
     };
   }, [hospedagem]);
+
+  const handleGerarRecibo = useCallback(() => {
+    const element = document.getElementById('recibo');
+
+    if (element) {
+      domtoimage.toBlob(element).then((blob) => {
+        const url = window.URL.createObjectURL(blob);
+        window.open(url);
+      });
+    }
+  }, []);
 
   const handleCancelarHospedagem = useCallback(async () => {
     setCancelarHospedagemDialog({
@@ -109,6 +121,7 @@ const useHospedagemDialog = ({ quarto, handleClose }: HospedagemDialogProps) => 
     atualizarHospedagem: handleBuscarHospedagem,
     handleCheckout,
     handleCancelarHospedagem,
+    handleGerarRecibo,
   };
 };
 

@@ -1,9 +1,11 @@
+import { useCallback, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import dayjs from 'dayjs';
 
 import type { HospedagemDialogProps } from './hospedagemDialog.types';
 
 import { Grid, CircularProgress, Chip, Divider } from '@mui/material';
-import { BiPlus } from 'react-icons/bi';
+import { BiPlus, BiPrinter } from 'react-icons/bi';
 import { MdBlock } from 'react-icons/md';
 import { IoCheckmarkOutline } from 'react-icons/io5';
 
@@ -18,9 +20,13 @@ import { useTheme } from 'hooks';
 import { AdicionarProdutoDialog } from './adicionarProdutoDialog/adicionarProdutoDialog';
 import { AdicionarServicoDialog } from './adicionarServicoDialog/adicionarServicoDialog';
 import { CancelarHospedagemDialog } from './cancelarHospedagemDialog/cancelarHospedagemDialog';
+import { Recibo } from './recibo/recibo';
+import { useWindowSize } from 'utils';
 
 const HospedagemDialog = (props: HospedagemDialogProps) => {
   const { coresExtras } = useTheme();
+  const { width } = useWindowSize();
+
   const {
     valoresHospedagem,
     hospedagem,
@@ -33,7 +39,17 @@ const HospedagemDialog = (props: HospedagemDialogProps) => {
     atualizarHospedagem,
     handleCheckout,
     handleCancelarHospedagem,
+    handleGerarRecibo,
   } = useHospedagemDialog(props);
+
+  const _generateRootImage = useCallback(() => {
+    if (!hospedagem?.id) return;
+    ReactDOM.render(<Recibo hospedagem={hospedagem} />, document.getElementById('recibo'));
+  }, [hospedagem]);
+
+  useEffect(() => {
+    _generateRootImage();
+  }, [_generateRootImage, hospedagem]);
 
   if (!hospedagem) return <CircularProgress />;
 
@@ -53,18 +69,17 @@ const HospedagemDialog = (props: HospedagemDialogProps) => {
           children: 'Fechar',
           onClick: props.handleClose,
           variant: 'outlined',
+          hide: width < 600,
         },
         extra: (
-          <>
-            <Button
-              variant="outlined"
-              color="danger"
-              onClick={handleCancelarHospedagem}
-              startIcon={<MdBlock size={18} />}
-            >
-              Cancelar hospedagem
-            </Button>
-          </>
+          <Button
+            variant="outlined"
+            color="danger"
+            onClick={handleCancelarHospedagem}
+            startIcon={<MdBlock size={18} />}
+          >
+            {width < 600 ? 'Cancelar' : 'Cancelar hospedagem'}
+          </Button>
         ),
       }}
     >
@@ -129,10 +144,13 @@ const HospedagemDialog = (props: HospedagemDialogProps) => {
         </Grid>
         <Grid item xs={12} sm={12} md={4} lg={4}>
           <Grid container spacing={1}>
-            <Grid item xs={12} display="flex" alignItems="center" gap={1}>
+            <Grid item xs={12} display="flex" alignItems="center" gap={1} justifyContent="space-between">
               <Typography weight="normal" size="lg">
                 Resumo
               </Typography>
+              <Button size="md" variant="outlined" startIcon={<BiPrinter size={18} />} onClick={handleGerarRecibo}>
+                Recibo
+              </Button>
             </Grid>
             <Grid item xs={12}>
               <Divider orientation="horizontal" />
