@@ -2,10 +2,6 @@ import { IColunas } from '@rm-monorepo/data-table/lib/dataTable/src';
 
 export const colunasHospedagens: IColunas[] = [
   {
-    id: 'id',
-    label: 'Id',
-  },
-  {
     id: 'cliente',
     label: 'Cliente',
   },

@@ -22,15 +22,10 @@ export const adicionarHospedagem = async (hospedagem: IAdicionarHospedagem) => {
   return response;
 };
 
-export const buscarHospedagens = async ({ search }: BuscarHospedagensOptions) => {
+export const buscarHospedagens = async (params: BuscarHospedagensOptions) => {
   const headers = makeHeaders();
 
-  const response = await api.get('/hospedagem', {
-    headers,
-    params: {
-      search,
-    },
-  });
+  const response = await api.get('/hospedagem', { headers, params });
 
   return response;
 };

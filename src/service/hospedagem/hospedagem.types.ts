@@ -5,8 +5,18 @@ export interface IAdicionarHospedagem {
   dataSaida: string;
 }
 
+/**
+ * 0 - Todos
+ * 1 - Ativos
+ * 2 - Reservados
+ * 3 - Finalizados
+ * 4 - Cancelados
+ */
+export type IStatus = 0 | 1 | 2 | 3 | 4;
+
 export interface BuscarHospedagensOptions {
   search?: string;
+  status?: IStatus;
 }
 
 export interface DadosHospedagem {

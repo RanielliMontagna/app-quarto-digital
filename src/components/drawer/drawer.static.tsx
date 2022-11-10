@@ -14,7 +14,7 @@ export const OpcoesMenu = [
   {
     titulo: 'Hospedagens',
     caminho: '/hospedagens',
-    icone: <RiHotelLine />,
+    icone: <RiHotelLine size={24} />,
   },
   {
     titulo: 'Indicadores',

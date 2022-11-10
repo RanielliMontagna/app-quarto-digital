@@ -1911,10 +1911,10 @@
   resolved "https://registry.npmjs.org/@rm-monorepo/drawer/-/drawer-1.1.4.tgz#43c0126d5920fbb1275bddfb09482938aca79b19"
   integrity sha512-ui0CM3u6LA9N4rC/O6C9dXcuz1Ig/P4/rmeBkYm3U+xKDlAPloSvmvuaz9YYwiKtYgKqk/m1m+2ymTe2Io2Kww==
 
-"@rm-monorepo/fields@^1.6.5":
-  version "1.6.5"
-  resolved "https://registry.npmjs.org/@rm-monorepo/fields/-/fields-1.6.5.tgz#261856c2635d463ec092c3ec9cba5319f04109c6"
-  integrity sha512-gFJHl1jqLvRkQ93X3P3+so25NLfj86/w1RSJNUvlsB86aF8Raxhy+RFCca1IXnDABr0D65jnpUn8JprSWUhEuQ==
+"@rm-monorepo/fields@^1.6.6":
+  version "1.6.6"
+  resolved "https://registry.yarnpkg.com/@rm-monorepo/fields/-/fields-1.6.6.tgz#a03511d4d0d9d1a57c316a765838dec13031e140"
+  integrity sha512-+y6tCIwkRJCTBt6ztDQC5dzlwxjzOG6EOwUHV4oCL7xnwnUfn3XTuIBWFS90FeZJo8U0tf1xZ+8BI2/boG3Mcw==
 
 "@rm-monorepo/loading@^1.3.1":
   version "1.3.1"
