@@ -45,8 +45,8 @@ const ListagemHospedagens = () => {
       {dataHospedagens && dataHospedagens?.length > 0 ? (
         <DataTable
           colunas={colunasHospedagens}
-          data={dataHospedagens.map((hospedagem) => {
-            const valorTotal = hospedagem.Financeiro.reduce((acc, curr) => {
+          data={dataHospedagens?.map((hospedagem) => {
+            const valorTotal = hospedagem?.Financeiro?.reduce((acc, curr) => {
               return acc + curr.valor;
             }, 0);
 

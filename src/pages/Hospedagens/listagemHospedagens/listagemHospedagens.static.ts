@@ -25,9 +25,4 @@ export const colunasHospedagens: IColunas[] = [
     id: 'valor',
     label: 'Valor total (R$)',
   },
-  {
-    id: 'acoes',
-    label: 'Ações',
-    align: 'right',
-  },
 ];
